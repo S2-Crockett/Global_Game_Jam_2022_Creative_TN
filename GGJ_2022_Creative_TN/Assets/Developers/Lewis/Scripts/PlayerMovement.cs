@@ -24,13 +24,14 @@ public class PlayerMovement : MonoBehaviour
 
     public bool isManagerGrounded = true;
     public bool canMoveRight = true;
+    public bool canMoveLeft = true;
     
     private int extraJumps;
     public int wallJumps;
     private float moveInput;
 
     private bool facingRight = true;
-
+    
 
     void Awake()
     {
@@ -42,11 +43,11 @@ public class PlayerMovement : MonoBehaviour
         moveInput = Input.GetAxis("Horizontal");
         if (facingRight == false && moveInput > 0)
         {
-            Flip();
+            //Flip();
         }
         else if(facingRight == true && moveInput < 0)
         {
-            Flip();
+            //Flip();
         }
     }
 
@@ -56,8 +57,19 @@ public class PlayerMovement : MonoBehaviour
         onLeftWall = Physics2D.OverlapCircle(leftCheck.position, checkArea, whatIsGround);
         onRightWall = Physics2D.OverlapCircle(rightCheck.position, checkArea, whatIsGround);
 
+        if (canMoveRight && moveInput > 0)
+        {
+            rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
+        }
+        else if (canMoveLeft && moveInput < 0)
+        {
+            rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
+        }
+        else if (moveInput == 0 || !canMoveLeft || !canMoveRight)
+        {
+            rb.velocity = new Vector2(0, rb.velocity.y);
+        }
         
-        rb.velocity = new Vector2(moveInput* moveSpeed, rb.velocity.y);
 
         if(isGrounded == true)
         {
@@ -79,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = Vector2.up * jumpForce;
             rightCount = -20000;
         }
-        else if(Input.GetKeyDown(KeyCode.Space) && leftCount == 0 && rightCount == 0 && isGrounded == true)
+        else if(Input.GetKeyDown(KeyCode.Space) && leftCount == 0 && rightCount == 0 && isGrounded == true && isManagerGrounded)
         {
             rb.velocity = Vector2.up * jumpForce;
         }
