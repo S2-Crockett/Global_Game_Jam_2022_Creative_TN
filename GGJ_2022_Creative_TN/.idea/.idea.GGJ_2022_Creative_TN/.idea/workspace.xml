@@ -20,12 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3d3affff-3625-43b6-a949-53d13a4144d0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GGJ_2022_Creative_TN/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GGJ_2022_Creative_TN/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GGJ_2022_Creative_TN/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GGJ_2022_Creative_TN/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developers/Sam S/Scenes/Sam_S_Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Developers/Sam S/Scenes/Sam_S_Scene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/UIManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Developers/Sam S/Scripts/UI/UIHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Developers/Sam S/Scripts/UI/UIHealth.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,10 +44,10 @@
         <option value="$PROJECT_DIR$/Assets/Developers/Sam S/Scripts/UI/UITime.cs" />
         <option value="$PROJECT_DIR$/Assets/Developers/Sam S/Scripts/Player/PlayerHealth.cs" />
         <option value="$PROJECT_DIR$/Assets/Developers/Sam S/Scripts/GameTimer.cs" />
-        <option value="$PROJECT_DIR$/Assets/Developers/Sam S/Scripts/UI/UIHealth.cs" />
         <option value="$PROJECT_DIR$/Assets/Developers/Sam S/Scripts/Player/PlayerScore.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Developers/Sam S/Scripts/UI/UIScore.cs" />
+        <option value="$PROJECT_DIR$/Assets/Developers/Sam S/Scripts/UI/UIHealth.cs" />
       </list>
     </option>
   </component>
@@ -78,9 +73,8 @@
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
-      <option name="projectPathOnTarget" />
       <option name="selectedOptions">
-        <list />
+        <set />
       </option>
       <method v="2" />
     </configuration>
@@ -88,9 +82,8 @@
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
-      <option name="projectPathOnTarget" />
       <option name="selectedOptions">
-        <list />
+        <set />
       </option>
       <method v="2" />
     </configuration>
@@ -105,7 +98,7 @@
       <updated>1643391336497</updated>
       <workItem from="1643391344923" duration="393000" />
       <workItem from="1643398990652" duration="2020000" />
-      <workItem from="1643402136812" duration="5385000" />
+      <workItem from="1643402136812" duration="5551000" />
     </task>
     <servers />
   </component>

@@ -15,13 +15,10 @@ public class UIHealth : MonoBehaviour
    public void InitHealth(int healthAmount)
    {
       _health = healthAmount;
-      Debug.Log(_health);
-      
       // create all of the health objects
       int xpos = 48;
       for (int i = 0; i < _health; i++)
       {
-         Debug.Log(i);
          GameObject go =Instantiate(healthObject, new Vector3(this.transform.position.x + xpos, 
             this.transform.position.y, 0), Quaternion.identity);
          go.transform.SetParent(this.transform);
