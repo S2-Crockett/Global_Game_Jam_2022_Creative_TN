@@ -5,20 +5,24 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-    public GameState state;
-
     [Header("References")] 
     public GameObject playerController;
+    private GameTimer _timer;
+    
+    private GameState _state;
+
+    private int _gameScore = 0;
 
     private void Start()
     {
         // default state assigned.
         UpdateGameState(GameState.Menu);
+        UIManager.instance.scoreUI.InitScore(0);
+        
     }
-
     private void Update()
     {
-        switch (state)
+        switch (_state)
         {
             case GameState.Menu:
                 break;
@@ -32,7 +36,7 @@ public class GameManager : Singleton<GameManager>
     // Call this to change states.
     public void UpdateGameState(GameState newState)
     {
-        state = newState;
+        _state = newState;
         switch (newState)
         {
             case GameState.Menu:
@@ -48,15 +52,27 @@ public class GameManager : Singleton<GameManager>
                 throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
         }
     }
+
+    public void UpdateScore(int amount)
+    {
+        _gameScore += amount;
+        UIManager.instance.scoreUI.UpdateScore(amount);
+    }
     
     // Event called once state has changed to this (not updated).
     private void HandleMenuState()
     {
+        _timer = GetComponent<GameTimer>();
+        _timer.StartTimer(); 
+        
+        UIManager.instance.healthUI.InitHealth(5);
     }
     
     // Event called once state has changed to this (not updated).
     private void HandlePlayingState()
     {
+        // start the timer in game
+        
     }
     
     // Event called once state has changed to this (not updated).
