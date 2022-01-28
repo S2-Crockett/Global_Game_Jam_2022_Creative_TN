@@ -26,6 +26,24 @@ public class MovementManager : MonoBehaviour
             {
                 players.isManagerGrounded = true;
             }
+
+            if (CanPlayerMoveLeft())
+            {
+                players.canMoveRight = true;
+            }
+            else
+            {
+                players.canMoveRight = false;
+            }
+            
+            if (CanPlayerMoveRight())
+            {
+                players.canMoveLeft = true;
+            }
+            else
+            {
+                players.canMoveLeft = false;
+            }
         }
     }
 
@@ -39,5 +57,28 @@ public class MovementManager : MonoBehaviour
             }
         }
         return false;
+    }
+
+    private bool CanPlayerMoveLeft()
+    {
+        for (int i = 0; i < _playerMovements.Count; i++)
+        {
+            if (_playerMovements[i].onRightWall)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+    private bool CanPlayerMoveRight()
+    {
+        for (int i = 0; i < _playerMovements.Count; i++)
+        {
+            if (_playerMovements[i].onLeftWall)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 }
