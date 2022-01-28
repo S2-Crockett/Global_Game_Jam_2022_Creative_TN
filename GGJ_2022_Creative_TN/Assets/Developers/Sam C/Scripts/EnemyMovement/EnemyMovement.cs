@@ -14,21 +14,26 @@ public class EnemyMovement : MonoBehaviour
         SET_NEW_POS,
         MOVE
     }
-
-    [ItemCanBeNull] public List<Transform> waypoints = new List<Transform>();
-    private Transform movePosition;
+    
+    public Vector3[] waypointsPos;
+    private Vector3 movePosition;
     public MoveStages _moveStages = MoveStages.IDLE;
     private float timer; 
     void Start()
     {
+        int index = 0;
+        
+        waypointsPos = new Vector3[2];
+        
         foreach (GameObject child in GameObject.FindGameObjectsWithTag("Waypoint"))
         {
             if (child.CompareTag("Waypoint"))
             {
-                waypoints.Add(child.transform);
+                waypointsPos[index] = child.transform.position;
+                index += 1;
             }
         }
-        transform.position = waypoints[0].position;
+        transform.position = waypointsPos[0];
     }
     
     void Update()
@@ -37,37 +42,33 @@ public class EnemyMovement : MonoBehaviour
         {
             case MoveStages.IDLE:
             {
-                if (waypoints[0] != null)
-                {
-                    transform.position = waypoints[0].position;
-                }
-
+                transform.position = waypointsPos[0];
                 _moveStages = MoveStages.SET_NEW_POS;
                 break;
             }
             case MoveStages.SET_NEW_POS:
             {
-                if (transform.position == waypoints[0].position)
+                if (transform.position == waypointsPos[0])
                 {
-                    movePosition = waypoints[1].transform;
+                    movePosition = waypointsPos[1];
                     _moveStages = MoveStages.MOVE;
                 }
                 else
                 {
-                    movePosition = waypoints[0].transform;
+                    movePosition = waypointsPos[0];
                     _moveStages = MoveStages.MOVE;
                 }
                 break;
             }
             case MoveStages.MOVE:
             {
-                if (Vector3.Distance(transform.position, movePosition.position) > 0.01)
+                if (Vector3.Distance(transform.position, movePosition) > 0.01)
                 {
-                    transform.position = Vector3.MoveTowards(transform.position, movePosition.position, 0.01f);
+                    transform.position = Vector3.MoveTowards(transform.position, movePosition, 0.01f);
                 }
                 else
                 {
-                    transform.position = movePosition.position;
+                    transform.position = movePosition;
                     timer = 3;
                     _moveStages = MoveStages.AT_POS;
                 }
