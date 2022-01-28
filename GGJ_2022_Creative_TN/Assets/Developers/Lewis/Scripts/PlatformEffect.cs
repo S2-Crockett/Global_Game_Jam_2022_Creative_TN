@@ -14,6 +14,7 @@ public class PlatformEffect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if(Input.GetKeyUp(KeyCode.S))
         {
             waitDuration = 0.01f;
@@ -24,16 +25,32 @@ public class PlatformEffect : MonoBehaviour
             if (waitDuration <= 0)
             {
                 effector.rotationalOffset = 180f;
-                waitDuration = 0.5f;
+                waitDuration = 0.01f;
             }
             else
             {
                 waitDuration -= Time.deltaTime;
             }
         }
-        if(Input.GetKey(KeyCode.Space))
+        */
+        
+
+        if(waitDuration >=0)
+        {
+            effector.rotationalOffset = 180f;
+            waitDuration -= Time.deltaTime;
+        }
+        else
         {
             effector.rotationalOffset = 0;
+        }
+        
+        
+
+
+        if(Input.GetKeyDown(KeyCode.S))
+        {
+            waitDuration += 0.5f;
         }
     }
 }
