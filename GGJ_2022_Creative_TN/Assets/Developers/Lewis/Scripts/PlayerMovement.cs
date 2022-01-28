@@ -14,6 +14,9 @@ public class PlayerMovement : MonoBehaviour
 
     public int moveSpeed;
 
+    public bool isManagerGrounded = true;
+    public bool canMoveRight = true;
+    
 
 
     void Awake()
@@ -26,19 +29,21 @@ public class PlayerMovement : MonoBehaviour
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkArea, whatIsGround);
 
+        
         rb.velocity = new Vector2(Input.GetAxis("Horizontal")* moveSpeed, rb.velocity.y);
+        
 
         if(isGrounded == true)
         {
             extraJumps = 0;
         }
 
-        if(Input.GetKeyDown(KeyCode.Space) && extraJumps > 0)
+        if(Input.GetKeyDown(KeyCode.Space) && extraJumps > 0 && isManagerGrounded)
         {
             rb.velocity = Vector2.up * jumpForce;
             extraJumps--;
         }
-        else if(Input.GetKeyDown(KeyCode.Space) && extraJumps == 0 && isGrounded == true)
+        else if(Input.GetKeyDown(KeyCode.Space) && extraJumps == 0 && isGrounded == true && isManagerGrounded)
         {
             rb.velocity = Vector2.up * jumpForce;
         }
