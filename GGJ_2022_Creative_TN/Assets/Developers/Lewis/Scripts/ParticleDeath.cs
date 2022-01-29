@@ -9,7 +9,6 @@ public class ParticleDeath : MonoBehaviour
     public PhysicsMaterial2D phyMat;
     private Rigidbody2D _rb;
     [SerializeField] private int knockBackForce;
-    
 
     void Start()
     {
@@ -40,11 +39,21 @@ public class ParticleDeath : MonoBehaviour
     }
     IEnumerator Bounceback(Transform laser)
     {
-        GetComponent<PlayerMovement>().enabled = false;
-        Vector3 pos = transform.position - laser.position ;
-        _rb.velocity = new Vector2(pos.x * knockBackForce, 7);
-        yield return new WaitForSeconds(0.5f);
-        GetComponent<PlayerMovement>().enabled = true;
+        GameManager.instance.DecreaseHealth(1);
+        PlayerHealth playerHealth = GetComponent<PlayerHealth>();
+        if (playerHealth.health != 0)
+        {
+            GetComponent<PlayerMovement>().enabled = false;
+            Vector3 pos = transform.position - laser.position;
+            _rb.velocity = new Vector2(pos.x * knockBackForce, 7);
+            yield return new WaitForSeconds(0.5f);
+            GetComponent<PlayerMovement>().enabled = true;
+        }
+        else
+        {
+            playerHealth.IncreaseHealth(5);
+            UIManager.instance.healthUI.InitHealth(5);
+        }
     }
     
 }

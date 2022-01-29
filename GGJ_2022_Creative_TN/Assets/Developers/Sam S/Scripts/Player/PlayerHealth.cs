@@ -44,6 +44,7 @@ public class PlayerHealth : MonoBehaviour
     {
         Debug.Log("DIE");
         GameManager.instance.UpdateGameState(GameState.Lose);
+        WaypointManager.instance.Respawn(transform);
     }
 
     IEnumerator ResetInvunerablePeriod(float time)
