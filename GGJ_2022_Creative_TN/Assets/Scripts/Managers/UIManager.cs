@@ -23,32 +23,41 @@ public class UIManager : Singleton<UIManager>
     // Start is called before the first frame update
     void Start()
     {
-        Mainmenu.SetActive(true);
-        Options.SetActive(false);
-        Audio.SetActive(false);
-        Display.SetActive(false);
-        HowToPlay.SetActive(false);
-
-        resolutions = Screen.resolutions;
-        resolutionDropdown.ClearOptions();
-
-        List<string> options = new List<string>();
-
-        int currentResolutionIndex = 0;
-        for (int i = 0; i < resolutions.Length; i++)
+        StartCoroutine(DelayedStart());
+    }
+    
+    IEnumerator DelayedStart()
+    {
+        yield return new WaitForSeconds(0.5f);
+        if (GameManager.instance.GetGameState() == GameState.Menu)
         {
-            string option = resolutions[i].width + " x " + resolutions[i].height;
-            options.Add(option);
+            Options.SetActive(false);
+            Audio.SetActive(false);
+            Display.SetActive(false);
+            HowToPlay.SetActive(false);
 
-            if(resolutions[i].width == Screen.currentResolution.width && 
-                resolutions[i].height == Screen.currentResolution.height)
+            resolutions = Screen.resolutions;
+            resolutionDropdown.ClearOptions();
+
+            List<string> options = new List<string>();
+
+            int currentResolutionIndex = 0;
+            for (int i = 0; i < resolutions.Length; i++)
             {
-                currentResolutionIndex = i;
+                string option = resolutions[i].width + " x " + resolutions[i].height;
+                options.Add(option);
+
+                if(resolutions[i].width == Screen.currentResolution.width && 
+                   resolutions[i].height == Screen.currentResolution.height)
+                {
+                    currentResolutionIndex = i;
+                }
             }
+            resolutionDropdown.AddOptions(options);
+            resolutionDropdown.value = currentResolutionIndex;
+            resolutionDropdown.RefreshShownValue();
         }
-        resolutionDropdown.AddOptions(options);
-        resolutionDropdown.value = currentResolutionIndex;
-        resolutionDropdown.RefreshShownValue();
+        
     }
 
     public void StartFunction()

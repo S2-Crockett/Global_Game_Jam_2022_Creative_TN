@@ -16,7 +16,7 @@ public class GameManager : Singleton<GameManager>
     private void Start()
     {
         // default state assigned.
-        UpdateGameState(GameState.Menu);
+        UpdateGameState(GameState.Playing);
         UIManager.instance.scoreUI.InitScore(0);
         
     }
@@ -32,11 +32,17 @@ public class GameManager : Singleton<GameManager>
                 break;
         }
     }
+
+    public GameState GetGameState()
+    {
+        return _state;
+    }
     
     // Call this to change states.
     public void UpdateGameState(GameState newState)
     {
         _state = newState;
+        Debug.Log(_state);
         switch (newState)
         {
             case GameState.Menu:
@@ -62,17 +68,16 @@ public class GameManager : Singleton<GameManager>
     // Event called once state has changed to this (not updated).
     private void HandleMenuState()
     {
-        _timer = GetComponent<GameTimer>();
-        _timer.StartTimer(); 
-        
-        UIManager.instance.healthUI.InitHealth(5);
+       
     }
     
     // Event called once state has changed to this (not updated).
     private void HandlePlayingState()
     {
-        // start the timer in game
+        _timer = GetComponent<GameTimer>();
+        _timer.StartTimer(); 
         
+        UIManager.instance.healthUI.InitHealth(5);
     }
     
     // Event called once state has changed to this (not updated).
