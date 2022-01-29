@@ -25,6 +25,8 @@ public class PlayerMovement : MonoBehaviour
 
     private float _moveInput;
     private SpriteRenderer _spriteRenderer;
+    private Animator _animator;
+    private float horizontalMove;
 
 
     private void Awake()
@@ -32,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _whatIsGround = LayerMask.GetMask("Ground");
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _animator = GetComponent<Animator>();
 
         foreach (var child in GetComponentsInChildren<Transform>())
         {
@@ -53,15 +56,24 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         _moveInput = Input.GetAxis("Horizontal");
+        
+        horizontalMove = Input.GetAxisRaw("Horizontal") * moveSpeed;
+        _animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+        
         if (_moveInput > 0)
         {
+            
             _spriteRenderer.flipX = false;
             //true
         }
         else if(_moveInput < 0)
         {
             _spriteRenderer.flipX = true;
-            
+
+            if (_animator)
+            {
+                
+            }
             //false
         }
     }
@@ -71,7 +83,11 @@ public class PlayerMovement : MonoBehaviour
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkArea, _whatIsGround);
         onLeftWall = Physics2D.OverlapCircle(leftCheck.position, checkArea, _whatIsGround);
         onRightWall = Physics2D.OverlapCircle(rightCheck.position, checkArea, _whatIsGround);
+        
+        _animator.SetBool("Grounded", isGrounded);
 
+        
+        
         if (canMoveRight && _moveInput > 0)
         {
             _rb.velocity = new Vector2(_moveInput * moveSpeed, _rb.velocity.y);
@@ -84,6 +100,8 @@ public class PlayerMovement : MonoBehaviour
         {
             _rb.velocity = new Vector2(0, _rb.velocity.y);
         }
+        
+        
         
 
         if(isGrounded)
