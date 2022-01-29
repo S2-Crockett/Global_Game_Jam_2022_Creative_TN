@@ -12,14 +12,13 @@ public class GameManager : Singleton<GameManager>
     
     private GameState _state;
 
-    private int _gameScore = 0;
+    public int _gameScore = 0;
 
     private void Start()
     {
         // default state assigned.
         UpdateGameState(GameState.Playing);
         UIManager.instance.scoreUI.InitScore(0);
-        
     }
     private void Update()
     {
@@ -81,6 +80,7 @@ public class GameManager : Singleton<GameManager>
     {
         _gameScore += amount;
         UIManager.instance.scoreUI.UpdateScore(amount);
+
     }
     
     // Event called once state has changed to this (not updated).
