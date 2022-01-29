@@ -42,7 +42,6 @@ public class GameManager : Singleton<GameManager>
     public void UpdateGameState(GameState newState)
     {
         _state = newState;
-        Debug.Log(_state);
         switch (newState)
         {
             case GameState.Menu:
@@ -56,6 +55,24 @@ public class GameManager : Singleton<GameManager>
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
+        }
+    }
+
+    public void DecreaseHealth(int amount)
+    {
+        if (playerController)
+        {
+            PlayerHealth health = playerController.GetComponent<PlayerHealth>();
+            health.DecreaseHealth(amount);
+        }
+    }
+
+    public void IncreaseHealth(int amount)
+    {
+        if (playerController)
+        {
+            PlayerHealth health = playerController.GetComponent<PlayerHealth>();
+            health.IncreaseHealth(amount);
         }
     }
 
@@ -75,9 +92,7 @@ public class GameManager : Singleton<GameManager>
     private void HandlePlayingState()
     {
         _timer = GetComponent<GameTimer>();
-        _timer.StartTimer(); 
-        
-        UIManager.instance.healthUI.InitHealth(5);
+        _timer.StartTimer();
     }
     
     // Event called once state has changed to this (not updated).

@@ -30,6 +30,7 @@ public class PlayerHealth : MonoBehaviour
             if (health <= 0)
             {
                 Die();
+                
                 UIManager.instance.healthUI.RemoveHealth(amount);
             }
             else
@@ -41,6 +42,7 @@ public class PlayerHealth : MonoBehaviour
     
     public void Die()
     {
+        Debug.Log("DIE");
         GameManager.instance.UpdateGameState(GameState.Lose);
     }
 

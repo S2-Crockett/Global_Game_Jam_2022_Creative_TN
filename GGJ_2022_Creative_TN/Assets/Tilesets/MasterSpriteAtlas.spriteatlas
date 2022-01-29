@@ -50,6 +50,34 @@ SpriteAtlas:
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: 7969669275741652983, guid: b3e52590efc5a8e438511e2dc2a5f473, type: 3}
+  - {fileID: -3000973062238046508, guid: b3e52590efc5a8e438511e2dc2a5f473, type: 3}
+  - {fileID: -7761284985466219475, guid: b3e52590efc5a8e438511e2dc2a5f473, type: 3}
+  - {fileID: 6696163409753306466, guid: b3e52590efc5a8e438511e2dc2a5f473, type: 3}
+  - {fileID: 704775309978527876, guid: b3e52590efc5a8e438511e2dc2a5f473, type: 3}
+  - {fileID: -2240314473654572144, guid: b3e52590efc5a8e438511e2dc2a5f473, type: 3}
+  - {fileID: 3565025601160022881, guid: b3e52590efc5a8e438511e2dc2a5f473, type: 3}
+  - {fileID: -348580936064350656, guid: b3e52590efc5a8e438511e2dc2a5f473, type: 3}
+  - {fileID: 2412881058561824717, guid: b3e52590efc5a8e438511e2dc2a5f473, type: 3}
+  - {fileID: 5672625493566657399, guid: b3e52590efc5a8e438511e2dc2a5f473, type: 3}
+  - {fileID: 3455911703520373966, guid: b3e52590efc5a8e438511e2dc2a5f473, type: 3}
+  - {fileID: 8212833307164180333, guid: b3e52590efc5a8e438511e2dc2a5f473, type: 3}
+  - {fileID: 7359817029070345185, guid: c2d0024460507214c937de0f1c07009d, type: 3}
+  - {fileID: -5783097342936626110, guid: c2d0024460507214c937de0f1c07009d, type: 3}
+  - {fileID: 5128498410327645033, guid: c2d0024460507214c937de0f1c07009d, type: 3}
+  - {fileID: 8045200222712718369, guid: c2d0024460507214c937de0f1c07009d, type: 3}
+  - {fileID: 3007372593648806210, guid: d881cdf672628ed4783aeaf67da1ccf7, type: 3}
+  - {fileID: -673202863251101008, guid: d881cdf672628ed4783aeaf67da1ccf7, type: 3}
+  - {fileID: -5695510304534946868, guid: d881cdf672628ed4783aeaf67da1ccf7, type: 3}
+  - {fileID: -795944728962066611, guid: d881cdf672628ed4783aeaf67da1ccf7, type: 3}
+  - {fileID: 8813388069999582564, guid: d881cdf672628ed4783aeaf67da1ccf7, type: 3}
+  - {fileID: -2299854438439939197, guid: d881cdf672628ed4783aeaf67da1ccf7, type: 3}
+  - {fileID: 6719169754601135636, guid: d881cdf672628ed4783aeaf67da1ccf7, type: 3}
+  - {fileID: -5643105228771564274, guid: d881cdf672628ed4783aeaf67da1ccf7, type: 3}
+  - {fileID: 2747245577423805547, guid: d881cdf672628ed4783aeaf67da1ccf7, type: 3}
+  - {fileID: -3425236469726524370, guid: d881cdf672628ed4783aeaf67da1ccf7, type: 3}
+  - {fileID: 1714696809508670639, guid: d881cdf672628ed4783aeaf67da1ccf7, type: 3}
+  - {fileID: -2793295684867730318, guid: d881cdf672628ed4783aeaf67da1ccf7, type: 3}
   - {fileID: -4664130699153160090, guid: a16d96c72c80cbb4e9cfa9b0604a2b43, type: 3}
   - {fileID: 3772465033598657247, guid: a16d96c72c80cbb4e9cfa9b0604a2b43, type: 3}
   - {fileID: 35101591507232944, guid: a16d96c72c80cbb4e9cfa9b0604a2b43, type: 3}
@@ -82,7 +110,43 @@ SpriteAtlas:
   - {fileID: 5372837555622117495, guid: 2f41453a2c733eb41b7ad70a2f3d1d30, type: 3}
   - {fileID: -2689367856823728988, guid: 2f41453a2c733eb41b7ad70a2f3d1d30, type: 3}
   - {fileID: 7238716414353152011, guid: 2f41453a2c733eb41b7ad70a2f3d1d30, type: 3}
+  - {fileID: 1956587405941913214, guid: 82a3a16e21134d94583783f8d334c5de, type: 3}
+  - {fileID: -5805134395012466468, guid: 82a3a16e21134d94583783f8d334c5de, type: 3}
+  - {fileID: 7948586515699134933, guid: 82a3a16e21134d94583783f8d334c5de, type: 3}
+  - {fileID: 5263517321451191370, guid: 82a3a16e21134d94583783f8d334c5de, type: 3}
+  - {fileID: 8063011423602412186, guid: acb3bfaea3c65c84784a9a9139233731, type: 3}
+  - {fileID: -2797272016346479334, guid: acb3bfaea3c65c84784a9a9139233731, type: 3}
+  - {fileID: -1630669207102377603, guid: acb3bfaea3c65c84784a9a9139233731, type: 3}
+  - {fileID: -7626872306899477227, guid: acb3bfaea3c65c84784a9a9139233731, type: 3}
   m_PackedSpriteNamesToIndex:
+  - FoliageSet_Black_10
+  - FoliageSet_Black_11
+  - FoliageSet_Black_1
+  - FoliageSet_Black_0
+  - FoliageSet_Black_3
+  - FoliageSet_Black_2
+  - FoliageSet_Black_5
+  - FoliageSet_Black_4
+  - FoliageSet_Black_7
+  - FoliageSet_Black_6
+  - FoliageSet_Black_9
+  - FoliageSet_Black_8
+  - SpikeTile_2
+  - SpikeTile_3
+  - SpikeTile_0
+  - SpikeTile_1
+  - Sprite-0003_10
+  - Sprite-0003_11
+  - Sprite-0003_9
+  - Sprite-0003_8
+  - Sprite-0003_3
+  - Sprite-0003_2
+  - Sprite-0003_1
+  - Sprite-0003_0
+  - Sprite-0003_7
+  - Sprite-0003_6
+  - Sprite-0003_5
+  - Sprite-0003_4
   - GroundSet_Black_12
   - GroundSet_Black_13
   - GroundSet_Black_10
@@ -115,6 +179,14 @@ SpriteAtlas:
   - GroundSet_6
   - GroundSet_5
   - GroundSet_4
+  - PlatformSet_White_1
+  - PlatformSet_White_0
+  - PlatformSet_White_3
+  - PlatformSet_White_2
+  - PlatformSet_Black_3
+  - PlatformSet_Black_2
+  - PlatformSet_Black_1
+  - PlatformSet_Black_0
   m_RenderDataMap: {}
   m_Tag: MasterSpriteAtlas
   m_IsVariant: 0

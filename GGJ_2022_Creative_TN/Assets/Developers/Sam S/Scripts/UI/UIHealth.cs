@@ -33,7 +33,7 @@ public class UIHealth : MonoBehaviour
    {
       _health += amount;
 
-      int length = _healthObjects.Count * 48;
+      int length = (_healthObjects.Count + 1) * 48;
       GameObject go = Instantiate(healthObject, new Vector3(this.transform.position.x + length, 
          this.transform.position.y, 0), Quaternion.identity);
       go.transform.SetParent(this.transform);
@@ -48,6 +48,7 @@ public class UIHealth : MonoBehaviour
    
    private void RemoveLastHealthObject()
    {
-      Destroy(_healthObjects[_healthObjects.Count]);
+      Destroy(_healthObjects[_healthObjects.Count - 1]);
+      _healthObjects.RemoveAt(_healthObjects.Count - 1);
    }
 }
