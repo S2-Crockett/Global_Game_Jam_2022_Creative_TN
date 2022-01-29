@@ -24,12 +24,14 @@ public class PlayerMovement : MonoBehaviour
     public bool isManagerGrounded = true, canMoveRight = true, canMoveLeft = true;
 
     private float _moveInput;
+    private SpriteRenderer _spriteRenderer;
 
 
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
         _whatIsGround = LayerMask.GetMask("Ground");
+        _spriteRenderer = GetComponent<SpriteRenderer>();
 
         foreach (var child in GetComponentsInChildren<Transform>())
         {
@@ -51,6 +53,17 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         _moveInput = Input.GetAxis("Horizontal");
+        if (_moveInput > 0)
+        {
+            _spriteRenderer.flipX = false;
+            //true
+        }
+        else if(_moveInput < 0)
+        {
+            _spriteRenderer.flipX = true;
+            
+            //false
+        }
     }
 
     private void Update()

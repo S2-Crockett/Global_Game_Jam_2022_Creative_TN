@@ -6,6 +6,7 @@
     <e p="D:\University Files\3rd Year\CGD\Gam Jam Files\Jam 3\Global_Game_Jam_2022_Creative_TN\GGJ_2022_Creative_TN" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="CoinSpawner.cs" t="Include" />
         <e p="Developers" t="Include">
           <e p="Lewis" t="Include">
             <e p="Scripts" t="Include">
@@ -36,6 +37,7 @@
               <e p="Player" t="Include">
                 <e p="PlayerHealth.cs" t="Include" />
               </e>
+              <e p="SpikeObstacle.cs" t="Include" />
               <e p="UI" t="Include">
                 <e p="UIHealth.cs" t="Include" />
                 <e p="UIScore.cs" t="Include" />
