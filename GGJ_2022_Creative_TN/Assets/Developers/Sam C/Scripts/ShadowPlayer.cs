@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class ShadowPlayer : MonoBehaviour
@@ -20,6 +21,25 @@ public class ShadowPlayer : MonoBehaviour
     {
         _player = GameObject.FindGameObjectWithTag("Player");
         _whatIsGround = LayerMask.GetMask("Ground");
+    }
+
+    private void Awake()
+    {
+        foreach (var child in GetComponentsInChildren<Transform>())
+        {
+            if (child.name == "Ground Check")
+            {
+                groundCheck = child;
+            }
+            if (child.name == "Left Check")
+            {
+                leftCheck = child;
+            }
+            if (child.name == "Right Check")
+            {
+                rightCheck = child;
+            }
+        }
     }
 
     private void Update()

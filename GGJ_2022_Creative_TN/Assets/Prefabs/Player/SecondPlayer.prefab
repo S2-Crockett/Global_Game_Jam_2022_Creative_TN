@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9194923462220432728}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Left Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9194923462400020257}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Ground Check
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -54,7 +54,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9194923462400020258}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.0715, z: 0}
+  m_LocalPosition: {x: 0, y: -0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9194923463079452234}
@@ -72,9 +72,10 @@ GameObject:
   - component: {fileID: 9194923463079452235}
   - component: {fileID: 9194923463079452236}
   - component: {fileID: 9194923463079452237}
-  - component: {fileID: 9194923463079452238}
   - component: {fileID: 9194923463079452239}
-  m_Layer: 0
+  - component: {fileID: 712319683}
+  - component: {fileID: 712319684}
+  m_Layer: 2
   m_Name: SecondPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -198,7 +199,39 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.16, y: 0.16}
   m_EdgeRadius: 0
---- !u!114 &9194923463079452238
+--- !u!114 &9194923463079452239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9194923463079452224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7daf86a50498924bb16aee25a8b2de2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &712319683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9194923463079452224}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1f180dd84d68724bb73062f048c359a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: {x: 0, y: 35, z: 0}
+  isGrounded: 0
+  onLeftWall: 0
+  onRightWall: 0
+  checkArea: 0.02
+  groundCheck: {fileID: 0}
+  leftCheck: {fileID: 0}
+  rightCheck: {fileID: 0}
+--- !u!114 &712319684
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -213,33 +246,17 @@ MonoBehaviour:
   isGrounded: 0
   onLeftWall: 0
   onRightWall: 0
-  checkArea: 0.5
+  checkArea: 0.02
   leftCount: 0
   rightCount: 0
-  groundCheck: {fileID: 9194923462400020257}
-  leftCheck: {fileID: 9194923462220432728}
-  rightCheck: {fileID: 9194923463878317711}
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 64
+  groundCheck: {fileID: 0}
+  leftCheck: {fileID: 0}
+  rightCheck: {fileID: 0}
   jumpForce: 15
   moveSpeed: 10
   isManagerGrounded: 1
   canMoveRight: 1
   canMoveLeft: 1
-  wallJumps: 0
---- !u!114 &9194923463079452239
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9194923463079452224}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7daf86a50498924bb16aee25a8b2de2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &9194923463878317696
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,8 +266,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9194923463878317711}
-  m_Layer: 0
-  m_Name: RightCheck
+  m_Layer: 2
+  m_Name: Right Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -280,7 +297,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9194923463897703327}
   - component: {fileID: 9194923463897703325}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}

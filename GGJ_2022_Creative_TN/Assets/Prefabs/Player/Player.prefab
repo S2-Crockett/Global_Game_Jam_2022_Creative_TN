@@ -107,7 +107,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6222829292592063629}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.0715, z: 0}
+  m_LocalPosition: {x: 0, y: -0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6222829292766462138}
@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 6222829292766462135}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -266,21 +266,17 @@ MonoBehaviour:
   isGrounded: 0
   onLeftWall: 0
   onRightWall: 0
-  checkArea: 0.5
+  checkArea: 0.02
   leftCount: 0
   rightCount: 0
   groundCheck: {fileID: 6222829292592063628}
   leftCheck: {fileID: 6222829294038354349}
   rightCheck: {fileID: 6222829293786566668}
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 64
   jumpForce: 15
   moveSpeed: 10
   isManagerGrounded: 1
   canMoveRight: 1
   canMoveLeft: 1
-  wallJumps: 0
 --- !u!114 &6222829292766462135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,7 +299,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6222829293786566668}
   m_Layer: 0
-  m_Name: RightCheck
+  m_Name: Right Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
