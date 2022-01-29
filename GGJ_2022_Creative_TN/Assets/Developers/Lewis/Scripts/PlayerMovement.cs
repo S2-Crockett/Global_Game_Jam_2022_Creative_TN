@@ -19,28 +19,28 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     
     private bool _isGrabbingLeft, _isGrabbingRight;
-    private float gravityStore, wallJumpTime = 0.4f, wallJumpCounter;
-    private int leftGrab, rightGrab;
+    private float _gravityStore, wallJumpTime = 0.4f, _wallJumpCounter;
+    private int _leftGrab, _rightGrab;
     private Animator _animator;
-    private float horizontalMove;
+    private float _horizontalMove;
 
-    private int layermask;
+    private int _layermask;
 
 
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
-        gravityStore = _rb.gravityScale;
+        _gravityStore = _rb.gravityScale;
         _animator = GetComponent<Animator>();
 
-        layermask = LayerMask.GetMask("Ground");
+        _layermask = LayerMask.GetMask("Ground");
     }
 
     private void FixedUpdate()
     {
-        horizontalMove = Input.GetAxisRaw("Horizontal") * moveSpeed;
-        _animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+        _horizontalMove = Input.GetAxisRaw("Horizontal") * moveSpeed;
+        _animator.SetFloat("Speed", Mathf.Abs(_horizontalMove));
         if (_moveInput > 0)
         {
             
@@ -56,21 +56,21 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (wallJumpCounter <= 0)
+        if (_wallJumpCounter <= 0)
         {
             _moveInput = Input.GetAxis("Horizontal");
             isGrounded = Physics2D.Raycast(transform.position, Vector2.down, 0.75f);
             isGrabGrounded = Physics2D.Raycast(transform.position, Vector2.down, 1.5f);
-            onLeftWall = Physics2D.Raycast(transform.position, Vector2.left, 0.75f, layermask);
-            onRightWall = Physics2D.Raycast(transform.position, Vector2.right, 0.75f, layermask);
+            onLeftWall = Physics2D.Raycast(transform.position, Vector2.left, 0.75f, _layermask);
+            onRightWall = Physics2D.Raycast(transform.position, Vector2.right, 0.75f, _layermask);
             
             Debug.DrawRay(transform.position, Vector2.down, Color.blue);
             
             if (isGrounded)
             {
                 _rb.velocity = new Vector2(_moveInput * moveSpeed, _rb.velocity.y);
-                leftGrab = 0;
-                rightGrab = 0;
+                _leftGrab = 0;
+                _rightGrab = 0;
             }
             else
             {
@@ -85,22 +85,22 @@ public class PlayerMovement : MonoBehaviour
             }
 
             
-            if (onLeftWall && !isGrabGrounded && leftGrab == 0)
+            if (onLeftWall && !isGrabGrounded && _leftGrab == 0)
             {
                 if (_moveInput < 0)
                 {
                     _isGrabbingLeft = true;
-                    leftGrab += 1;
-                    rightGrab = 0;
+                    _leftGrab += 1;
+                    _rightGrab = 0;
                 }
             }
-            else if (onRightWall && !isGrabGrounded && rightGrab == 0)
+            else if (onRightWall && !isGrabGrounded && _rightGrab == 0)
             {
                 if (_moveInput > 0)
                 {
                     _isGrabbingRight = true;
-                    rightGrab += 1;
-                    leftGrab = 0;
+                    _rightGrab += 1;
+                    _leftGrab = 0;
                 }
             }
             else
@@ -121,14 +121,14 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                _rb.gravityScale = gravityStore;
+                _rb.gravityScale = _gravityStore;
             }
             
             _animator.SetBool("Grounded", isGrounded);
         }
         else
         {
-            wallJumpCounter -= Time.deltaTime;
+            _wallJumpCounter -= Time.deltaTime;
         }
 
 
@@ -141,9 +141,9 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             CreateDust(dustPs);
-            wallJumpCounter = wallJumpTime;
+            _wallJumpCounter = wallJumpTime;
             _rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed/2, jumpForce);
-            _rb.gravityScale = gravityStore;
+            _rb.gravityScale = _gravityStore;
             isGrabbing = false;
         }
     }
