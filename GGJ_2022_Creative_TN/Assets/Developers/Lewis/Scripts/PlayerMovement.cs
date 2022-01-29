@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     public ParticleSystem dust1;
     public ParticleSystem dust2;
     
-    [HideInInspector]
+    
     public bool isGrounded,isGrabGrounded, onLeftWall, onRightWall;
 
     [SerializeField] private int jumpForce;
@@ -24,6 +24,8 @@ public class PlayerMovement : MonoBehaviour
     private Animator _animator;
     private float horizontalMove;
 
+    private int layermask;
+
 
     private void Awake()
     {
@@ -31,6 +33,8 @@ public class PlayerMovement : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
         gravityStore = _rb.gravityScale;
         _animator = GetComponent<Animator>();
+
+        layermask = LayerMask.GetMask("Ground");
     }
 
     private void FixedUpdate()
@@ -53,13 +57,14 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         if (wallJumpCounter <= 0)
-        _animator.SetBool("Grounded", isGrounded);
         {
             _moveInput = Input.GetAxis("Horizontal");
-            isGrounded = Physics2D.Raycast(transform.position, Vector2.down, 0.5f);
+            isGrounded = Physics2D.Raycast(transform.position, Vector2.down, 0.75f);
             isGrabGrounded = Physics2D.Raycast(transform.position, Vector2.down, 1.5f);
-            onLeftWall = Physics2D.Raycast(transform.position, Vector2.left, 0.5f);
-            onRightWall = Physics2D.Raycast(transform.position, Vector2.right, 0.5f);
+            onLeftWall = Physics2D.Raycast(transform.position, Vector2.left, 0.75f, layermask);
+            onRightWall = Physics2D.Raycast(transform.position, Vector2.right, 0.75f, layermask);
+            
+            Debug.DrawRay(transform.position, Vector2.down, Color.blue);
             
             if (isGrounded)
             {
@@ -118,6 +123,8 @@ public class PlayerMovement : MonoBehaviour
             {
                 _rb.gravityScale = gravityStore;
             }
+            
+            _animator.SetBool("Grounded", isGrounded);
         }
         else
         {
