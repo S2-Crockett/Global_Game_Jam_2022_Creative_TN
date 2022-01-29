@@ -21,6 +21,8 @@ public class PlayerMovement : MonoBehaviour
     private bool _isGrabbingLeft, _isGrabbingRight;
     private float gravityStore, wallJumpTime = 0.4f, wallJumpCounter;
     private int leftGrab, rightGrab;
+    private Animator _animator;
+    private float horizontalMove;
 
 
     private void Awake()
@@ -28,12 +30,16 @@ public class PlayerMovement : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         gravityStore = _rb.gravityScale;
+        _animator = GetComponent<Animator>();
     }
 
     private void FixedUpdate()
     {
+        horizontalMove = Input.GetAxisRaw("Horizontal") * moveSpeed;
+        _animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
         if (_moveInput > 0)
         {
+            
             _spriteRenderer.flipX = false;
             //true
         }
@@ -47,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         if (wallJumpCounter <= 0)
+        _animator.SetBool("Grounded", isGrounded);
         {
             _moveInput = Input.GetAxis("Horizontal");
             isGrounded = Physics2D.Raycast(transform.position, Vector2.down, 0.5f);
