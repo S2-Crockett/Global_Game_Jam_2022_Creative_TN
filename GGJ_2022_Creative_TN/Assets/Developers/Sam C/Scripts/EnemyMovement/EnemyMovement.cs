@@ -1,89 +1,84 @@
-using System.Collections;
-using System.Collections.Generic;
-using JetBrains.Annotations;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class EnemyMovement : MonoBehaviour
 {
     
-    public enum MoveStages
+    private enum MoveStages
     {
-        IDLE,
-        AT_POS,
-        SET_NEW_POS,
-        MOVE
+        Idle,
+        AtPos,
+        SetNewPos,
+        Move
     }
     
-    public Vector3[] waypointsPos;
-    private Vector3 movePosition;
-    public MoveStages _moveStages = MoveStages.IDLE;
-    private float timer; 
-    void Start()
+    private Vector3[] _waypointsPos;
+    private Vector3 _movePosition;
+    private MoveStages _moveStages = MoveStages.Idle;
+    private float _timer; 
+    private void Start()
     {
         int index = 0;
         
-        waypointsPos = new Vector3[2];
+        _waypointsPos = new Vector3[2];
         
         foreach (GameObject child in GameObject.FindGameObjectsWithTag("Waypoint"))
         {
             if (child.CompareTag("Waypoint"))
             {
-                waypointsPos[index] = child.transform.position;
+                _waypointsPos[index] = child.transform.position;
                 index += 1;
             }
         }
-        transform.position = waypointsPos[0];
+        transform.position = _waypointsPos[0];
     }
     
-    void Update()
+    private void Update()
     {
         switch (_moveStages)
         {
-            case MoveStages.IDLE:
+            case MoveStages.Idle:
             {
-                transform.position = waypointsPos[0];
-                _moveStages = MoveStages.SET_NEW_POS;
+                transform.position = _waypointsPos[0];
+                _moveStages = MoveStages.SetNewPos;
                 break;
             }
-            case MoveStages.SET_NEW_POS:
+            case MoveStages.SetNewPos:
             {
-                if (transform.position == waypointsPos[0])
+                if (transform.position == _waypointsPos[0])
                 {
-                    movePosition = waypointsPos[1];
-                    _moveStages = MoveStages.MOVE;
+                    _movePosition = _waypointsPos[1];
+                    _moveStages = MoveStages.Move;
                 }
                 else
                 {
-                    movePosition = waypointsPos[0];
-                    _moveStages = MoveStages.MOVE;
+                    _movePosition = _waypointsPos[0];
+                    _moveStages = MoveStages.Move;
                 }
                 break;
             }
-            case MoveStages.MOVE:
+            case MoveStages.Move:
             {
-                if (Vector3.Distance(transform.position, movePosition) > 0.01)
+                if (Vector3.Distance(transform.position, _movePosition) > 0.01)
                 {
-                    transform.position = Vector3.MoveTowards(transform.position, movePosition, 0.01f);
+                    transform.position = Vector3.MoveTowards(transform.position, _movePosition, 0.01f);
                 }
                 else
                 {
-                    transform.position = movePosition;
-                    timer = 3;
-                    _moveStages = MoveStages.AT_POS;
+                    transform.position = _movePosition;
+                    _timer = 3;
+                    _moveStages = MoveStages.AtPos;
                 }
                 break;
             }
-            case MoveStages.AT_POS:
+            case MoveStages.AtPos:
             {
-                timer -= Time.deltaTime;
-                if (timer <= 0)
+                _timer -= Time.deltaTime;
+                if (_timer <= 0)
                 {
-                    _moveStages = MoveStages.SET_NEW_POS;
+                    _moveStages = MoveStages.SetNewPos;
                 }
                 break;
             }
-                
         }
     }
 }

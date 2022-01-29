@@ -1,80 +1,80 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private Rigidbody2D rb;
+    private Rigidbody2D _rb;
 
-    public bool isGrounded;
-    public bool onLeftWall;
-    public bool onRightWall;
-    public float checkArea;
-
-    public int leftCount;
-    public int rightCount;
-
-    public Transform groundCheck;
-    public Transform leftCheck;
-    public Transform rightCheck;
-    public LayerMask whatIsGround;
-
-    public int jumpForce;
-    public int moveSpeed;
-
-    public bool isManagerGrounded = true;
-    public bool canMoveRight = true;
-    public bool canMoveLeft = true;
+    [HideInInspector]
+    public bool isGrounded, onLeftWall, onRightWall;
     
-    private int extraJumps;
-    public int wallJumps;
-    private float moveInput;
+    [SerializeField] private float checkArea = 0.02f;
 
-    private bool facingRight = true;
+    [HideInInspector]
+    public int leftCount, rightCount;
+
+    [HideInInspector]
+    public Transform groundCheck, leftCheck, rightCheck;
     
+    private LayerMask _whatIsGround;
 
-    void Awake()
+    [SerializeField] private int jumpForce;
+    [SerializeField] private int moveSpeed;
+
+    [HideInInspector]
+    public bool isManagerGrounded = true, canMoveRight = true, canMoveLeft = true;
+
+    private float _moveInput;
+
+
+    private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
+        _rb = GetComponent<Rigidbody2D>();
+        _whatIsGround = LayerMask.GetMask("Ground");
+
+        foreach (var child in GetComponentsInChildren<Transform>())
+        {
+            if (child.name == "Ground Check")
+            {
+                groundCheck = child;
+            }
+            if (child.name == "Left Check")
+            {
+                leftCheck = child;
+            }
+            if (child.name == "Right Check")
+            {
+                rightCheck = child;
+            }
+        }
     }
 
     private void FixedUpdate()
     {
-        moveInput = Input.GetAxis("Horizontal");
-        if (facingRight == false && moveInput > 0)
-        {
-            //Flip();
-        }
-        else if(facingRight == true && moveInput < 0)
-        {
-            //Flip();
-        }
+        _moveInput = Input.GetAxis("Horizontal");
     }
 
-    void Update()
+    private void Update()
     {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkArea, whatIsGround);
-        onLeftWall = Physics2D.OverlapCircle(leftCheck.position, checkArea, whatIsGround);
-        onRightWall = Physics2D.OverlapCircle(rightCheck.position, checkArea, whatIsGround);
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkArea, _whatIsGround);
+        onLeftWall = Physics2D.OverlapCircle(leftCheck.position, checkArea, _whatIsGround);
+        onRightWall = Physics2D.OverlapCircle(rightCheck.position, checkArea, _whatIsGround);
 
-        if (canMoveRight && moveInput > 0)
+        if (canMoveRight && _moveInput > 0)
         {
-            rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
+            _rb.velocity = new Vector2(_moveInput * moveSpeed, _rb.velocity.y);
         }
-        else if (canMoveLeft && moveInput < 0)
+        else if (canMoveLeft && _moveInput < 0)
         {
-            rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
+            _rb.velocity = new Vector2(_moveInput * moveSpeed, _rb.velocity.y);
         }
-        else if (moveInput == 0 || !canMoveLeft || !canMoveRight)
+        else if (_moveInput == 0 || !canMoveLeft || !canMoveRight)
         {
-            rb.velocity = new Vector2(0, rb.velocity.y);
+            _rb.velocity = new Vector2(0, _rb.velocity.y);
         }
         
 
-        if(isGrounded == true)
+        if(isGrounded)
         {
-            extraJumps = 0;
-            wallJumps = 0;
             leftCount = 0;
             rightCount = 0;
         }
@@ -83,48 +83,29 @@ public class PlayerMovement : MonoBehaviour
 
         if( Input.GetKeyDown(KeyCode.Space) && leftCount > 0)
         {
-            rb.velocity = Vector2.up * jumpForce;
+            _rb.velocity = Vector2.up * jumpForce;
             leftCount = -20000;
         }
         else if(Input.GetKeyDown(KeyCode.Space) && rightCount > 0)
         {
-            rb.velocity = Vector2.up * jumpForce;
+            _rb.velocity = Vector2.up * jumpForce;
             rightCount = -20000;
         }
-        else if(Input.GetKeyDown(KeyCode.Space) && leftCount == 0 && rightCount == 0 && isGrounded == true && isManagerGrounded)
+        else if(Input.GetKeyDown(KeyCode.Space) && leftCount == 0 && rightCount == 0 && isGrounded && isManagerGrounded)
         {
-            rb.velocity = Vector2.up * jumpForce;
-        }
-
-
-        if (wallJumps < 1)
-        {
-            if (!isGrounded && onLeftWall)
-            {
-                extraJumps = 1;
-                leftCount ++;
-                rightCount = 0;
-            }
-            else if (!isGrounded && onRightWall)
-            {
-                extraJumps = 1;
-                rightCount++; ;
-                leftCount = 0;
-            }
-            else
-            {
-                extraJumps = 0;
-            }
+            _rb.velocity = Vector2.up * jumpForce;
         }
 
         
-    }
-
-    void Flip()
-    {
-        facingRight = !facingRight;
-        Vector3 Scaler = transform.localScale;
-        Scaler.x *= -1;
-        transform.localScale = Scaler;
+        if (!isGrounded && onLeftWall)
+        {
+            leftCount++;
+            rightCount = 0;
+        }
+        else if (!isGrounded && onRightWall)
+        {
+            rightCount++;
+            leftCount = 0;
+        }
     }
 }

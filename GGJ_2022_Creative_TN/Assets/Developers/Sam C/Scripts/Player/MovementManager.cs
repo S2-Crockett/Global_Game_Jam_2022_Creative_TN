@@ -1,84 +1,73 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MovementManager : MonoBehaviour
 {
-    [SerializeField] private List<PlayerMovement> _playerMovements = new List<PlayerMovement>();
-    void Start()
+    [SerializeField] private PlayerMovement playerMovements;
+    [SerializeField] private ShadowPlayer shadowPlayer;
+    private void Start()
     {
-        foreach (var players in GameObject.FindObjectsOfType<PlayerMovement>())
-        {
-            _playerMovements.Add(players);
-        }
+        playerMovements = GameObject.FindObjectOfType<PlayerMovement>();
+        shadowPlayer = GameObject.FindObjectOfType<ShadowPlayer>();
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        foreach (var players in _playerMovements)
+        if (ArePlayersFalling())
         {
-            if (ArePlayersFalling())
-            {
-                players.isManagerGrounded = false;
-            }
-            else
-            {
-                players.isManagerGrounded = true;
-            }
-
-            if (CanPlayerMoveLeft())
-            {
-                players.canMoveRight = true;
-            }
-            else
-            {
-                players.canMoveRight = false;
-            }
-            
-            if (CanPlayerMoveRight())
-            {
-                players.canMoveLeft = true;
-            }
-            else
-            {
-                players.canMoveLeft = false;
-            }
+            playerMovements.isManagerGrounded = false;
         }
+        else
+        {
+            playerMovements.isManagerGrounded = true;
+        }
+
+        if (CanPlayerMoveLeft())
+        {
+            playerMovements.canMoveRight = true;
+        }
+        else
+        {
+            playerMovements.canMoveRight = false;
+        }
+        
+        if (CanPlayerMoveRight())
+        {
+            playerMovements.canMoveLeft = true;
+        }
+        else
+        {
+            playerMovements.canMoveLeft = false;
+        }
+
     }
 
     private bool ArePlayersFalling()
     {
-        for (int i = 0; i < _playerMovements.Count; i++)
+        if (!playerMovements.isGrounded || !shadowPlayer.isGrounded)
         {
-            if (!_playerMovements[i].isGrounded)
-            {
-                return true;
-            }
+            return true;
         }
+
         return false;
     }
 
     private bool CanPlayerMoveLeft()
     {
-        for (int i = 0; i < _playerMovements.Count; i++)
+        if (playerMovements.onRightWall || shadowPlayer.onRightWall)
         {
-            if (_playerMovements[i].onRightWall)
-            {
-                return false;
-            }
+            return false;
         }
+
         return true;
     }
     private bool CanPlayerMoveRight()
     {
-        for (int i = 0; i < _playerMovements.Count; i++)
+        if (playerMovements.onLeftWall || shadowPlayer.onLeftWall)
         {
-            if (_playerMovements[i].onLeftWall)
-            {
-                return false;
-            }
+            return false;
         }
+
         return true;
     }
 }
