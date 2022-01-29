@@ -4,10 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Waypoint
   - Enemy
   - Spikes
   - Laser
+  - Waypoint One
+  - Waypoint Two
+  - Player Two
   layers:
   - Default
   - TransparentFX

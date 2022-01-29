@@ -5,45 +5,67 @@ using UnityEngine;
 
 public class WaypointManager : Singleton<WaypointManager>
 {
-    [SerializeField]private WaypointSystem[] _waypoints;
+    [SerializeField]private WaypointSystem[] _waypointsOne;
+    [SerializeField]private WaypointSystem[] _waypointsTwo;
     
     
-    public Vector3 respawnPos;
+    public Vector3 respawnPosOne;
+    public Vector3 respawnPosTwo;
     
+    
+    int index = 0;
     private void Start()
     {
-        int index = 0;
-        _waypoints = new WaypointSystem[GameObject.FindGameObjectsWithTag("Waypoint").Length];
+        int indexTwo = 0;
         
-        foreach (GameObject child in GameObject.FindGameObjectsWithTag("Waypoint"))
+        _waypointsOne = new WaypointSystem[GameObject.FindGameObjectsWithTag("Waypoint One").Length];
+        _waypointsTwo = new WaypointSystem[GameObject.FindGameObjectsWithTag("Waypoint Two").Length];
+
+        foreach (GameObject child in GameObject.FindGameObjectsWithTag("Waypoint One"))
         {
-            if (child.CompareTag("Waypoint"))
+            if (child.CompareTag("Waypoint One"))
             {
-                _waypoints[index] = child.GetComponent<WaypointSystem>();
+                _waypointsOne[index] = child.GetComponent<WaypointSystem>();
                 index += 1;
             }
+        }
+        foreach (GameObject child in GameObject.FindGameObjectsWithTag("Waypoint Two"))
+        {
+            _waypointsTwo[indexTwo] = child.GetComponent<WaypointSystem>();
+            indexTwo += 1;
         }
     }
 
     private void Update()
     {
-        foreach (var waypoints in _waypoints)
+        for(int i = 0; i < index; i++)
         {
-            if (waypoints.collided)
+            if (_waypointsOne[i].collided && _waypointsTwo[i].collided)
             {
-                SetPos(waypoints.transform.position);
+                SetPos(_waypointsOne[i].transform.position, _waypointsTwo[i].transform.position);
+                StartCoroutine(_waypointsOne[i].SetCollided());
+                StartCoroutine(_waypointsTwo[i].SetCollided());
             }
         }
         
     }
 
-    void SetPos(Vector3 pos)
+    void SetPos(Vector3 pos, Vector3 posTwo)
     {
-        respawnPos = pos;
+        respawnPosOne = pos;
+        respawnPosTwo = posTwo;
+        
     }
 
     public void Respawn(Transform player)
     {
-        player.position = respawnPos;
+        if (player.CompareTag("Player"))
+        {
+            player.position = respawnPosOne;
+        }
+        else
+        {
+            player.position = respawnPosTwo;
+        }
     }
 }

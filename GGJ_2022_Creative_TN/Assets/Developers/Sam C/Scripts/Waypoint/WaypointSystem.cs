@@ -16,15 +16,14 @@ public class WaypointSystem : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.CompareTag("Player"))
+        if (col.CompareTag("Player") || col.CompareTag("Player Two"))
         {
-            StartCoroutine(SetCollided());
+            collided = true;
         }
     }
 
-    IEnumerator SetCollided()
+    public IEnumerator SetCollided()
     {
-        collided = true;
         yield return new WaitForSeconds(0.5f);
         collided = false;
     }

@@ -43,11 +43,13 @@ public class ParticleDeath : MonoBehaviour
         PlayerHealth playerHealth = GetComponent<PlayerHealth>();
         if (playerHealth.health != 0)
         {
-            GetComponent<PlayerMovement>().enabled = false;
+            GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().enabled = false;
+            GameObject.FindWithTag("Player Two").GetComponent<PlayerMovement>().enabled = false;
             Vector3 pos = transform.position - laser.position;
             _rb.velocity = new Vector2(pos.x * knockBackForce, 7);
             yield return new WaitForSeconds(0.5f);
-            GetComponent<PlayerMovement>().enabled = true;
+            GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().enabled = true;
+            GameObject.FindWithTag("Player Two").GetComponent<PlayerMovement>().enabled = true;
         }
         else
         {
