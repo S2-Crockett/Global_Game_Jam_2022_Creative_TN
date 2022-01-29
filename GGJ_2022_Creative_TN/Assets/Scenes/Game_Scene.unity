@@ -508,6 +508,9 @@ MonoBehaviour:
   Display: {fileID: 0}
   HowToPlay: {fileID: 0}
   resolutionDropdown: {fileID: 0}
+  brightnessSlider: {fileID: 0}
+  brightnessTextValue: {fileID: 0}
+  defaultBrightness: 1
 --- !u!4 &272537782
 Transform:
   m_ObjectHideFlags: 0
@@ -8098,6 +8101,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 27497495, guid: af19ee95b8c221b4098ea6329476a011, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 656775452304133511, guid: af19ee95b8c221b4098ea6329476a011, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
       value: 1
