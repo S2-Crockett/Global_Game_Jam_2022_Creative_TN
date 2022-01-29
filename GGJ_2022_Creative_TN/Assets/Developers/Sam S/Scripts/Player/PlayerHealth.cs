@@ -29,7 +29,7 @@ public class PlayerHealth : MonoBehaviour
             health -= amount;
             if (health <= 0)
             {
-                DecreaseHealth(health);
+                Die();
                 UIManager.instance.healthUI.RemoveHealth(amount);
             }
             else

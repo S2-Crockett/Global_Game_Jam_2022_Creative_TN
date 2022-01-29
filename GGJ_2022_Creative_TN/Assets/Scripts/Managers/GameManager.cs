@@ -83,6 +83,7 @@ public class GameManager : Singleton<GameManager>
     // Event called once state has changed to this (not updated).
     private void HandleLoseState()
     {
+        // this will automatically be called when you die.
     }
 }
 
