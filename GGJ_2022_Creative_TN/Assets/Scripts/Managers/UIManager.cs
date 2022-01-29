@@ -6,6 +6,10 @@ using UnityEngine.UI;
 
 public class UIManager : Singleton<UIManager>
 {
+    [Header("Game HUD")] 
+    public UITime timeUI;
+    public UIScore scoreUI;
+    public UIHealth healthUI;
     public GameObject Mainmenu;
     public GameObject Options;
     public GameObject Audio;
