@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UIManager : Singleton<UIManager>
 {
@@ -11,6 +12,10 @@ public class UIManager : Singleton<UIManager>
     public GameObject Display;
     public GameObject HowToPlay;
 
+    public Dropdown resolutionDropdown;
+
+    Resolution[] resolutions;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,12 +24,18 @@ public class UIManager : Singleton<UIManager>
         Audio.SetActive(false);
         Display.SetActive(false);
         HowToPlay.SetActive(false);
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        resolutions = Screen.resolutions;
+        resolutionDropdown.ClearOptions();
+
+        List<string> options = new List<string>();
+
+        for (int i = 0; i < resolutions.Length; i++)
+        {
+            string option = resolutions[i].width + " x " + resolutions[i].height;
+            options.Add(option);
+        }
+        resolutionDropdown.AddOptions(options);
     }
 
     public void StartFunction()
@@ -76,5 +87,14 @@ public class UIManager : Singleton<UIManager>
     {
         Debug.Log("QUIT");
         Application.Quit();
+    }
+
+    public void SetGraphics(int GraphicsIndex)
+    {
+        QualitySettings.SetQualityLevel(GraphicsIndex);
+    }
+    public void SetFullscreen(bool isFullscreen)
+    {
+        Screen.fullScreen = isFullscreen;
     }
 }
