@@ -43,7 +43,6 @@ public class PlayerMovement : MonoBehaviour
         _animator.SetFloat("Speed", Mathf.Abs(_horizontalMove));
         if (_moveInput > 0)
         {
-            
             _spriteRenderer.flipX = false;
             //true
         }

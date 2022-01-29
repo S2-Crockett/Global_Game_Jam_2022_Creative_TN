@@ -7,10 +7,14 @@ public class ParticleDeath : MonoBehaviour
     public bool hit = false;
     public float timer = 0;
     public PhysicsMaterial2D phyMat;
+    private Rigidbody2D _rb;
+    [SerializeField] private int knockBackForce;
+    
 
     void Start()
     {
-        
+        _rb = GetComponent<Rigidbody2D>();
+        timer = 0.5f;
     }
 
     private void Update()
@@ -26,33 +30,21 @@ public class ParticleDeath : MonoBehaviour
             phyMat.bounciness = 0;
             timer = 0f;
         }
-        
-        
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Laser")
+        if (collision.gameObject.CompareTag("Laser") || collision.gameObject.CompareTag("Spikes"))
         {
-            if(timer >= 0)
-            {
-                phyMat.bounciness = 1;
-                timer = 0.5f;
-                hit = true;
-            }
-            /*
-            if(timer >= 0)
-            {
-                print("ENTERED");
-                //rb.velocity = new Vector2(-rb.velocity.x, rb.velocity.y);
-                //rb.velocity = new Vector2(-_moveInput * 100, rb.velocity.y);
-                rb.AddForce(-rb.velocity, ForceMode2D.Impulse);
-                print(rb.velocity.x);
-                hit = true;
-                timer = 0.2f;
-            }
-            */
-            
+            StartCoroutine(Bounceback(collision.transform));
         }
+    }
+    IEnumerator Bounceback(Transform laser)
+    {
+        GetComponent<PlayerMovement>().enabled = false;
+        Vector3 pos = transform.position - laser.position ;
+        _rb.velocity = new Vector2(pos.x * knockBackForce, 7);
+        yield return new WaitForSeconds(0.5f);
+        GetComponent<PlayerMovement>().enabled = true;
     }
     
 }
