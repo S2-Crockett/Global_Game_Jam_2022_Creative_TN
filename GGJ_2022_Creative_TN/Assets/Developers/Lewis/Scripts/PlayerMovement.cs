@@ -4,6 +4,10 @@ public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D _rb;
 
+    public ParticleSystem dust;
+    public ParticleSystem dust1;
+    public ParticleSystem dust2;
+
     [HideInInspector]
     public bool isGrounded, onLeftWall, onRightWall;
     
@@ -61,11 +65,25 @@ public class PlayerMovement : MonoBehaviour
 
         if (canMoveRight && _moveInput > 0)
         {
-            _rb.velocity = new Vector2(_moveInput * moveSpeed, _rb.velocity.y);
+            if (isGrounded)
+            {
+                _rb.velocity = new Vector2(_moveInput * moveSpeed, _rb.velocity.y);
+            }
+            else
+            {
+                _rb.velocity = new Vector2(_moveInput * moveSpeed/2, _rb.velocity.y);
+            }
         }
         else if (canMoveLeft && _moveInput < 0)
         {
-            _rb.velocity = new Vector2(_moveInput * moveSpeed, _rb.velocity.y);
+            if (isGrounded)
+            {
+                _rb.velocity = new Vector2(_moveInput * moveSpeed, _rb.velocity.y);
+            }
+            else
+            {
+                _rb.velocity = new Vector2(_moveInput * moveSpeed/2, _rb.velocity.y);
+            }
         }
         else if (_moveInput == 0 || !canMoveLeft || !canMoveRight)
         {
@@ -85,14 +103,31 @@ public class PlayerMovement : MonoBehaviour
         {
             _rb.velocity = Vector2.up * jumpForce;
             leftCount = -20000;
+            if (_moveInput <= 0)
+            {
+                CreateDust(dust1);
+            }
+            else
+            {
+                CreateDust(dust2);
+            }
         }
         else if(Input.GetKeyDown(KeyCode.Space) && rightCount > 0)
         {
             _rb.velocity = Vector2.up * jumpForce;
             rightCount = -20000;
+            if (_moveInput <= 0)
+            {
+                CreateDust(dust1);
+            }
+            else
+            {
+                CreateDust(dust2);
+            }
         }
         else if(Input.GetKeyDown(KeyCode.Space) && leftCount == 0 && rightCount == 0 && isGrounded && isManagerGrounded)
         {
+            CreateDust(dust);
             _rb.velocity = Vector2.up * jumpForce;
         }
 
@@ -107,5 +142,10 @@ public class PlayerMovement : MonoBehaviour
             rightCount++;
             leftCount = 0;
         }
+    }
+
+    void CreateDust(ParticleSystem dust_)
+    {
+        dust_.Play();
     }
 }
