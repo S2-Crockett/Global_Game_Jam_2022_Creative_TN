@@ -24,7 +24,8 @@
       <change beforePath="$PROJECT_DIR$/Assets/Developers/Lewis/Scripts/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Developers/Lewis/Scripts/PlayerMovement.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player/Player.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player/SecondPlayer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player/SecondPlayer.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game_Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game_Scene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/ShadowCharacter/Animation/Idle/Idle_Animation.anim" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Textures/ShadowCharacter/Animation/Idle/Idle_Animation.anim.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +113,7 @@
       <workItem from="1643395621066" duration="4439000" />
       <workItem from="1643401171187" duration="8299000" />
       <workItem from="1643410613816" duration="6328000" />
-      <workItem from="1643419908099" duration="10362000" />
+      <workItem from="1643419908099" duration="10973000" />
     </task>
     <servers />
   </component>

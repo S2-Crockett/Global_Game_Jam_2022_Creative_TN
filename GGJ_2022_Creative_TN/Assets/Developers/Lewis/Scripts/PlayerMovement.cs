@@ -101,17 +101,12 @@ public class PlayerMovement : MonoBehaviour
             _rb.velocity = new Vector2(0, _rb.velocity.y);
         }
         
-        
-        
-
         if(isGrounded)
         {
             leftCount = 0;
             rightCount = 0;
         }
-
         
-
         if( Input.GetKeyDown(KeyCode.Space) && leftCount > 0)
         {
             _rb.velocity = Vector2.up * jumpForce;
