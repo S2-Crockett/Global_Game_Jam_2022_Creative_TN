@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -99,6 +100,7 @@ public class GameManager : Singleton<GameManager>
     private void HandleLoseState()
     {
         // this will automatically be called when you die.
+        SceneManager.LoadScene("Loss_Scene");
     }
 }
 
