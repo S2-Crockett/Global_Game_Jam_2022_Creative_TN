@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _whatIsGround = LayerMask.GetMask("Ground");
+        
 
         foreach (var child in GetComponentsInChildren<Transform>())
         {
@@ -58,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkArea, _whatIsGround);
         onLeftWall = Physics2D.OverlapCircle(leftCheck.position, checkArea, _whatIsGround);
         onRightWall = Physics2D.OverlapCircle(rightCheck.position, checkArea, _whatIsGround);
-
+        
         if (canMoveRight && _moveInput > 0)
         {
             _rb.velocity = new Vector2(_moveInput * moveSpeed, _rb.velocity.y);
@@ -71,6 +72,8 @@ public class PlayerMovement : MonoBehaviour
         {
             _rb.velocity = new Vector2(0, _rb.velocity.y);
         }
+        
+        
         
 
         if(isGrounded)

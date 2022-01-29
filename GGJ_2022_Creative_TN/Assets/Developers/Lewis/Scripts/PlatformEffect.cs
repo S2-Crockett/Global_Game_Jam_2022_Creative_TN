@@ -26,7 +26,7 @@ public class PlatformEffect : MonoBehaviour
        
         if(Input.GetKeyDown(KeyCode.S))
         {
-            waitDuration += 0.5f;
+            waitDuration += 0.3f;
         }
     }
 }
