@@ -8,8 +8,8 @@ public class PlayerMovement : MonoBehaviour
     public ParticleSystem dust1;
     public ParticleSystem dust2;
 
-    [HideInInspector]
-    public bool isGrounded, onLeftWall, onRightWall;
+    
+    public bool isGrounded,isGrabGrounded, onLeftWall, onRightWall;
     
     [SerializeField] private float checkArea = 0.02f;
 
@@ -17,18 +17,25 @@ public class PlayerMovement : MonoBehaviour
     public int leftCount, rightCount;
 
     [HideInInspector]
-    public Transform groundCheck, leftCheck, rightCheck;
+    public Transform leftCheck, rightCheck;
     
     private LayerMask _whatIsGround;
 
     [SerializeField] private int jumpForce;
     [SerializeField] private int moveSpeed;
-
-    [HideInInspector]
+    
     public bool isManagerGrounded = true, canMoveRight = true, canMoveLeft = true;
 
     private float _moveInput;
     private SpriteRenderer _spriteRenderer;
+
+
+    public Transform wallGrabPoint;
+    public bool isGrabbingLeft, isGrabbingRight;
+    private float gravityStore;
+    public float wallJumpTime;
+    private float wallJumpCounter;
+    private int leftGrab, rightGrab;
 
 
     private void Awake()
@@ -37,12 +44,10 @@ public class PlayerMovement : MonoBehaviour
         _whatIsGround = LayerMask.GetMask("Ground");
         _spriteRenderer = GetComponent<SpriteRenderer>();
 
+        gravityStore = _rb.gravityScale;
+        
         foreach (var child in GetComponentsInChildren<Transform>())
         {
-            if (child.name == "Ground Check")
-            {
-                groundCheck = child;
-            }
             if (child.name == "Left Check")
             {
                 leftCheck = child;
@@ -56,7 +61,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _moveInput = Input.GetAxis("Horizontal");
         if (_moveInput > 0)
         {
             _spriteRenderer.flipX = false;
@@ -65,96 +69,102 @@ public class PlayerMovement : MonoBehaviour
         else if(_moveInput < 0)
         {
             _spriteRenderer.flipX = true;
-            
             //false
         }
     }
 
     private void Update()
     {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, checkArea, _whatIsGround);
-        onLeftWall = Physics2D.OverlapCircle(leftCheck.position, checkArea, _whatIsGround);
-        onRightWall = Physics2D.OverlapCircle(rightCheck.position, checkArea, _whatIsGround);
-
-        if (canMoveRight && _moveInput > 0)
+        if (wallJumpCounter <= 0)
         {
+            _moveInput = Input.GetAxis("Horizontal");
+            isGrounded = Physics2D.Raycast(transform.position, Vector2.down, 0.5f);
+            isGrabGrounded = Physics2D.Raycast(transform.position, Vector2.down, 1.5f);
+            onLeftWall = Physics2D.Raycast(transform.position, Vector2.left, 0.5f);
+            onRightWall = Physics2D.Raycast(transform.position, Vector2.right, 0.5f);
+            
             if (isGrounded)
             {
                 _rb.velocity = new Vector2(_moveInput * moveSpeed, _rb.velocity.y);
+                leftGrab = 0;
+                rightGrab = 0;
             }
             else
             {
-                _rb.velocity = new Vector2(_moveInput * moveSpeed/2, _rb.velocity.y);
+                _rb.velocity = new Vector2(_moveInput * moveSpeed / 2, _rb.velocity.y);
             }
-        }
-        else if (canMoveLeft && _moveInput < 0)
-        {
-            if (isGrounded)
+            
+
+            
+
+            if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
             {
-                _rb.velocity = new Vector2(_moveInput * moveSpeed, _rb.velocity.y);
+                CreateDust(dust);
+                _rb.velocity = Vector2.up * jumpForce;
+            }
+
+            
+            if (onLeftWall && !isGrabGrounded && leftGrab == 0)
+            {
+                if (_moveInput < 0)
+                {
+                    isGrabbingLeft = true;
+                    leftGrab += 1;
+                    rightGrab = 0;
+                }
+            }
+            else if (onRightWall && !isGrabGrounded && rightGrab == 0)
+            {
+                if (_moveInput > 0)
+                {
+                    isGrabbingRight = true;
+                    rightGrab += 1;
+                    leftGrab = 0;
+                }
             }
             else
             {
-                _rb.velocity = new Vector2(_moveInput * moveSpeed/2, _rb.velocity.y);
+                if (!isGrabbingLeft)
+                {
+                    isGrabbingLeft = false;
+                }
             }
-        }
-        else if (_moveInput == 0 || !canMoveLeft || !canMoveRight)
-        {
-            _rb.velocity = new Vector2(0, _rb.velocity.y);
-        }
-        
 
-        if(isGrounded)
-        {
-            leftCount = 0;
-            rightCount = 0;
-        }
-
-        
-
-        if( Input.GetKeyDown(KeyCode.Space) && leftCount > 0)
-        {
-            _rb.velocity = Vector2.up * jumpForce;
-            leftCount = -20000;
-            if (_moveInput <= 0)
+            if (isGrabbingLeft)
             {
-                CreateDust(dust1);
+                _rb.gravityScale = 0f;
+                _rb.velocity = Vector2.zero;
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    wallJumpCounter = wallJumpTime;
+                    _rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed/2, jumpForce);
+                    _rb.gravityScale = gravityStore;
+                    isGrabbingLeft = false;
+                }
+            }
+            else if (isGrabbingRight)
+            {
+                _rb.gravityScale = 0f;
+                _rb.velocity = Vector2.zero;
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    wallJumpCounter = wallJumpTime;
+                    _rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed/2, jumpForce);
+                    _rb.gravityScale = gravityStore;
+                    isGrabbingRight = false;
+                }
             }
             else
             {
-                CreateDust(dust2);
+                _rb.gravityScale = gravityStore;
             }
         }
-        else if(Input.GetKeyDown(KeyCode.Space) && rightCount > 0)
+        else
         {
-            _rb.velocity = Vector2.up * jumpForce;
-            rightCount = -20000;
-            if (_moveInput <= 0)
-            {
-                CreateDust(dust1);
-            }
-            else
-            {
-                CreateDust(dust2);
-            }
-        }
-        else if(Input.GetKeyDown(KeyCode.Space) && leftCount == 0 && rightCount == 0 && isGrounded && isManagerGrounded)
-        {
-            CreateDust(dust);
-            _rb.velocity = Vector2.up * jumpForce;
+            wallJumpCounter -= Time.deltaTime;
         }
 
-        
-        if (!isGrounded && onLeftWall)
-        {
-            leftCount++;
-            rightCount = 0;
-        }
-        else if (!isGrounded && onRightWall)
-        {
-            rightCount++;
-            leftCount = 0;
-        }
+
     }
 
     void CreateDust(ParticleSystem dust_)
