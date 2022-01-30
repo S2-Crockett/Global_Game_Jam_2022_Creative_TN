@@ -12,6 +12,8 @@ public class UIManager : Singleton<UIManager>
     public UITime timeUI;
     public UIScore scoreUI;
     public UIHealth healthUI;
+    public UITutorial tutorialUI;
+    public UIWaypoint waypointUI;
 
     [Header("Menu HUD")] public GameObject Mainmenu;
     public GameObject Options;
@@ -92,6 +94,8 @@ public class UIManager : Singleton<UIManager>
         timeUI = GameObject.Find("Panel-Time").GetComponent<UITime>();
         healthUI = GameObject.Find("Panel-Health").GetComponent<UIHealth>();
         scoreUI = GameObject.Find("Panel-Score").GetComponent<UIScore>();
+        tutorialUI = GameObject.Find("Panel-Tutorial").GetComponent<UITutorial>();
+        waypointUI = GameObject.Find("Panel-Checkpoint").GetComponent<UIWaypoint>();
     }
 
     public void DisplayOptions()

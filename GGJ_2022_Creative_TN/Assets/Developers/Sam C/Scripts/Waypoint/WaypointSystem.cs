@@ -19,13 +19,17 @@ public class WaypointSystem : MonoBehaviour
     {
         if (col.CompareTag("Player") || col.CompareTag("Player Two"))
         {
-            collided = true;
+            if (!collided)
+            {
+                UIManager.instance.waypointUI.SetActive(3.0f);
+                collided = true;
+            }
         }
     }
 
     public IEnumerator SetCollided()
     {
         yield return new WaitForSeconds(0.5f);
-        collided = false;
+        //collided = false;
     }
 }
