@@ -88,6 +88,8 @@
             <e p="UIHealth.cs" t="Include" />
             <e p="UIScore.cs" t="Include" />
             <e p="UITime.cs" t="Include" />
+            <e p="UITutorial.cs" t="Include" />
+            <e p="UIWaypoint.cs" t="Include" />
           </e>
           <e p="WinScreen.cs" t="Include" />
         </e>

@@ -12,15 +12,9 @@ EditorBuildSettings:
     path: Assets/Developers/Callum/Scenes/Callum_Scene.unity
     guid: c52f2337ac0e0924a848d9859d575789
   - enabled: 1
-    path: Assets/Scenes/Game_Scene.unity
+    path: Assets/Scenes/Level_Tutorial.unity
     guid: 80756e74435fd9a4fb1e78921657b114
   - enabled: 1
     path: Assets/Developers/Sam C/Scenes/LevelCreationScene.unity
     guid: de9e8f682750b764f92f9feb08d6db80
-  - enabled: 1
-    path: Assets/Developers/Sam C/Scenes/Tutorial Scene.unity
-    guid: e280c35197c55fa4fba964d617053b6f
-  - enabled: 1
-    path: Assets/Scenes/Level_Completion_Scene.unity
-    guid: 2d49d61d234c26f489cc1757669f0018
   m_configObjects: {}
