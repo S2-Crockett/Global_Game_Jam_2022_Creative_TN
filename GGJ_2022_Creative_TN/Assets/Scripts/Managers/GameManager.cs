@@ -109,8 +109,9 @@ public class GameManager : Singleton<GameManager>
         
         playerController = GameObject.Find("Player");
         PlayerHealth health = playerController.GetComponent<PlayerHealth>();
-        UIManager.instance.healthUI.InitHealth(health.health);
         
+        UIManager.instance.healthUI.InitHealth(health.health);
+        SoundManager.instance.pMovement = playerController.GetComponent<PlayerMovement>();
         WaypointManager.instance.GetWaypoints();
         
         _timer = GetComponent<GameTimer>();
