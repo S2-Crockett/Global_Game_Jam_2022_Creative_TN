@@ -74,10 +74,6 @@ public class ParticleDeath : MonoBehaviour
                 yield return new WaitForSeconds(0.5f);
                 GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().enabled = true;
             }
-            else
-            {
-                GetComponent<PlayerMovement>()._gameStates = GameStates.InLoseMenu;
-            }
         }
     }
     

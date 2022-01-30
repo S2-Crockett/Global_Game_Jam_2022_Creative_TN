@@ -11,13 +11,14 @@ GameObject:
   - component: {fileID: 25096676}
   - component: {fileID: 25096678}
   - component: {fileID: 25096677}
+  - component: {fileID: 3327447601886753524}
   m_Layer: 5
   m_Name: Panel-Checkpoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &25096676
 RectTransform:
   m_ObjectHideFlags: 0
@@ -59,6 +60,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5a6add6955c4464881339afa057f1e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!225 &3327447601886753524
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 25096675}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &321415114
 GameObject:
   m_ObjectHideFlags: 0
@@ -589,13 +602,14 @@ GameObject:
   - component: {fileID: 2000291622}
   - component: {fileID: 2000291621}
   - component: {fileID: 2000291623}
+  - component: {fileID: 3327447601886753525}
   m_Layer: 5
   m_Name: Panel-Tutorial
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2000291620
 RectTransform:
   m_ObjectHideFlags: 0
@@ -670,6 +684,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   headerText: {fileID: 343424614}
   bodyText: {fileID: 321415116}
+--- !u!225 &3327447601886753525
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2000291619}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &3327447600317140312
 GameObject:
   m_ObjectHideFlags: 0

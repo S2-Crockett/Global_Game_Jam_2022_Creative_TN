@@ -821,7 +821,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &141248384
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1095,7 +1095,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &191283596
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3068,7 +3068,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 0}
-  _timer: {fileID: 0}
 --- !u!4 &743001397
 Transform:
   m_ObjectHideFlags: 0
@@ -3302,8 +3301,8 @@ RectTransform:
   m_Father: {fileID: 855749662}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4292,6 +4291,8 @@ MonoBehaviour:
   healthUI: {fileID: 0}
   tutorialUI: {fileID: 0}
   waypointUI: {fileID: 0}
+  loseUI: {fileID: 0}
+  winUI: {fileID: 0}
   Mainmenu: {fileID: 1537771320}
   Options: {fileID: 1316322777}
   Audio: {fileID: 141248383}
@@ -6028,12 +6029,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1316322778}
   m_Layer: 5
-  m_Name: 'Panel-Options '
+  m_Name: Panel-Option
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1316322778
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7130,7 +7131,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1537771321
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7705,7 +7706,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -11350,7 +11351,7 @@ GameObject:
   - component: {fileID: 6262666058222125575}
   - component: {fileID: 2986902179892889693}
   m_Layer: 2
-  m_Name: SecondPlayer
+  m_Name: Player Two
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

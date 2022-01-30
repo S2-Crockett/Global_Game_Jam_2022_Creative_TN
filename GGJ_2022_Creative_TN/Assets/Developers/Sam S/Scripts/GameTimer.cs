@@ -16,6 +16,7 @@ public class GameTimer : MonoBehaviour
 
     public void StopTimer()
     {
+        StopCoroutine(Timer());
         _timerStart = false;
     }
     
@@ -31,7 +32,7 @@ public class GameTimer : MonoBehaviour
             {
                 _seconds = 0;
                 _minutes++;
-
+                
                 UIManager.instance.timeUI.UpdateSecond(_seconds);
                 UIManager.instance.timeUI.UpdateMinute(_minutes);
             }

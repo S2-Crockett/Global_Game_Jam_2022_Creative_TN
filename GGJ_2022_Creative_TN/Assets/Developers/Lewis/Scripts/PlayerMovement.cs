@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -7,21 +8,21 @@ public class PlayerMovement : MonoBehaviour
     public ParticleSystem dust;
     public ParticleSystem dust1;
     public ParticleSystem dust2;
-    
-    
+
+
     public bool isGrounded, isGrabGrounded, onLeftWall, onRightWall;
 
     [SerializeField] private int jumpForce;
     [SerializeField] private int moveSpeed;
-    
+
 
     private float _moveInput;
     private SpriteRenderer _spriteRenderer;
     private SpriteRenderer _spriteShadowRenderer;
-    
+
     [SerializeField] private bool _isGrabbingLeft, _isGrabbingRight, _isGrabbing;
     private float _gravityStore, wallJumpTime = 0.4f, _wallJumpCounter;
-    [SerializeField]private int _leftGrab, _rightGrab;
+    [SerializeField] private int _leftGrab, _rightGrab;
     private Animator[] _animator;
     private float _horizontalMove;
 
@@ -32,12 +33,13 @@ public class PlayerMovement : MonoBehaviour
 
     public bool isMoving = false;
     public AudioClip jump;
-    
-    public GameStates _gameStates;
+
+    public GameObject MenuUi;
+
+    [NonSerialized] public GameState _gameState;
 
     private void Awake()
     {
-        _gameStates = GameStates.InGame;
         _rb = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _spriteShadowRenderer = GameObject.FindGameObjectWithTag("Player Two").GetComponent<SpriteRenderer>();
@@ -51,30 +53,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        switch (_gameStates)
+        foreach (var anim in _animator)
         {
-            case GameStates.InGame:
-            {
-                FixedUpdateGoal();
-                if (GetComponent<PlayerHealth>().health == 0)
-                {
-                    _gameStates = GameStates.InLoseMenu;
-                }
-                break;
-            }
-            case GameStates.InLoseMenu:
-            {
-                foreach (var anim in _animator)
-                {
-                    anim.SetFloat("Speed", 0);
-                }
-                break;
-            }
-            case GameStates.InWinMenu:
-            {
-
-                break;
-            }
+            anim.SetFloat("Speed", 0);
         }
     }
 
@@ -85,162 +66,139 @@ public class PlayerMovement : MonoBehaviour
         {
             anim.SetFloat("Speed", Mathf.Abs(_horizontalMove));
         }
-        
+
         if (_moveInput > 0)
         {
             _spriteRenderer.flipX = false;
             _spriteShadowRenderer.flipX = false;
             //true
         }
-        else if(_moveInput < 0)
+        else if (_moveInput < 0)
         {
             _spriteRenderer.flipX = true;
             _spriteShadowRenderer.flipX = true;
             //false
         }
     }
+
     private void UpdateGoal()
     {
-                if(_moveInput > 0 || _moveInput < 0)
+        if (_gameState == GameState.Playing)
         {
-            isMoving = true;
-        }
-        else
-        {
-            isMoving = false;
-        }
-
-        if (_wallJumpCounter <= 0)
-        {
-            _moveInput = Input.GetAxis("Horizontal");
-            isGrounded = Physics2D.Raycast(transform.position, Vector2.down, 0.75f);
-            isGrabGrounded = Physics2D.Raycast(transform.position, Vector2.down, 1.5f);
-            onLeftWall = Physics2D.Raycast(transform.position, Vector2.left, 0.75f, _layermask);
-            onRightWall = Physics2D.Raycast(transform.position, Vector2.right, 0.75f, _layermask);
-            
-            
-            if (isGrounded)
+            if (_moveInput > 0 || _moveInput < 0)
             {
-                _rb.velocity = new Vector2(_moveInput * moveSpeed, _rb.velocity.y);
-                _leftGrab = 0;
-                _rightGrab = 0;
+                isMoving = true;
             }
             else
             {
-                _rb.velocity = new Vector2(_moveInput * moveSpeed / 1.5f, _rb.velocity.y);
+                isMoving = false;
             }
-            
 
-            if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+            if (_wallJumpCounter <= 0)
             {
-                CreateDust(dust);
-                _rb.velocity = Vector2.up * jumpForce;
-                SoundManager.instance.JumpSounds(jump);
-            }
-            
+                _moveInput = Input.GetAxis("Horizontal");
+                isGrounded = Physics2D.Raycast(transform.position, Vector2.down, 0.75f);
+                isGrabGrounded = Physics2D.Raycast(transform.position, Vector2.down, 1.5f);
+                onLeftWall = Physics2D.Raycast(transform.position, Vector2.left, 0.75f, _layermask);
+                onRightWall = Physics2D.Raycast(transform.position, Vector2.right, 0.75f, _layermask);
 
-            
-            if (onLeftWall && !isGrabGrounded && _leftGrab == 0)
-            {
-                if (_moveInput < 0 && Input.GetKeyDown(KeyCode.W))
+
+                if (isGrounded)
                 {
-                    _isGrabbingLeft = true;
-                    _leftGrab += 1;
+                    _rb.velocity = new Vector2(_moveInput * moveSpeed, _rb.velocity.y);
+                    _leftGrab = 0;
                     _rightGrab = 0;
                 }
-            }
-            else if (onRightWall && !isGrabGrounded && _rightGrab == 0)
-            {
-                if (_moveInput > 0 && Input.GetKeyDown(KeyCode.W))
+                else
                 {
-                    _isGrabbingRight = true;
-                    _rightGrab += 1;
-                    _leftGrab = 0;
+                    _rb.velocity = new Vector2(_moveInput * moveSpeed / 1.5f, _rb.velocity.y);
+                }
+
+
+                if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+                {
+                    CreateDust(dust);
+                    _rb.velocity = Vector2.up * jumpForce;
+                    SoundManager.instance.JumpSounds(jump);
+                }
+
+
+                if (onLeftWall && !isGrabGrounded && _leftGrab == 0)
+                {
+                    if (_moveInput < 0 && Input.GetKeyDown(KeyCode.W))
+                    {
+                        _isGrabbingLeft = true;
+                        _leftGrab += 1;
+                        _rightGrab = 0;
+                    }
+                }
+                else if (onRightWall && !isGrabGrounded && _rightGrab == 0)
+                {
+                    if (_moveInput > 0 && Input.GetKeyDown(KeyCode.W))
+                    {
+                        _isGrabbingRight = true;
+                        _rightGrab += 1;
+                        _leftGrab = 0;
+                    }
+                }
+                else
+                {
+                    if (!_isGrabbingLeft)
+                    {
+                        _isGrabbingLeft = false;
+                    }
+                }
+
+                if (_isGrabbingLeft)
+                {
+                    JumpOffWall(dust2, ref _isGrabbingLeft);
+                }
+                else if (_isGrabbingRight)
+                {
+                    JumpOffWall(dust1, ref _isGrabbingRight);
+                }
+                else
+                {
+                    _rb.gravityScale = _gravityStore;
+                }
+
+                if (_isGrabbingLeft || _isGrabbingRight)
+                {
+                    _isGrabbing = true;
+                }
+                else if (!_isGrabbingLeft && !_isGrabbingRight)
+                {
+                    _isGrabbing = false;
+                }
+
+                foreach (var anim in _animator)
+                {
+                    anim.SetBool("Grabbing", _isGrabbing);
+                    anim.SetBool("Grounded", isGrounded);
                 }
             }
             else
             {
-                if (!_isGrabbingLeft)
-                {
-                    _isGrabbingLeft = false;
-                }
-            }
-
-            if (_isGrabbingLeft)
-            {
-                JumpOffWall(dust2, ref _isGrabbingLeft);
-            }
-            else if (_isGrabbingRight)
-            {
-                JumpOffWall(dust1, ref _isGrabbingRight);
-            }
-            else
-            {
-                _rb.gravityScale = _gravityStore;
-            }
-
-            if (_isGrabbingLeft || _isGrabbingRight)
-            {
-                _isGrabbing = true;
-            }
-            else if (!_isGrabbingLeft && !_isGrabbingRight)
-            {
-                _isGrabbing = false;
-            }
-
-            foreach (var anim in _animator)
-            {
-                anim.SetBool("Grabbing", _isGrabbing);
-                anim.SetBool("Grounded", isGrounded);
+                _wallJumpCounter -= Time.deltaTime;
             }
         }
-        else
-        {
-            _wallJumpCounter -= Time.deltaTime;
-        }
-
     }
 
     private void Update()
     {
-        switch (_gameStates)
-        {
-            case GameStates.InGame:
-            {
-                //MenuUi.SetActive(false);
-                UpdateGoal();
-                if (GetComponent<PlayerHealth>().health == 0)
-                {
-                    GameManager.instance._timer.StopTimer();
-                    StartCoroutine(GameManager.instance.HandleLoseState());
-                    _gameStates = GameStates.InLoseMenu;
-                }
-                break;
-            }
-            case GameStates.InLoseMenu:
-            {
-                _rb.velocity = new Vector2(0,0);
-                Vector3 offset = new Vector3(0, 1, 10);
-                transform.position = GameObject.FindGameObjectWithTag("Waypoint Manager")
-                    .GetComponent<WaypointManager>().respawnPosOne - offset;
-                //MenuUi.SetActive(true);
-                break;
-            }
-            case GameStates.InWinMenu:
-            {
-
-                break;
-            }
-        }
+        UpdateGoal();
     }
 
     public void SetSpawn()
     {
-        //print("Button Pressed");
-        GameManager.instance._timer.StartTimer();
-        _gameStates = GameStates.InGame;
-        GetComponent<PlayerHealth>().IncreaseHealth(5);
-        UIManager.instance.healthUI.InitHealth(5);
+        WaypointManager.instance.Respawn(GameObject.FindWithTag("Player").transform);
+        WaypointManager.instance.Respawn(GameObject.FindWithTag("Player Two").transform);
+    }
+
+    public void DisablePlayer()
+    {
+        isMoving = false;
+        _rb.velocity = new Vector2(0,0);
     }
 
     void JumpOffWall(ParticleSystem dustPs, ref bool isGrabbing)
@@ -252,7 +210,7 @@ public class PlayerMovement : MonoBehaviour
             CreateDust(dustPs);
             SoundManager.instance.JumpSounds(jump);
             _wallJumpCounter = wallJumpTime;
-            _rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed/2, jumpForce);
+            _rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed / 2, jumpForce);
             _rb.gravityScale = _gravityStore;
             isGrabbing = false;
         }
@@ -262,11 +220,4 @@ public class PlayerMovement : MonoBehaviour
     {
         dust_.Play();
     }
-}
-
-public enum GameStates
-{
-    InWinMenu,
-    InLoseMenu,
-    InGame,
 }
