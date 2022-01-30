@@ -150,7 +150,7 @@ public class GameManager : Singleton<GameManager>
         playerController.GetComponent<PlayerMovement>().SetSpawn();
         PlayerHealth health = playerController.GetComponent<PlayerHealth>();
         health.IncreaseHealth(health.originalHealth);
-        _timer.ResetTimer(false);
+        //_timer.ResetTimer(false);
         UIManager.instance.healthUI.InitHealth(health.originalHealth);
     }
     

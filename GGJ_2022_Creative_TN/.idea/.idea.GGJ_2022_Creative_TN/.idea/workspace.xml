@@ -20,19 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3d3affff-3625-43b6-a949-53d13a4144d0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GGJ_2022_Creative_TN/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GGJ_2022_Creative_TN/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.GGJ_2022_Creative_TN/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GGJ_2022_Creative_TN/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GGJ_2022_Creative_TN/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GGJ_2022_Creative_TN/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developers/Lewis/Scripts/ParticleDeath.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Developers/Lewis/Scripts/ParticleDeath.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developers/Lewis/Scripts/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Developers/Lewis/Scripts/PlayerMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developers/Sam C/Scenes/LevelCreationScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Developers/Sam C/Scenes/LevelCreationScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developers/Sam C/Scripts/Waypoint/WaypointManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Developers/Sam C/Scripts/Waypoint/WaypointManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Developers/Sam C/Assets/Players/Player (1).prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Developers/Sam C/Assets/Players/Player (1).prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Developers/Sam C/Assets/Players/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Developers/Sam C/Assets/Players/Player.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Developers/Sam S/Scripts/GameTimer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Developers/Sam S/Scripts/GameTimer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu_Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu_Scene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level_Tutorial.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level_Tutorial.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/UIManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/ButtonText.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/ButtonText.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UILose.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UILose.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UITime.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UITime.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -86,8 +81,8 @@
         <option value="$PROJECT_DIR$/Assets/Developers/Lewis/Scripts/ParticleDeath.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/UILose.cs" />
         <option value="$PROJECT_DIR$/Assets/Developers/Lewis/Scripts/PlayerMovement.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Developers/Sam S/Scripts/GameTimer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" />
       </list>
     </option>
   </component>
@@ -110,6 +105,14 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../../../Jam 3\GGJ_2022_Creative_TN.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="D:\University Files\3rd Year\CGD\Gam Jam Files\Jam 3" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
@@ -147,6 +150,7 @@
       <workItem from="1643504294293" duration="215000" />
       <workItem from="1643513409859" duration="14299000" />
       <workItem from="1643547584590" duration="12008000" />
+      <workItem from="1643570023142" duration="12000" />
     </task>
     <servers />
   </component>

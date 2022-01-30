@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2169531128247673949}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Left Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2169531128354417350}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Ground Check
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -74,7 +74,10 @@ GameObject:
   - component: {fileID: 2169531128611839746}
   - component: {fileID: 2169531128611839747}
   - component: {fileID: 2169531128611839742}
-  m_Layer: 0
+  - component: {fileID: 276706980}
+  - component: {fileID: 276706978}
+  - component: {fileID: 276706979}
+  m_Layer: 2
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -90,7 +93,7 @@ Transform:
   m_GameObject: {fileID: 2169531128611839748}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.5, y: 23, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1}
   m_Children:
   - {fileID: 2169531128354417350}
   - {fileID: 2169531130289222778}
@@ -143,15 +146,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.16, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &2169531128611839745
@@ -171,8 +174,8 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 3
   m_Material: {fileID: 6200000, guid: 09b55d87949a41b44bd16258b36dc803, type: 2}
-  m_Interpolate: 0
-  m_SleepingMode: 1
+  m_Interpolate: 1
+  m_SleepingMode: 0
   m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!61 &2169531128611839746
@@ -199,7 +202,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 0.9, y: 0.9}
   m_EdgeRadius: 0
 --- !u!114 &2169531128611839747
 MonoBehaviour:
@@ -217,19 +220,19 @@ MonoBehaviour:
   dust1: {fileID: 2169531130286869197}
   dust2: {fileID: 2169531130186002847}
   isGrounded: 0
+  isGrabGrounded: 0
   onLeftWall: 0
   onRightWall: 0
-  checkArea: 0.02
-  leftCount: 0
-  rightCount: 0
-  groundCheck: {fileID: 0}
-  leftCheck: {fileID: 0}
-  rightCheck: {fileID: 0}
   jumpForce: 13
   moveSpeed: 10
-  isManagerGrounded: 1
-  canMoveRight: 1
-  canMoveLeft: 1
+  _isGrabbingLeft: 0
+  _isGrabbingRight: 0
+  _isGrabbing: 0
+  _leftGrab: 0
+  _rightGrab: 0
+  isMoving: 0
+  jump: {fileID: 8300000, guid: be1c967419c58b945aa1ae8f03abac7a, type: 3}
+  MenuUi: {fileID: 0}
 --- !u!114 &2169531128611839742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,6 +245,58 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7daf86a50498924bb16aee25a8b2de2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &276706980
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2169531128611839748}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: acea7b306c7b88148924e75708820a2b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &276706978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2169531128611839748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01cf4fb87ceab644798992b18d08f941, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hit: 0
+  timer: 0.5
+  phyMat: {fileID: 6200000, guid: 09b55d87949a41b44bd16258b36dc803, type: 2}
+  knockBackForce: 10
+  playerHealth: {fileID: 0}
+--- !u!114 &276706979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2169531128611839748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 682ec49974fa9ba418566e9c65a355dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 5
+  damage: {fileID: 8300000, guid: 4318ddfa7074a294abd16dd77733adc2, type: 3}
+  death: {fileID: 8300000, guid: 70fa75d41c15a1349ab666398121ebc1, type: 3}
+  originalHealth: 0
 --- !u!1 &2169531128664497923
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,7 +306,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2169531128664497922}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Right Check
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -283,7 +338,7 @@ GameObject:
   - component: {fileID: 2169531129342043690}
   - component: {fileID: 2169531129342043688}
   - component: {fileID: 2169531129342043689}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Dust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -494,7 +549,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 0.254717, g: 0.254717, b: 0.254717, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -5089,7 +5144,7 @@ GameObject:
   - component: {fileID: 2169531130186002845}
   - component: {fileID: 2169531130186002847}
   - component: {fileID: 2169531130186002846}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Dust (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5300,7 +5355,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 0.254717, g: 0.254717, b: 0.254717, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -9895,7 +9950,7 @@ GameObject:
   - component: {fileID: 2169531130286869195}
   - component: {fileID: 2169531130286869197}
   - component: {fileID: 2169531130286869196}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Dust (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10106,7 +10161,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 0.254717, g: 0.254717, b: 0.254717, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -14701,7 +14756,7 @@ GameObject:
   - component: {fileID: 2169531130289222778}
   - component: {fileID: 2169531130289222779}
   - component: {fileID: 2169531130289222780}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -14732,7 +14787,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -14749,7 +14804,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

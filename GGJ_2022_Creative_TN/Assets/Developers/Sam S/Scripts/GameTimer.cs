@@ -50,8 +50,6 @@ public class GameTimer : MonoBehaviour
                 UIManager.instance.timeUI.UpdateMinute(_minutes);
             }
         }
-        
-
         // add one second to timer
         // if timer == 60, add minute count..
     }
