@@ -42,7 +42,6 @@ public class PlayerHealth : MonoBehaviour
     
     public void Die()
     {
-        Debug.Log("DIE");
         GameManager.instance.UpdateGameState(GameState.Lose);
         WaypointManager.instance.Respawn(GameObject.FindWithTag("Player").transform);
         WaypointManager.instance.Respawn(GameObject.FindWithTag("Player Two").transform);

@@ -40,14 +40,32 @@ public class WaypointManager : Singleton<WaypointManager>
     {
         for(int i = 0; i < index; i++)
         {
-            if (_waypointsOne[i].collided && _waypointsTwo[i].collided)
+            if (_waypointsOne[i].collided && _waypointsTwo[i].collided && !_waypointsOne[i].set)
             {
+                //When both Have collided Set respawn position for both players 
+                StartCoroutine(_waypointsOne[i].SetCollided());  
                 SetPos(_waypointsOne[i].transform.position, _waypointsTwo[i].transform.position);
-                StartCoroutine(_waypointsOne[i].SetCollided());
-                StartCoroutine(_waypointsTwo[i].SetCollided());
+                StartCoroutine(MoveFlag(_waypointsOne[i].transform, i));
+                StartCoroutine(MoveFlagTwo(_waypointsTwo[i].transform));
             }
         }
-        
+    }
+
+    IEnumerator MoveFlag(Transform flag, int index)
+    {        
+        Vector3 offset = new Vector3(0, 0.25f, 0);
+        Vector3 newPos = respawnPosOne + offset;
+        flag.transform.position = Vector3.MoveTowards(respawnPosOne, newPos, 0.005f);
+        yield return new WaitForSeconds(0.75f);
+        _waypointsOne[index].set = true;
+    }
+
+    IEnumerator MoveFlagTwo(Transform flag)
+    {
+        Vector3 offset = GameObject.FindGameObjectWithTag("Player Two").GetComponent<ShadowPlayer>().offset;
+        Vector3 newPos = new Vector3(respawnPosOne.x, respawnPosOne.y + offset.y, respawnPosOne.z);
+        flag.transform.position = newPos;
+        yield return new WaitForSeconds(0.75f);
     }
 
     void SetPos(Vector3 pos, Vector3 posTwo)

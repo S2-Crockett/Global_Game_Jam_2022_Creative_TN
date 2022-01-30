@@ -67,7 +67,6 @@ public class PlayerMovement : MonoBehaviour
             onLeftWall = Physics2D.Raycast(transform.position, Vector2.left, 0.75f, _layermask);
             onRightWall = Physics2D.Raycast(transform.position, Vector2.right, 0.75f, _layermask);
             
-            Debug.DrawRay(transform.position, Vector2.down, Color.blue);
             
             if (isGrounded)
             {

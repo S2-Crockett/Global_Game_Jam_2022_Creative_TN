@@ -7,6 +7,7 @@ public class WaypointSystem : MonoBehaviour
 {
 
     public bool collided = false;
+    public bool set = false;
     public Vector3 pos;
 
     private void Start()
