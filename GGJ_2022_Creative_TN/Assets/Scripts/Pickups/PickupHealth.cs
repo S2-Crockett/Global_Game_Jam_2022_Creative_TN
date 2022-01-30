@@ -36,7 +36,7 @@ public class PickupHealth : MonoBehaviour
     {
         if (other.CompareTag("Player") || other.CompareTag("Player Two"))
         {
-            SoundManager._Instance.PickupSounds(pickup);
+            SoundManager.instance.PickupSounds(pickup);
             GameManager.instance.IncreaseHealth(1);
             Destroy(gameObject);
         }

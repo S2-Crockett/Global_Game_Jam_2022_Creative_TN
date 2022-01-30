@@ -47,6 +47,8 @@ public class WaypointManager : Singleton<WaypointManager>
                 SetPos(_waypointsOne[i].transform.position, _waypointsTwo[i].transform.position);
                 StartCoroutine(MoveFlag(_waypointsOne[i].transform, i));
                 StartCoroutine(MoveFlagTwo(_waypointsTwo[i].transform));
+                _waypointsOne[i].GetComponent<BoxCollider2D>().enabled = false;
+                _waypointsTwo[i].GetComponent<BoxCollider2D>().enabled = false;
             }
         }
     }

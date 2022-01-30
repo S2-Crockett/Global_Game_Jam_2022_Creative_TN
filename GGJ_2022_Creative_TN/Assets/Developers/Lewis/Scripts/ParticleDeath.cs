@@ -58,19 +58,16 @@ public class ParticleDeath : MonoBehaviour
             {
                 GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().enabled = false;
                 Vector3 pos = transform.position - laser;
-                print(_rb.velocity);
                 _rb.velocity = new Vector2(pos.x * knockback, 7);
-                if (_rb.velocity.x >= 12)
+                if (_rb.velocity.x >= 7)
                 {
                     if (transform.position.x < laser.x)
                     {
-                        print("Left");
-                        _rb.velocity = new Vector2(-12, 7);
+                        _rb.velocity = new Vector2(-7, 7);
                     }
                     else
                     {
-                        print("Right");
-                        _rb.velocity = new Vector2(12, 7);
+                        _rb.velocity = new Vector2(7, 7);
                     }
                 }
 

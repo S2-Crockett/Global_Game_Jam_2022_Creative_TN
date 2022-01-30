@@ -8,7 +8,7 @@ public class PlayMusic : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SoundManager._Instance.PlayMusic(music);
+        SoundManager.instance.PlayMusic(music);
     }
 
 }
