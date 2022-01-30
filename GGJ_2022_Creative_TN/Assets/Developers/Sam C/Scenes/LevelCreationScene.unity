@@ -227,6 +227,7 @@ MonoBehaviour:
   rotationPerSecond: 120
   amplitude: 0.05
   frequency: 1
+  pickup: {fileID: 0}
 --- !u!212 &75592661
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -675,6 +676,7 @@ MonoBehaviour:
   rotationPerSecond: 120
   amplitude: 0.05
   frequency: 1
+  pickup: {fileID: 0}
 --- !u!212 &226733756
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -30067,6 +30069,7 @@ MonoBehaviour:
   rotationPerSecond: 120
   amplitude: 0.05
   frequency: 1
+  pickup: {fileID: 0}
 --- !u!212 &1032514929
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -60085,6 +60088,10 @@ PrefabInstance:
       value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 2169531128611839747, guid: 0b8b691327b111045bdf15a836ad1754, type: 3}
+      propertyPath: jump
+      value: 
+      objectReference: {fileID: 8300000, guid: be1c967419c58b945aa1ae8f03abac7a, type: 3}
+    - target: {fileID: 2169531128611839747, guid: 0b8b691327b111045bdf15a836ad1754, type: 3}
       propertyPath: moveSpeed
       value: 10
       objectReference: {fileID: 0}
@@ -61701,6 +61708,7 @@ MonoBehaviour:
   rotationPerSecond: 120
   amplitude: 0.05
   frequency: 1
+  pickup: {fileID: 0}
 --- !u!212 &1838319345
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -61771,6 +61779,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 5
+  damage: {fileID: 0}
+  death: {fileID: 0}
 --- !u!114 &1932446560
 MonoBehaviour:
   m_ObjectHideFlags: 0
