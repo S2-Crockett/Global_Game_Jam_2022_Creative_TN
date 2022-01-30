@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,11 +15,14 @@ public class ExitLevel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
         {
-            //GameManager.instance.UpdateGameState(GameState.Menu);
-            //StartCoroutine(UIManager.instance.DelayedStart(GameState.Menu));
-            SceneManager.LoadScene("Level_Completion_Scene");
+            GameManager.instance.LoadMenu();
         }
     }
 }

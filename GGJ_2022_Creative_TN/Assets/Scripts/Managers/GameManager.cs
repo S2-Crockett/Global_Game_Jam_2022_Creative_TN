@@ -126,6 +126,13 @@ public class GameManager : Singleton<GameManager>
         // this will automatically be called when you die.
     }
 
+    public void LoadMenu()
+    {
+        SceneManager.LoadScene("Menu_Scene");
+        _timer.StopTimer();
+        UpdateGameState(GameState.Menu);
+    }
+
     public void QuitGame()
     {
         Application.Quit();

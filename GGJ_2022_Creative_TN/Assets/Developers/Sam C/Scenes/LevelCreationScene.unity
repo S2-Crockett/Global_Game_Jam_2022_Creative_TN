@@ -60274,6 +60274,7 @@ GameObject:
   - component: {fileID: 1357061654}
   - component: {fileID: 1357061653}
   - component: {fileID: 1357061652}
+  - component: {fileID: 1357061656}
   m_Layer: 0
   m_Name: DoorSprite
   m_TagString: Untagged
@@ -60385,6 +60386,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1357061656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1357061651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42a226e2598bd3b459e780f73116ad93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1357535439 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4769775059345692648, guid: fa87ae5f3139c914ea0cdcb9438ef80d, type: 3}
