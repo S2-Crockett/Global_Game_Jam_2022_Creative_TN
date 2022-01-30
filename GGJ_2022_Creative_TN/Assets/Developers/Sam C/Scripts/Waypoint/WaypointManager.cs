@@ -14,7 +14,7 @@ public class WaypointManager : Singleton<WaypointManager>
     
     
     int index = 0;
-    private void Start()
+    public void GetWaypoints()
     {
         int indexTwo = 0;
         
@@ -63,7 +63,7 @@ public class WaypointManager : Singleton<WaypointManager>
     IEnumerator MoveFlagTwo(Transform flag)
     {
         Vector3 offset = GameObject.FindGameObjectWithTag("Player Two").GetComponent<ShadowPlayer>().offset;
-        Vector3 newPos = new Vector3(respawnPosOne.x, respawnPosOne.y + offset.y, respawnPosOne.z);
+        Vector3 newPos = new Vector3(respawnPosOne.x, respawnPosOne.y + offset.y, respawnPosOne.z - 20);
         flag.transform.position = newPos;
         yield return new WaitForSeconds(0.75f);
     }
@@ -79,7 +79,8 @@ public class WaypointManager : Singleton<WaypointManager>
     {
         if (player.CompareTag("Player"))
         {
-            player.position = respawnPosOne;
+            Vector3 offset = new Vector3(0, 0, 10);
+            player.position = respawnPosOne - offset;
         }
         else
         {

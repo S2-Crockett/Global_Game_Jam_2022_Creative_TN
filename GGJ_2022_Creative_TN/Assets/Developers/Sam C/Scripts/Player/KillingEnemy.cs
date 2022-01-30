@@ -23,13 +23,13 @@ public class KillingEnemy : MonoBehaviour
             {
                 if (CompareTag("Player"))
                 {
-                    StartCoroutine(GetComponent<ParticleDeath>().Bounceback(col.transform.position));
+                    StartCoroutine(GetComponent<ParticleDeath>().Bounceback(col.transform.position, 5));
                 }
                 else if (CompareTag("Player Two"))
                 {
                     Vector3 offset = GetComponent<ShadowPlayer>().offset;
                     ParticleDeath knockBack = GameObject.FindGameObjectWithTag("Player").GetComponent<ParticleDeath>();
-                    StartCoroutine(knockBack.Bounceback(col.transform.position + offset));
+                    StartCoroutine(knockBack.Bounceback(col.transform.position + offset, 5));
                 }
             }
         }
