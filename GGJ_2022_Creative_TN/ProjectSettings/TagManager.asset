@@ -11,6 +11,7 @@ TagManager:
   - Waypoint Two
   - Player Two
   - Waypoint
+  - Waypoint Manager
   layers:
   - Default
   - TransparentFX

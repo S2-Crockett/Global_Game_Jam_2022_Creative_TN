@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : Singleton<GameManager>
 {
     [Header("References")] public GameObject playerController;
-    private GameTimer _timer;
+    public GameTimer _timer;
 
     private GameState _state = GameState.Menu;
 
@@ -101,7 +101,7 @@ public class GameManager : Singleton<GameManager>
     }
 
     // Event called once state has changed to this (not updated).
-    private IEnumerator HandlePlayingState()
+    public IEnumerator HandlePlayingState()
     {
         SceneManager.LoadScene(_levelName);
         StartCoroutine(UIManager.instance.DelayedStart(GameState.Playing));
@@ -119,7 +119,7 @@ public class GameManager : Singleton<GameManager>
     }
 
     // Event called once state has changed to this (not updated).
-    private IEnumerator HandleLoseState()
+    public IEnumerator HandleLoseState()
     {
         StartCoroutine(UIManager.instance.DelayedStart(GameState.Lose));
         yield return new WaitForSeconds(0.2f);

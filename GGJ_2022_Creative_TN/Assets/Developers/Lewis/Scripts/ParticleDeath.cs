@@ -78,8 +78,7 @@ public class ParticleDeath : MonoBehaviour
             }
             else
             {
-                playerHealth.IncreaseHealth(5);
-                UIManager.instance.healthUI.InitHealth(5);
+                GetComponent<PlayerMovement>()._gameStates = GameStates.InLoseMenu;
             }
         }
     }

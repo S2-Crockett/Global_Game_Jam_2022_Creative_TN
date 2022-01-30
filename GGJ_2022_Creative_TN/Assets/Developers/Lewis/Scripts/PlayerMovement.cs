@@ -33,8 +33,12 @@ public class PlayerMovement : MonoBehaviour
     public bool isMoving = false;
     public AudioClip jump;
 
+    public GameObject MenuUi;
+    public GameStates _gameStates;
+
     private void Awake()
     {
+        _gameStates = GameStates.InGame;
         _rb = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _spriteShadowRenderer = GameObject.FindGameObjectWithTag("Player Two").GetComponent<SpriteRenderer>();
@@ -47,6 +51,35 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void FixedUpdate()
+    {
+        switch (_gameStates)
+        {
+            case GameStates.InGame:
+            {
+                FixedUpdateGoal();
+                if (GetComponent<PlayerHealth>().health == 0)
+                {
+                    _gameStates = GameStates.InLoseMenu;
+                }
+                break;
+            }
+            case GameStates.InLoseMenu:
+            {
+                foreach (var anim in _animator)
+                {
+                    anim.SetFloat("Speed", 0);
+                }
+                break;
+            }
+            case GameStates.InWinMenu:
+            {
+
+                break;
+            }
+        }
+    }
+
+    private void FixedUpdateGoal()
     {
         _horizontalMove = Input.GetAxisRaw("Horizontal") * moveSpeed;
         foreach (var anim in _animator)
@@ -67,12 +100,9 @@ public class PlayerMovement : MonoBehaviour
             //false
         }
     }
-    
-    
-
-    private void Update()
+    private void UpdateGoal()
     {
-        if(_moveInput > 0 || _moveInput < 0)
+                if(_moveInput > 0 || _moveInput < 0)
         {
             isMoving = true;
         }
@@ -170,7 +200,48 @@ public class PlayerMovement : MonoBehaviour
             _wallJumpCounter -= Time.deltaTime;
         }
 
+    }
 
+    private void Update()
+    {
+        switch (_gameStates)
+        {
+            case GameStates.InGame:
+            {
+                MenuUi.SetActive(false);
+                UpdateGoal();
+                if (GetComponent<PlayerHealth>().health == 0)
+                {
+                    GameManager.instance._timer.StopTimer();
+                    StartCoroutine(GameManager.instance.HandleLoseState());
+                    _gameStates = GameStates.InLoseMenu;
+                }
+                break;
+            }
+            case GameStates.InLoseMenu:
+            {
+                _rb.velocity = new Vector2(0,0);
+                Vector3 offset = new Vector3(0, 1, 10);
+                transform.position = GameObject.FindGameObjectWithTag("Waypoint Manager")
+                    .GetComponent<WaypointManager>().respawnPosOne - offset;
+                MenuUi.SetActive(true);
+                break;
+            }
+            case GameStates.InWinMenu:
+            {
+
+                break;
+            }
+        }
+    }
+
+    public void SetSpawn()
+    {
+        print("Button Pressed");
+        GameManager.instance._timer.StartTimer();
+        _gameStates = GameStates.InGame;
+        GetComponent<PlayerHealth>().IncreaseHealth(5);
+        UIManager.instance.healthUI.InitHealth(5);
     }
 
     void JumpOffWall(ParticleSystem dustPs, ref bool isGrabbing)
@@ -192,4 +263,11 @@ public class PlayerMovement : MonoBehaviour
     {
         dust_.Play();
     }
+}
+
+public enum GameStates
+{
+    InWinMenu,
+    InLoseMenu,
+    InGame,
 }
