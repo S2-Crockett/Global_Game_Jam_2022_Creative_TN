@@ -170,8 +170,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.1
-  m_Pitch: 0.3
+  m_Volume: 0.21
+  m_Pitch: 0.88
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -689,10 +689,16 @@ MonoBehaviour:
   _HealthSource: {fileID: 3719114965500423410}
   _MovementSource: {fileID: 3719114964568271024}
   _MovementSounds:
-  - {fileID: 8300000, guid: d69328ce5de990f48b2e779bdc8adb8f, type: 3}
-  - {fileID: 8300000, guid: adc94171b1c447e4691633d52120ed87, type: 3}
-  - {fileID: 8300000, guid: bda892656c02f6c468ef08403db05561, type: 3}
-  - {fileID: 8300000, guid: b6325346f3c2c5d45afe38a2e47ac6cd, type: 3}
-  - {fileID: 8300000, guid: 766187951dc2ffc4dbc6567b37bd0a0b, type: 3}
-  - {fileID: 8300000, guid: 829b03e37a10dcb48ae077b35181470a, type: 3}
+  - {fileID: 8300000, guid: aecd89865be52994385a2465ccf2321a, type: 3}
+  - {fileID: 8300000, guid: 54d0cb788faf823499603714269cbbd5, type: 3}
+  - {fileID: 8300000, guid: 999357c0bb7132c4dbdd0d8bd9386307, type: 3}
+  - {fileID: 8300000, guid: 9063d50c9bbcc904aa38e67e2a6eb910, type: 3}
+  - {fileID: 8300000, guid: 0b0c6c14296c56e478ae136af73c1c9b, type: 3}
+  - {fileID: 8300000, guid: 67ee68f1732cacb4db5ebc680cb11d34, type: 3}
+  - {fileID: 8300000, guid: be16579fbe19b584eb57557844598064, type: 3}
+  - {fileID: 8300000, guid: e449c0305007c1740bdca5ab05372557, type: 3}
+  - {fileID: 8300000, guid: fe0d564d64c0e01489f2cbdacb580033, type: 3}
+  - {fileID: 8300000, guid: 218a7c5de5788a8469d4e9a4fd3d65ef, type: 3}
+  - {fileID: 8300000, guid: 384382031b6e77d41b7cb1909470333f, type: 3}
+  - {fileID: 8300000, guid: d444b47bb02b7d7419ed1d3537281fff, type: 3}
   pMovement: {fileID: 0}
