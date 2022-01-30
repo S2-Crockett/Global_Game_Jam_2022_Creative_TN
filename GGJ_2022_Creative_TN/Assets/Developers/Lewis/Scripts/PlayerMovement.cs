@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public ParticleSystem dust2;
     
     
-    public bool isGrounded,isGrabGrounded, onLeftWall, onRightWall;
+    public bool isGrounded, isGrabGrounded, onLeftWall, onRightWall;
 
     [SerializeField] private int jumpForce;
     [SerializeField] private int moveSpeed;
@@ -30,6 +30,9 @@ public class PlayerMovement : MonoBehaviour
 
     private bool test = false;
 
+    public bool isMoving = false;
+    public AudioClip jump;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -41,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
         _animator[1] = GameObject.FindGameObjectWithTag("Player Two").GetComponent<Animator>();
 
         _layermask = LayerMask.GetMask("Ground");
+        SoundManager._Instance.pMovement = this;
     }
 
     private void FixedUpdate()
@@ -69,6 +73,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if(_moveInput > 0 || _moveInput < 0)
+        {
+            isMoving = true;
+        }
+        else
+        {
+            isMoving = false;
+        }
+
         if (_wallJumpCounter <= 0)
         {
             _moveInput = Input.GetAxis("Horizontal");
@@ -94,7 +107,9 @@ public class PlayerMovement : MonoBehaviour
             {
                 CreateDust(dust);
                 _rb.velocity = Vector2.up * jumpForce;
+                SoundManager._Instance.JumpSounds(jump);
             }
+            
 
             
             if (onLeftWall && !isGrabGrounded && _leftGrab == 0)
@@ -166,6 +181,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             CreateDust(dustPs);
+            SoundManager._Instance.JumpSounds(jump);
             _wallJumpCounter = wallJumpTime;
             _rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed/2, jumpForce);
             _rb.gravityScale = _gravityStore;
