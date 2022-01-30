@@ -14,4 +14,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game_Scene.unity
     guid: 80756e74435fd9a4fb1e78921657b114
+  - enabled: 1
+    path: Assets/Developers/Sam C/Scenes/LevelCreationScene.unity
+    guid: de9e8f682750b764f92f9feb08d6db80
+  - enabled: 1
+    path: Assets/Developers/Sam C/Scenes/Tutorial Scene.unity
+    guid: e280c35197c55fa4fba964d617053b6f
+  - enabled: 1
+    path: Assets/Scenes/Level_Completion_Scene.unity
+    guid: 2d49d61d234c26f489cc1757669f0018
   m_configObjects: {}

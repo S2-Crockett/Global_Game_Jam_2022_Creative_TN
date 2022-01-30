@@ -19,68 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3d3affff-3625-43b6-a949-53d13a4144d0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GGJ_2022_Creative_TN/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GGJ_2022_Creative_TN/.idea/indexLayout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GGJ_2022_Creative_TN/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GGJ_2022_Creative_TN/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CoinSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CoinSpawner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developers/Callum/Scenes/menu.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developers/Callum/Scenes/menu.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developers/Callum/Scripts/ButtonTransition.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developers/Callum/Scripts/ButtonTransition.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developers/Callum/Sounds.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developers/Callum/Sounds/ButtonPress.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developers/Callum/Sounds/ButtonPress.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developers/Callum/Sounds/Cavesound1.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developers/Callum/Sounds/Cavesound1.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developers/Callum/Sounds/Cavesound2.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developers/Callum/Sounds/Cavesound2.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developers/Callum/Sounds/Cavesound3.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developers/Callum/Sounds/Cavesound3.wav.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developers/Callum/Sounds/GameMusic.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developers/Callum/Sounds/GameMusic.mp3.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developers/Callum/Sprites.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developers/Callum/Sprites/Black_Button.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developers/Callum/Sprites/Black_Button.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developers/Callum/Sprites/MenuBackground.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developers/Callum/Sprites/MenuBackground.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developers/Callum/Sprites/White_Button.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developers/Callum/Sprites/White_Button.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developers/Callum/Sprites/Whitebuttonwithblacktext.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developers/Callum/Sprites/Whitebuttonwithblacktext.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developers/Callum/Sprites/background.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developers/Callum/Sprites/background.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developers/Callum/Sprites/pngegg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developers/Callum/Sprites/pngegg.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developers/Callum/Sprites/title.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developers/Callum/Sprites/title.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developers/Sam S/Scripts/Player/PlayerHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Developers/Sam S/Scripts/Player/PlayerHealth.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Player/SecondPlayer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Player/SecondPlayer.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game_Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game_Scene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Loss_scene.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Loss_scene.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu_Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu_Scene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu_Scene.unity.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu_Scene.unity.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Win_Scene.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Win_Scene.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/menu.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/menu.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/Singletons.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/Singletons.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/UIManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/Character/Animation/Character_Animator.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Textures/Character/Animation/Character_Animator.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/ShadowCharacter/Animation/ShadowCharacter_Animator.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Textures/ShadowCharacter/Animation/ShadowCharacter_Animator.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/UI/pixil-frame-0 (23).png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/UI/pixil-frame-0 (23).png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/UI/pixil-frame-0 (24).png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/UI/pixil-frame-0 (24).png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/UI/pixil-frame-0 (25).png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/UI/pixil-frame-0 (25).png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/UI/pixil-frame-0 (26).png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Textures/UI/pixil-frame-0 (26).png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
-    </list>
+    <list default="true" id="3d3affff-3625-43b6-a949-53d13a4144d0" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -90,12 +29,12 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/ButtonText.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.tilemap@1.0.0/Editor/GridPaintPaletteClipboard.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/CoinSpawner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Image.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Developers/Sam S/Scripts/GameTimer.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/ButtonText.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/CoinSpawner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Developers/Sam S/Scripts/SpikeObstacle.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.tilemap@1.0.0/Editor/GridPaintPaletteClipboard.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -144,8 +83,9 @@
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
+      <option name="projectPathOnTarget" />
       <option name="selectedOptions">
-        <set />
+        <list />
       </option>
       <method v="2" />
     </configuration>
@@ -153,8 +93,9 @@
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
+      <option name="projectPathOnTarget" />
       <option name="selectedOptions">
-        <set />
+        <list />
       </option>
       <method v="2" />
     </configuration>
@@ -175,6 +116,7 @@
       <workItem from="1643451607662" duration="3210000" />
       <workItem from="1643486877833" duration="1858000" />
       <workItem from="1643504294293" duration="215000" />
+      <workItem from="1643513409859" duration="8356000" />
     </task>
     <servers />
   </component>
@@ -194,7 +136,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />

@@ -13,6 +13,7 @@ public class GameManager : Singleton<GameManager>
 
     private int _gameScore = 0;
     private bool firstLoad = true;
+    private string _levelName;
 
     private void Start()
     {
@@ -72,6 +73,11 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
+    public void SetLevel(string level)
+    {
+        _levelName = level;
+    }
+
     public void IncreaseHealth(int amount)
     {
         if (playerController)
@@ -97,7 +103,7 @@ public class GameManager : Singleton<GameManager>
     // Event called once state has changed to this (not updated).
     private IEnumerator HandlePlayingState()
     {
-        SceneManager.LoadScene("Game_Scene");
+        SceneManager.LoadScene(_levelName);
         StartCoroutine(UIManager.instance.DelayedStart(GameState.Playing));
         yield return new WaitForSeconds(0.2f);
         

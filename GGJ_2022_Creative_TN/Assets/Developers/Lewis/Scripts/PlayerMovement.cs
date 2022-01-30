@@ -18,14 +18,16 @@ public class PlayerMovement : MonoBehaviour
     private float _moveInput;
     private SpriteRenderer _spriteRenderer;
     
-    private bool _isGrabbingLeft, _isGrabbingRight;
+    [SerializeField] private bool _isGrabbingLeft, _isGrabbingRight;
     private float _gravityStore, wallJumpTime = 0.4f, _wallJumpCounter;
-    private int _leftGrab, _rightGrab;
+    [SerializeField]private int _leftGrab, _rightGrab;
     private Animator _animator;
     private float _horizontalMove;
 
     private int _layermask;
 
+
+    private bool test = false;
 
     private void Awake()
     {
@@ -52,6 +54,8 @@ public class PlayerMovement : MonoBehaviour
             //false
         }
     }
+    
+    
 
     private void Update()
     {
@@ -63,7 +67,6 @@ public class PlayerMovement : MonoBehaviour
             onLeftWall = Physics2D.Raycast(transform.position, Vector2.left, 0.75f, _layermask);
             onRightWall = Physics2D.Raycast(transform.position, Vector2.right, 0.75f, _layermask);
             
-            Debug.DrawRay(transform.position, Vector2.down, Color.blue);
             
             if (isGrounded)
             {
@@ -86,7 +89,7 @@ public class PlayerMovement : MonoBehaviour
             
             if (onLeftWall && !isGrabGrounded && _leftGrab == 0)
             {
-                if (_moveInput < 0)
+                if (_moveInput < 0 && Input.GetKeyDown(KeyCode.W))
                 {
                     _isGrabbingLeft = true;
                     _leftGrab += 1;
@@ -95,7 +98,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else if (onRightWall && !isGrabGrounded && _rightGrab == 0)
             {
-                if (_moveInput > 0)
+                if (_moveInput > 0 && Input.GetKeyDown(KeyCode.W))
                 {
                     _isGrabbingRight = true;
                     _rightGrab += 1;

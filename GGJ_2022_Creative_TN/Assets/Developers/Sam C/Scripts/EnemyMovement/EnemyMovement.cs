@@ -11,8 +11,8 @@ public class EnemyMovement : MonoBehaviour
         Move
     }
     
-    private Vector3[] _waypointsPos;
-    private Vector3 _movePosition;
+    public Vector3[] _waypointsPos;
+    public Vector3 _movePosition;
     private MoveStages _moveStages = MoveStages.Idle;
     private float _timer; 
     private void Start()
@@ -21,12 +21,11 @@ public class EnemyMovement : MonoBehaviour
         
         _waypointsPos = new Vector3[2];
         
-        foreach (GameObject child in GameObject.FindGameObjectsWithTag("Waypoint"))
+        for (int i = 0; i < transform.childCount; i++)
         {
-            if (child.CompareTag("Waypoint"))
+            if (transform.GetChild(i).CompareTag("Waypoint"))
             {
-                _waypointsPos[index] = child.transform.position;
-                index += 1;
+                _waypointsPos[i] = transform.GetChild(i).position;
             }
         }
         transform.position = _waypointsPos[0];

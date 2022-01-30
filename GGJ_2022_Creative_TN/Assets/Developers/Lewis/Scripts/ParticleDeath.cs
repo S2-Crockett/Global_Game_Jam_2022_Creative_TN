@@ -9,12 +9,18 @@ public class ParticleDeath : MonoBehaviour
     public PhysicsMaterial2D phyMat;
     private Rigidbody2D _rb;
     [SerializeField] private int knockBackForce;
+
+    public PlayerHealth playerHealth;
     
+    private int _layermask;
+
 
     void Start()
     {
+        playerHealth = GetComponent<PlayerHealth>();
         _rb = GetComponent<Rigidbody2D>();
         timer = 0.5f;
+        _layermask = LayerMask.GetMask("Enemy");
     }
 
     private void Update()
@@ -35,16 +41,28 @@ public class ParticleDeath : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Laser") || collision.gameObject.CompareTag("Spikes"))
         {
-            StartCoroutine(Bounceback(collision.transform));
+            StartCoroutine(Bounceback(collision.transform.position));
         }
     }
-    IEnumerator Bounceback(Transform laser)
+    public IEnumerator Bounceback(Vector3 laser)
     {
-        GetComponent<PlayerMovement>().enabled = false;
-        Vector3 pos = transform.position - laser.position ;
-        _rb.velocity = new Vector2(pos.x * knockBackForce, 7);
-        yield return new WaitForSeconds(0.5f);
-        GetComponent<PlayerMovement>().enabled = true;
+        GameManager.instance.DecreaseHealth(1);
+        if (playerHealth != null)
+        {
+            if (playerHealth.health != 0)
+            {
+                GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().enabled = false;
+                Vector3 pos = transform.position - laser;
+                _rb.velocity = new Vector2(pos.x * knockBackForce, 7);
+                yield return new WaitForSeconds(0.5f);
+                GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().enabled = true;
+            }
+            else
+            {
+                playerHealth.IncreaseHealth(5);
+                UIManager.instance.healthUI.InitHealth(5);
+            }
+        }
     }
     
 }
