@@ -9,14 +9,15 @@ public class ParticleDeath : MonoBehaviour
     public PhysicsMaterial2D phyMat;
     private Rigidbody2D _rb;
     [SerializeField] private int knockBackForce;
-    
 
+    public PlayerHealth playerHealth;
     
     private int _layermask;
 
 
     void Start()
     {
+        playerHealth = GetComponent<PlayerHealth>();
         _rb = GetComponent<Rigidbody2D>();
         timer = 0.5f;
         _layermask = LayerMask.GetMask("Enemy");
@@ -46,19 +47,21 @@ public class ParticleDeath : MonoBehaviour
     public IEnumerator Bounceback(Vector3 laser)
     {
         GameManager.instance.DecreaseHealth(1);
-        PlayerHealth playerHealth = GetComponent<PlayerHealth>();
-        if (playerHealth.health != 0)
+        if (playerHealth != null)
         {
-            GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().enabled = false;
-            Vector3 pos = transform.position - laser;
-            _rb.velocity = new Vector2(pos.x * knockBackForce, 7);
-            yield return new WaitForSeconds(0.5f);
-            GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().enabled = true;
-        }
-        else
-        {
-            playerHealth.IncreaseHealth(5);
-            UIManager.instance.healthUI.InitHealth(5);
+            if (playerHealth.health != 0)
+            {
+                GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().enabled = false;
+                Vector3 pos = transform.position - laser;
+                _rb.velocity = new Vector2(pos.x * knockBackForce, 7);
+                yield return new WaitForSeconds(0.5f);
+                GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().enabled = true;
+            }
+            else
+            {
+                playerHealth.IncreaseHealth(5);
+                UIManager.instance.healthUI.InitHealth(5);
+            }
         }
     }
     

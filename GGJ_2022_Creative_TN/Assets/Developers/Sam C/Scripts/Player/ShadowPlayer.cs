@@ -20,9 +20,7 @@ public class ShadowPlayer : MonoBehaviour
         if (Physics2D.Raycast(transform.position - posOffset, Vector2.down, Mathf.Infinity) ||
             Physics2D.Raycast(transform.position + posOffset, Vector2.down, Mathf.Infinity) )
         {
-            Vector3 pos = new Vector3(_player.transform.position.x * 1, _player.transform.position.y,
-                _player.transform.position.z);
-            transform.position = pos + offset;
+            transform.position = _player.transform.position + offset;
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)

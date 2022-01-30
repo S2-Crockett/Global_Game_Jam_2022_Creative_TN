@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Developers/Sam C/Scenes/Tutorial Scene.unity
     guid: e280c35197c55fa4fba964d617053b6f
+  - enabled: 1
+    path: Assets/Scenes/Level_Completion_Scene.unity
+    guid: 2d49d61d234c26f489cc1757669f0018
   m_configObjects: {}
