@@ -19,7 +19,7 @@ public class UIManager : Singleton<UIManager>
     public GameObject Display;
     public GameObject LevelSelect;
     public Dropdown resolutionDropdown;
-
+    
     private bool _isFullScreen;
     private Resolution[] resolutions;
     private FullScreenMode screenMode;
@@ -108,6 +108,7 @@ public class UIManager : Singleton<UIManager>
     public void ReturnToMenu()
     {
         Mainmenu.SetActive(true);
+        LevelSelect.SetActive(false);
         Options.SetActive(false);
     }
 
