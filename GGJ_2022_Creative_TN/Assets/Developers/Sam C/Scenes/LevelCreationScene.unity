@@ -288,7 +288,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5112122640551436404, guid: b4c3a690eff4e5c499fe3b5fe4e30d0e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.99
+      value: -71.99
       objectReference: {fileID: 0}
     - target: {fileID: 5112122640551436404, guid: b4c3a690eff4e5c499fe3b5fe4e30d0e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -328,7 +328,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5112122640551436405, guid: b4c3a690eff4e5c499fe3b5fe4e30d0e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5112122640929821242, guid: b4c3a690eff4e5c499fe3b5fe4e30d0e, type: 3}
       propertyPath: timer
@@ -682,6 +682,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collided: 0
+  set: 0
   pos: {x: 0, y: 0, z: 0}
 --- !u!1 &453188993
 GameObject:
@@ -807,6 +808,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collided: 0
+  set: 0
   pos: {x: 0, y: 0, z: 0}
 --- !u!1 &762138041
 GameObject:
@@ -854,6 +856,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collided: 0
+  set: 0
   pos: {x: 0, y: 0, z: 0}
 --- !u!61 &762138044
 BoxCollider2D:
@@ -1057,6 +1060,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collided: 0
+  set: 0
   pos: {x: 0, y: 0, z: 0}
 --- !u!1 &817519742
 GameObject:
@@ -28367,6 +28371,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collided: 0
+  set: 0
   pos: {x: 0, y: 0, z: 0}
 --- !u!1 &1032514925
 GameObject:
@@ -55368,13 +55373,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: {x: 0, y: -70, z: 0}
-  isGrounded: 0
-  onLeftWall: 0
-  onRightWall: 0
-  checkArea: 0
-  groundCheck: {fileID: 0}
-  leftCheck: {fileID: 0}
-  rightCheck: {fileID: 0}
 --- !u!1 &1385725273
 GameObject:
   m_ObjectHideFlags: 0
@@ -55499,6 +55497,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collided: 0
+  set: 0
   pos: {x: 0, y: 0, z: 0}
 --- !u!1001 &1398706988
 PrefabInstance:
@@ -56080,6 +56079,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collided: 0
+  set: 0
   pos: {x: 0, y: 0, z: 0}
 --- !u!1 &1702000391 stripped
 GameObject:
@@ -57178,11 +57178,9 @@ MonoBehaviour:
   Options: {fileID: 0}
   Audio: {fileID: 0}
   Display: {fileID: 0}
-  HowToPlay: {fileID: 0}
+  LevelSelect: {fileID: 0}
   resolutionDropdown: {fileID: 0}
-  brightnessSlider: {fileID: 0}
-  brightnessTextValue: {fileID: 0}
-  defaultBrightness: 1
+  _state: 0
 --- !u!4 &1886562175
 Transform:
   m_ObjectHideFlags: 0
@@ -57355,6 +57353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collided: 0
+  set: 0
   pos: {x: 0, y: 0, z: 0}
 --- !u!1 &1999672672 stripped
 GameObject:

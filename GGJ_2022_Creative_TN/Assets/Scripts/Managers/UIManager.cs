@@ -17,6 +17,7 @@ public class UIManager : Singleton<UIManager>
     public GameObject Options;
     public GameObject Audio;
     public GameObject Display;
+    public GameObject LevelSelect;
     public Dropdown resolutionDropdown;
 
     private bool _isFullScreen;
@@ -57,6 +58,7 @@ public class UIManager : Singleton<UIManager>
         Options.SetActive(false);
         Audio.SetActive(false);
         Display.SetActive(false);
+        LevelSelect.SetActive((false));
 
         resolutions = Screen.resolutions;
         resolutionDropdown.ClearOptions();
@@ -98,6 +100,11 @@ public class UIManager : Singleton<UIManager>
         Options.SetActive(true);
     }
 
+    public void DisplayLevelSelect()
+    {
+        Mainmenu.SetActive(false);
+        LevelSelect.SetActive(true);
+    }
     public void ReturnToMenu()
     {
         Mainmenu.SetActive(true);
