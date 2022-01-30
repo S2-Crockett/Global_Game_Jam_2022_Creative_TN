@@ -44,7 +44,6 @@ public class PlayerMovement : MonoBehaviour
         _animator[1] = GameObject.FindGameObjectWithTag("Player Two").GetComponent<Animator>();
 
         _layermask = LayerMask.GetMask("Ground");
-        SoundManager._Instance.pMovement = this;
     }
 
     private void FixedUpdate()
