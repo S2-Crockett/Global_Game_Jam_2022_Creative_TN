@@ -26,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 209384894977079780}
   m_LocalRotation: {x: 0.77837086, y: 0.06854459, z: 0.08000665, w: 0.61890185}
-  m_LocalPosition: {x: 0.4166666, y: 1.5083312, z: -0.009}
-  m_LocalScale: {x: 2.7888827, y: 1.1898694, z: 4.036585}
+  m_LocalPosition: {x: 0.204, y: -0.4, z: -0.144}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6222829292766462138}
   m_RootOrder: 5
@@ -222,7 +222,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 0, g: 0, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -4832,8 +4832,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3773697782604919109}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.38333327, y: 1.5416652, z: 0}
-  m_LocalScale: {x: 2.7916663, y: 4.166666, z: 1}
+  m_LocalPosition: {x: 0, y: -0.08, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6222829292766462138}
   m_RootOrder: 4
@@ -5028,7 +5028,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 0, g: 0, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -9757,7 +9757,7 @@ Transform:
   m_GameObject: {fileID: 6222829292766462132}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 20, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1}
   m_Children:
   - {fileID: 6222829292592063628}
   - {fileID: 6222829294038354349}
@@ -10019,8 +10019,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8648783850492214625}
   m_LocalRotation: {x: -0.084723786, y: 0.7104974, z: -0.563215, w: -0.41328472}
-  m_LocalPosition: {x: 0.3208333, y: 1.4749986, z: 0.021}
-  m_LocalScale: {x: 1.89818, y: 2.6219535, z: 4.1651487}
+  m_LocalPosition: {x: -0.35, y: -0.4, z: 0.434}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6222829292766462138}
   m_RootOrder: 6
@@ -10215,7 +10215,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 0, g: 0, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}

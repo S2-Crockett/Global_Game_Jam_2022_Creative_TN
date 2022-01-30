@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Sam Stamp\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Sam Stamp\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_GGJ_2022_Creative_TN.-1893053195.00" t="ExcludeRecursive" />
+    <e p="D:\University Files\3rd Year\CGD\Gam Jam Files\Jam 3\Global_Game_Jam_2022_Creative_TN\GGJ_2022_Creative_TN" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="CoinSpawner.cs" t="Include" />
+        <e p="Developers" t="Include">
+          <e p="Callum" t="Include">
+            <e p="PlayerPrefsEditor" t="Include">
+              <e p="Editor" t="Include">
+                <e p="Mac" t="Include">
+                  <e p="Plist.cs" t="Include" />
+                </e>
+                <e p="PlayerPrefsEditor.cs" t="Include" />
+              </e>
+              <e p="PlayerPrefsUtility.cs" t="Include" />
+              <e p="README.txt" t="Include" />
+              <e p="SimpleEncryption.cs" t="Include" />
+            </e>
+            <e p="Scripts" t="Include">
+              <e p="Music.cs" t="Include" />
+              <e p="Settings.cs" t="Include" />
+              <e p="Volume.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Lewis" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="Death.cs" t="Include" />
+              <e p="ParticleDeath.cs" t="Include" />
+              <e p="PlatformEffect.cs" t="Include" />
+              <e p="PlayerMovement.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Sam C" t="Include">
+            <e p="NewBehaviourScript.cs" t="Include" />
+            <e p="Scripts" t="Include">
+              <e p="EnemyMovement" t="Include">
+                <e p="EnemyMovement.cs" t="Include" />
+              </e>
+              <e p="Player" t="Include">
+                <e p="KillingEnemy.cs" t="Include" />
+                <e p="ShadowPlayer.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+          <e p="Sam S" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="GameTimer.cs" t="Include" />
+              <e p="PickupHealth.cs" t="Include" />
+              <e p="PickupScore.cs" t="Include" />
+              <e p="Player" t="Include">
+                <e p="PlayerHealth.cs" t="Include" />
+              </e>
+              <e p="SpikeObstacle.cs" t="Include" />
+              <e p="UI" t="Include">
+                <e p="UIHealth.cs" t="Include" />
+                <e p="UIScore.cs" t="Include" />
+                <e p="UITime.cs" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="Gameover.cs" t="Include" />
+          <e p="Managers" t="Include">
+            <e p="EventManager.cs" t="Include" />
+            <e p="GameManager.cs" t="Include" />
+            <e p="Singletons.cs" t="Include" />
+            <e p="SoundManager.cs" t="Include" />
+            <e p="UIManager.cs" t="Include" />
+          </e>
+          <e p="UI" t="Include">
+            <e p="ButtonText.cs" t="Include" />
+            <e p="CheckPointNotification.cs" t="Include" />
+            <e p="TutorialNotification.cs" t="Include" />
+          </e>
+          <e p="WinScreen.cs" t="Include" />
+        </e>
+        <e p="TextMesh Pro" t="Include">
+          <e p="Fonts" t="Include">
+            <e p="LiberationSans - OFL.txt" t="Include" />
+          </e>
+          <e p="Resources" t="Include">
+            <e p="LineBreaking Following Characters.txt" t="Include" />
+            <e p="LineBreaking Leading Characters.txt" t="Include" />
+          </e>
+          <e p="Shaders" t="Include">
+            <e p="TMP_Bitmap-Custom-Atlas.shader" t="Include" />
+            <e p="TMP_Bitmap-Mobile.shader" t="Include" />
+            <e p="TMP_Bitmap.shader" t="Include" />
+            <e p="TMP_SDF Overlay.shader" t="Include" />
+            <e p="TMP_SDF SSD.shader" t="Include" />
+            <e p="TMP_SDF-Mobile Masking.shader" t="Include" />
+            <e p="TMP_SDF-Mobile Overlay.shader" t="Include" />
+            <e p="TMP_SDF-Mobile SSD.shader" t="Include" />
+            <e p="TMP_SDF-Mobile.shader" t="Include" />
+            <e p="TMP_SDF-Surface-Mobile.shader" t="Include" />
+            <e p="TMP_SDF-Surface.shader" t="Include" />
+            <e p="TMP_SDF.shader" t="Include" />
+            <e p="TMP_Sprite.shader" t="Include" />
+            <e p="TMPro.cginc" t="Include" />
+            <e p="TMPro_Mobile.cginc" t="Include" />
+            <e p="TMPro_Properties.cginc" t="Include" />
+            <e p="TMPro_Surface.cginc" t="Include" />
+          </e>
+          <e p="Sprites" t="Include">
+            <e p="EmojiOne Attribution.txt" t="Include" />
+            <e p="EmojiOne.json" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="GGJ_2022_Creative_TN.sln" t="IncludeFlat" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\Bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
