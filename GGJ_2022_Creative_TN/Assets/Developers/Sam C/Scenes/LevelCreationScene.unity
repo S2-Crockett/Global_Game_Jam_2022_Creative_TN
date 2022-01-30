@@ -60145,86 +60145,63 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!1 &1228621625
-GameObject:
+--- !u!1001 &1279909547
+PrefabInstance:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1228621626}
-  - component: {fileID: 1228621628}
-  - component: {fileID: 1228621627}
-  m_Layer: 5
-  m_Name: Text-Tutorial Text
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1228621626
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1228621625}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1900050659}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -11}
-  m_SizeDelta: {x: 500, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1228621627
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1228621625}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: 24015a182f27efd4e98587a0c7131e46, type: 3}
-    m_FontSize: 28
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 300
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: this is the text for the tutorial, so for this you need to press [SPACE]
-    to Jump, in mid air you can press [W] to latch on the wall to Jump furthur.
---- !u!222 &1228621628
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1228621625}
-  m_CullTransparentMesh: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7209777437543982441, guid: cdf8b5b53d68e9646bd3d87b810b9d41, type: 3}
+      propertyPath: m_RootOrder
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209777437543982441, guid: cdf8b5b53d68e9646bd3d87b810b9d41, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 10.112677
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209777437543982441, guid: cdf8b5b53d68e9646bd3d87b810b9d41, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 25.98101
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209777437543982441, guid: cdf8b5b53d68e9646bd3d87b810b9d41, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -67.06523
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209777437543982441, guid: cdf8b5b53d68e9646bd3d87b810b9d41, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209777437543982441, guid: cdf8b5b53d68e9646bd3d87b810b9d41, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209777437543982441, guid: cdf8b5b53d68e9646bd3d87b810b9d41, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209777437543982441, guid: cdf8b5b53d68e9646bd3d87b810b9d41, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209777437543982441, guid: cdf8b5b53d68e9646bd3d87b810b9d41, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209777437543982441, guid: cdf8b5b53d68e9646bd3d87b810b9d41, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209777437543982441, guid: cdf8b5b53d68e9646bd3d87b810b9d41, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7209777437543982443, guid: cdf8b5b53d68e9646bd3d87b810b9d41, type: 3}
+      propertyPath: m_Name
+      value: Game Music
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cdf8b5b53d68e9646bd3d87b810b9d41, type: 3}
 --- !u!1 &1297941024
 GameObject:
   m_ObjectHideFlags: 0
@@ -62843,8 +62820,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 5
-  damage: {fileID: 0}
-  death: {fileID: 0}
+  damage: {fileID: 8300000, guid: 4318ddfa7074a294abd16dd77733adc2, type: 3}
+  death: {fileID: 8300000, guid: 70fa75d41c15a1349ab666398121ebc1, type: 3}
 --- !u!114 &1932446555 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2169531128611839747, guid: 0b8b691327b111045bdf15a836ad1754, type: 3}
