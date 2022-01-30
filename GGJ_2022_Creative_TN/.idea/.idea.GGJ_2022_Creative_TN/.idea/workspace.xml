@@ -55,8 +55,8 @@
         <option value="$PROJECT_DIR$/Assets/CoinSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Singletons.cs" />
         <option value="$PROJECT_DIR$/Assets/Developers/Sam S/Scripts/Player/PlayerHealth.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/UIManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/UIManager.cs" />
       </list>
     </option>
   </component>
