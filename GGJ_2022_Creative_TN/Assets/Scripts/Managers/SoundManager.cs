@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class SoundManager : Singleton<SoundManager>
 {
-    public static SoundManager _Instance;
-
     [SerializeField] private AudioSource _MusicSource;
     [SerializeField] private AudioSource _JumpSource;
     [SerializeField] private AudioSource _HealthSource;
@@ -14,21 +12,7 @@ public class SoundManager : Singleton<SoundManager>
     [SerializeField] private AudioClip[] _MovementSounds;
 
     public PlayerMovement pMovement;
-
-    // Start is called before the first frame update
-    void Awake()
-    {
-        if(_Instance == null)
-        {
-            _Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-
+    
     public void PlayMusic(AudioClip clip)
     {
         if(!_MusicSource.isPlaying)
@@ -66,10 +50,9 @@ public class SoundManager : Singleton<SoundManager>
     {
         if(pMovement != null)
         {
-            if (pMovement.isMoving == true)
+            if (pMovement.isMoving)
             {
-                print("Playing Sound");
-                _Instance.MovementSounds(_MovementSounds[UnityEngine.Random.Range(0, _MovementSounds.Length)]);
+                instance.MovementSounds(_MovementSounds[UnityEngine.Random.Range(0, _MovementSounds.Length)]);
             }
             
         }

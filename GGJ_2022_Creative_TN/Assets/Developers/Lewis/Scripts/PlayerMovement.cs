@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
         _animator = GetComponent<Animator>();
 
         _layermask = LayerMask.GetMask("Ground");
-        SoundManager._Instance.pMovement = this;
+        SoundManager.instance.pMovement = this;
     }
 
     private void FixedUpdate()
@@ -97,7 +97,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 CreateDust(dust);
                 _rb.velocity = Vector2.up * jumpForce;
-                SoundManager._Instance.JumpSounds(jump);
+                SoundManager.instance.JumpSounds(jump);
             }
             
 
@@ -158,7 +158,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             CreateDust(dustPs);
-            SoundManager._Instance.JumpSounds(jump);
+            SoundManager.instance.JumpSounds(jump);
             _wallJumpCounter = wallJumpTime;
             _rb.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed/2, jumpForce);
             _rb.gravityScale = _gravityStore;

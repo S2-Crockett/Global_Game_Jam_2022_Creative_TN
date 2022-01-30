@@ -20,28 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3d3affff-3625-43b6-a949-53d13a4144d0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Obstacles.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Pickups.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GGJ_2022_Creative_TN/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GGJ_2022_Creative_TN/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GGJ_2022_Creative_TN/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GGJ_2022_Creative_TN/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developers/Sam S/Scripts/PickupHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Pickups/PickupHealth.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developers/Sam S/Scripts/PickupHealth.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Pickups/PickupHealth.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developers/Sam S/Scripts/PickupScore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Pickups/PickupScore.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developers/Sam S/Scripts/PickupScore.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Pickups/PickupScore.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developers/Sam S/Scripts/Player.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developers/Sam S/Scripts/Player/PlayerHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developers/Sam S/Scripts/Player/PlayerHealth.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developers/Sam S/Scripts/SpikeObstacle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Obstacles/SpikeObstacle.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developers/Sam S/Scripts/SpikeObstacle.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Obstacles/SpikeObstacle.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developers/Sam S/Scripts/UI.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developers/Sam S/Scripts/UI/UIHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIHealth.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developers/Sam S/Scripts/UI/UIHealth.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIHealth.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developers/Sam S/Scripts/UI/UIScore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIScore.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developers/Sam S/Scripts/UI/UIScore.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UIScore.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developers/Sam S/Scripts/UI/UITime.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UITime.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Developers/Sam S/Scripts/UI/UITime.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UITime.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Developers/Lewis/Scripts/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Developers/Lewis/Scripts/PlayerMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game_Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game_Scene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu_Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu_Scene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/UIManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/SoundManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/SoundManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Pickups/PickupHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Pickups/PickupHealth.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Pickups/PickupScore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Pickups/PickupScore.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -64,7 +51,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/Assets/Scripts/Managers/EventManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/SoundManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Developers/Sam S/Scripts/UI/UITime.cs" />
         <option value="$PROJECT_DIR$/Assets/Developers/Sam S/Scripts/GameTimer.cs" />
         <option value="$PROJECT_DIR$/Assets/Developers/Sam S/Scripts/Player/PlayerScore.cs" />
@@ -74,14 +60,17 @@
         <option value="$PROJECT_DIR$/Assets/Developers/Sam S/Scripts/PickupScore.cs" />
         <option value="$PROJECT_DIR$/Assets/Developers/Sam S/Scripts/UI/UIHealth.cs" />
         <option value="$PROJECT_DIR$/Assets/Developers/Sam S/Scripts/SpikeObstacle.cs" />
-        <option value="$PROJECT_DIR$/Assets/Developers/Lewis/Scripts/PlayerMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/ButtonText.cs" />
         <option value="$PROJECT_DIR$/Assets/CoinSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Singletons.cs" />
         <option value="$PROJECT_DIR$/Assets/Developers/Sam S/Scripts/Player/PlayerHealth.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Managers/UIManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" />
+        <option value="$PROJECT_DIR$/Assets/Developers/Lewis/Scripts/PlayerMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/SoundManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Pickups/PickupHealth.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Pickups/PickupScore.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" />
       </list>
     </option>
   </component>
@@ -165,10 +154,10 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1240" y="100" width="960" height="729" key="VCS.FileHistoryDialog" timestamp="1643502847351">
+    <state x="1240" y="100" width="960" height="729" key="VCS.FileHistoryDialog" timestamp="1643546561246">
       <screen x="0" y="0" width="2293" height="929" />
     </state>
-    <state x="1240" y="100" width="960" height="729" key="VCS.FileHistoryDialog/0.0.2293.929@0.0.2293.929" timestamp="1643502847351" />
+    <state x="1240" y="100" width="960" height="729" key="VCS.FileHistoryDialog/0.0.2293.929@0.0.2293.929" timestamp="1643546561246" />
     <state x="1383" y="201" width="672" height="678" key="search.everywhere.popup" timestamp="1643503568032">
       <screen x="0" y="0" width="2293" height="929" />
     </state>
