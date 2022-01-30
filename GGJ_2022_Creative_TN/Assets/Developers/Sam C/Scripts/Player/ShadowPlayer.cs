@@ -27,7 +27,7 @@ public class ShadowPlayer : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Laser") || collision.gameObject.CompareTag("Spikes"))
         {
-            StartCoroutine(_player.GetComponent<ParticleDeath>().Bounceback(collision.transform.position + offset));
+            StartCoroutine(_player.GetComponent<ParticleDeath>().Bounceback(collision.transform.position + offset, 4));
         }
     }
 }

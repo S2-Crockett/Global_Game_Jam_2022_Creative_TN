@@ -39,12 +39,17 @@ public class ParticleDeath : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Laser") || collision.gameObject.CompareTag("Spikes"))
+        if (collision.gameObject.CompareTag("Laser"))
         {
-            StartCoroutine(Bounceback(collision.transform.position));
+            StartCoroutine(Bounceback(collision.transform.position, knockBackForce));
         }
+        if (collision.gameObject.CompareTag("Spikes"))
+        {
+            StartCoroutine(Bounceback(collision.transform.position, 1));
+        }
+        
     }
-    public IEnumerator Bounceback(Vector3 laser)
+    public IEnumerator Bounceback(Vector3 laser, int knockback)
     {
         GameManager.instance.DecreaseHealth(1);
         if (playerHealth != null)
@@ -53,7 +58,21 @@ public class ParticleDeath : MonoBehaviour
             {
                 GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().enabled = false;
                 Vector3 pos = transform.position - laser;
-                _rb.velocity = new Vector2(pos.x * knockBackForce, 7);
+                _rb.velocity = new Vector2(pos.x * knockback, 7);
+                if (_rb.velocity.x >= 7)
+                {
+                    if (transform.position.x < laser.x)
+                    {
+                        print("Left");
+                        _rb.velocity = new Vector2(-7, 7);
+                    }
+                    else
+                    {
+                        print("Right");
+                        _rb.velocity = new Vector2(7, 7);
+                    }
+                }
+
                 yield return new WaitForSeconds(0.5f);
                 GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().enabled = true;
             }

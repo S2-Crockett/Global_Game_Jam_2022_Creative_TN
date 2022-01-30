@@ -111,6 +111,8 @@ public class GameManager : Singleton<GameManager>
         PlayerHealth health = playerController.GetComponent<PlayerHealth>();
         UIManager.instance.healthUI.InitHealth(health.health);
         
+        WaypointManager.instance.GetWaypoints();
+        
         _timer = GetComponent<GameTimer>();
         _timer.StartTimer();
     }

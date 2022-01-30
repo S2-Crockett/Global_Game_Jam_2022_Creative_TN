@@ -76,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                _rb.velocity = new Vector2(_moveInput * moveSpeed / 2, _rb.velocity.y);
+                _rb.velocity = new Vector2(_moveInput * moveSpeed / 1.5f, _rb.velocity.y);
             }
             
 
