@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2901446699958806606}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 51.133327, y: -27.375, z: 0}
+  m_LocalPosition: {x: 0, y: -0.08, z: 0}
   m_LocalScale: {x: 2.7916663, y: 4.166666, z: 1}
   m_Children: []
   m_Father: {fileID: 9194923463079452234}
@@ -222,7 +222,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0, g: 0, b: 0, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -4832,7 +4832,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3023774991941345887}
   m_LocalRotation: {x: 0.77837086, y: 0.06854459, z: 0.08000665, w: 0.61890185}
-  m_LocalPosition: {x: 51.133327, y: -27.375, z: 0}
+  m_LocalPosition: {x: 0.204, y: -0.4, z: -0.144}
   m_LocalScale: {x: 2.7888827, y: 1.1898694, z: 4.036585}
   m_Children: []
   m_Father: {fileID: 9194923463079452234}
@@ -5028,7 +5028,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0, g: 0, b: 0, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -9638,7 +9638,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3985568054198404705}
   m_LocalRotation: {x: -0.084723786, y: 0.7104974, z: -0.563215, w: -0.41328472}
-  m_LocalPosition: {x: 51.133327, y: -27.375, z: 0}
+  m_LocalPosition: {x: -0.35, y: -0.4, z: 0.434}
   m_LocalScale: {x: 1.89818, y: 2.6219535, z: 4.1651487}
   m_Children: []
   m_Father: {fileID: 9194923463079452234}
@@ -9834,7 +9834,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0, g: 0, b: 0, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -14510,7 +14510,7 @@ Transform:
   m_GameObject: {fileID: 9194923463079452224}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 55, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1}
   m_Children:
   - {fileID: 9194923462400020257}
   - {fileID: 9194923462220432728}
@@ -14619,7 +14619,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.12, y: 0.16}
+  m_Size: {x: 0.9, y: 0.9}
   m_EdgeRadius: 0
 --- !u!114 &9194923463079452239
 MonoBehaviour:
@@ -14649,7 +14649,7 @@ MonoBehaviour:
   isGrounded: 0
   onLeftWall: 0
   onRightWall: 0
-  checkArea: 0.02
+  checkArea: 0
   groundCheck: {fileID: 0}
   leftCheck: {fileID: 0}
   rightCheck: {fileID: 0}
@@ -14682,7 +14682,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9194923463079452224}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: d2329ef1ef96237468d0b1b599b3f2dc, type: 2}
   m_CullingMode: 0

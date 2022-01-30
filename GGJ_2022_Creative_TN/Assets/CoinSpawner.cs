@@ -17,7 +17,6 @@ public class CoinSpawner : MonoBehaviour
     [ContextMenu("Load Coins")]
     public void LoadCoins()
     {
-        Debug.Log("Load Coins");
         _startPosition = transform.position.x;
         float startAmount = 0;
         float originalSpacing = spacing;

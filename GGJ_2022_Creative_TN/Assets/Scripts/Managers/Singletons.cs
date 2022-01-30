@@ -35,5 +35,6 @@ public class Singleton<T> : MonoBehaviour where T : Component
     protected void Awake()
     {
         _instance = this as T;
+        DontDestroyOnLoad(_instance);
     }
 }

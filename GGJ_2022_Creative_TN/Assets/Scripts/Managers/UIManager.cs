@@ -12,41 +12,54 @@ public class UIManager : Singleton<UIManager>
     public UITime timeUI;
     public UIScore scoreUI;
     public UIHealth healthUI;
-    public GameObject Mainmenu;
+
+    [Header("Menu HUD")] public GameObject Mainmenu;
     public GameObject Options;
     public GameObject Audio;
     public GameObject Display;
-    public GameObject HowToPlay;
     public Dropdown resolutionDropdown;
 
-    [SerializeField] private Slider brightnessSlider;
-    [SerializeField] private TMP_Text brightnessTextValue;
-    [SerializeField] private float defaultBrightness = 1;
-
     private bool _isFullScreen;
-    private float _brightnessLevel;
-
     private Resolution[] resolutions;
-
     private FullScreenMode screenMode;
-
     private int countRes;
+    
+    public GameState _state;
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(DelayedStart());
+        
+    }
 
+    public IEnumerator DelayedStart(GameState state)
+    {
+        yield return new WaitForSeconds(0.1f);
+        switch (state)
+        {
+            case GameState.Menu:
+                HandleMenuUI();
+                break;
+            case GameState.Playing:
+                HandlePlayingUI();
+                break;
+            case GameState.Lose:
+                HandleLoseUI();
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+    }
+
+    private void HandleMenuUI()
+    {
         Mainmenu.SetActive(true);
         Options.SetActive(false);
         Audio.SetActive(false);
         Display.SetActive(false);
-        HowToPlay.SetActive(false);
 
         resolutions = Screen.resolutions;
-
         resolutionDropdown.ClearOptions();
-
         List<string> options = new List<string>();
 
         int currentResolutionIndex = 0;
@@ -56,107 +69,88 @@ public class UIManager : Singleton<UIManager>
             string option = resolutions[i].width + "x" + resolutions[i].height;
             options.Add(option);
 
-            if (resolutions[i].width == Screen.currentResolution.width && 
+            if (resolutions[i].width == Screen.currentResolution.width &&
                 resolutions[i].height == Screen.currentResolution.height)
             {
                 currentResolutionIndex = i;
             }
         }
+
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
     }
 
-    IEnumerator DelayedStart()
+    private void HandleLoseUI()
     {
-        yield return new WaitForSeconds(0.5f);
-        if (GameManager.instance.GetGameState() == GameState.Menu)
-        {
-            
-        }
-
     }
 
-    public void StartFunction()
+    private void HandlePlayingUI()
     {
-        SceneManager.LoadScene("Callum_Scene");
-        Debug.Log("starting game");
+        timeUI = GameObject.Find("Panel-Time").GetComponent<UITime>();
+        healthUI = GameObject.Find("Panel-Health").GetComponent<UIHealth>();
+        scoreUI = GameObject.Find("Panel-Score").GetComponent<UIScore>();
     }
-    public void OptionsFunction()
+
+    public void DisplayOptions()
     {
         Mainmenu.SetActive(false);
         Options.SetActive(true);
     }
-    public void BackToMenuFunction()
+
+    public void ReturnToMenu()
     {
         Mainmenu.SetActive(true);
         Options.SetActive(false);
-        HowToPlay.SetActive(false);
     }
-    public void AudioFunction()
+
+    public void DisplayAudio()
     {
         Mainmenu.SetActive(false);
         Options.SetActive(false);
         Audio.SetActive(true);
         Display.SetActive(false);
     }
-    public void DisplayFunction()
+
+    public void DisplayGraphics()
     {
         Mainmenu.SetActive(false);
         Options.SetActive(false);
         Audio.SetActive(false);
         Display.SetActive(true);
     }
-    public void BackToOptionsFunction()
+
+    public void ReturnToOptions()
     {
         Mainmenu.SetActive(false);
         Options.SetActive(true);
         Audio.SetActive(false);
         Display.SetActive(false);
-        HowToPlay.SetActive(false);
-    }
-    public void HowToPlayFunction()
-    {
-        Mainmenu.SetActive(false);
-        Options.SetActive(false);
-        Audio.SetActive(false);
-        Display.SetActive(false);
-        HowToPlay.SetActive(true);
-    }
-    public void QuitFunction()
-    {
-        Debug.Log("QUIT");
-        Application.Quit();
     }
 
     public void SetGraphics(int GraphicsIndex)
     {
         QualitySettings.SetQualityLevel(GraphicsIndex);
     }
+
     public void SetFullscreen(bool isFullscreen)
     {
         Screen.fullScreen = isFullscreen;
     }
+
     public void SetResolution(int resolutionIndex)
     {
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
 
-    public void SetBrightness(float brightness)
-    {
-        _brightnessLevel = brightness;
-       // brightnessTextValue.text = brightness.ToString("0.0");
-    }
-
     public void SetFullScreen(bool isFullscreen)
     {
         _isFullScreen = isFullscreen;
     }
+
     public void GraphicsApply()
     {
-        PlayerPrefs.SetFloat("masterBrightness", _brightnessLevel);
-
         PlayerPrefs.SetInt("masterFullscreen", (_isFullScreen ? 1 : 0));
         Screen.fullScreen = _isFullScreen;
     }

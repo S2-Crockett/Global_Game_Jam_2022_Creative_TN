@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,9 +9,9 @@ public class PlayerHealth : MonoBehaviour
     public int health;
     private bool _damageTaken;
 
-    private void Awake()
+    private void Start()
     {
-        UIManager.instance.healthUI.InitHealth(health);
+        //UIManager.instance.healthUI.InitHealth(health);
     }
 
     public void IncreaseHealth(int amount)

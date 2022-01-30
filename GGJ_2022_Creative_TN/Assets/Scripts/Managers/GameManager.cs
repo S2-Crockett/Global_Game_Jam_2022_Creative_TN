@@ -2,24 +2,23 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
-    [Header("References")] 
-    public GameObject playerController;
+    [Header("References")] public GameObject playerController;
     private GameTimer _timer;
-    
-    private GameState _state;
+
+    private GameState _state = GameState.Menu;
 
     private int _gameScore = 0;
+    private bool firstLoad = true;
 
     private void Start()
     {
-        // default state assigned.
-        UpdateGameState(GameState.Playing);
-        UIManager.instance.scoreUI.InitScore(0);
-        
+        UpdateGameState(GameState.Menu); 
     }
+
     private void Update()
     {
         switch (_state)
@@ -37,7 +36,13 @@ public class GameManager : Singleton<GameManager>
     {
         return _state;
     }
-    
+
+    // hacky way to do it for the main menu
+    public void SetPlayingGameState()
+    {
+        UpdateGameState(GameState.Playing);
+    }
+
     // Call this to change states.
     public void UpdateGameState(GameState newState)
     {
@@ -45,13 +50,13 @@ public class GameManager : Singleton<GameManager>
         switch (newState)
         {
             case GameState.Menu:
-                HandleMenuState();
+                StartCoroutine(HandleMenuState());
                 break;
             case GameState.Playing:
-                HandlePlayingState();
+                StartCoroutine(HandlePlayingState());
                 break;
             case GameState.Lose:
-                HandleLoseState();
+                StartCoroutine(HandleLoseState());
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
@@ -81,24 +86,40 @@ public class GameManager : Singleton<GameManager>
         _gameScore += amount;
         UIManager.instance.scoreUI.UpdateScore(amount);
     }
-    
+
     // Event called once state has changed to this (not updated).
-    private void HandleMenuState()
+    private IEnumerator HandleMenuState()
     {
-       
+        StartCoroutine(UIManager.instance.DelayedStart(GameState.Menu));
+        yield return new WaitForSeconds(0.2f);
     }
-    
+
     // Event called once state has changed to this (not updated).
-    private void HandlePlayingState()
+    private IEnumerator HandlePlayingState()
     {
+        SceneManager.LoadScene("Game_Scene");
+        StartCoroutine(UIManager.instance.DelayedStart(GameState.Playing));
+        yield return new WaitForSeconds(0.2f);
+        
+        playerController = GameObject.Find("Player");
+        PlayerHealth health = playerController.GetComponent<PlayerHealth>();
+        UIManager.instance.healthUI.InitHealth(health.health);
+        
         _timer = GetComponent<GameTimer>();
         _timer.StartTimer();
     }
-    
+
     // Event called once state has changed to this (not updated).
-    private void HandleLoseState()
+    private IEnumerator HandleLoseState()
     {
+        StartCoroutine(UIManager.instance.DelayedStart(GameState.Lose));
+        yield return new WaitForSeconds(0.2f);
         // this will automatically be called when you die.
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
 
