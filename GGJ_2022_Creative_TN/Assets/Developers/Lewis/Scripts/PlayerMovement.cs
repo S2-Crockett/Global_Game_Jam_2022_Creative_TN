@@ -32,8 +32,7 @@ public class PlayerMovement : MonoBehaviour
 
     public bool isMoving = false;
     public AudioClip jump;
-
-    public GameObject MenuUi;
+    
     public GameStates _gameStates;
 
     private void Awake()
@@ -208,7 +207,7 @@ public class PlayerMovement : MonoBehaviour
         {
             case GameStates.InGame:
             {
-                MenuUi.SetActive(false);
+                //MenuUi.SetActive(false);
                 UpdateGoal();
                 if (GetComponent<PlayerHealth>().health == 0)
                 {
@@ -224,7 +223,7 @@ public class PlayerMovement : MonoBehaviour
                 Vector3 offset = new Vector3(0, 1, 10);
                 transform.position = GameObject.FindGameObjectWithTag("Waypoint Manager")
                     .GetComponent<WaypointManager>().respawnPosOne - offset;
-                MenuUi.SetActive(true);
+                //MenuUi.SetActive(true);
                 break;
             }
             case GameStates.InWinMenu:
@@ -237,7 +236,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void SetSpawn()
     {
-        print("Button Pressed");
+        //print("Button Pressed");
         GameManager.instance._timer.StartTimer();
         _gameStates = GameStates.InGame;
         GetComponent<PlayerHealth>().IncreaseHealth(5);
