@@ -7,6 +7,7 @@ public class SoundManager : Singleton<SoundManager>
     public static SoundManager _Instance;
 
     [SerializeField] private AudioSource _MusicSource;
+    [SerializeField] private AudioSource _PickupSource;
     [SerializeField] private AudioSource _JumpSource;
     [SerializeField] private AudioSource _HealthSource;
     [SerializeField] private AudioSource _MovementSource;
@@ -34,6 +35,13 @@ public class SoundManager : Singleton<SoundManager>
         if(!_MusicSource.isPlaying)
         {
             _MusicSource.PlayOneShot(clip);
+        }
+    }
+    public void PickupSounds(AudioClip clip)
+    {
+        if (!_PickupSource.isPlaying)
+        {
+            _PickupSource.PlayOneShot(clip);
         }
     }
     public void JumpSounds(AudioClip clip)

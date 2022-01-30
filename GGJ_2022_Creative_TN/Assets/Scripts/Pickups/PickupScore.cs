@@ -12,7 +12,8 @@ public class PickupScore : MonoBehaviour
 
     private Vector3 posOffset;
     private Vector3 tempPos;
-    
+
+    public AudioClip pickup;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +36,7 @@ public class PickupScore : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            SoundManager._Instance.PickupSounds(pickup);
             GameManager.instance.UpdateScore(1);
             Destroy(gameObject);
         }
