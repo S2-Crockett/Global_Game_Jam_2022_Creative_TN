@@ -8,6 +8,8 @@ public class PlayerHealth : MonoBehaviour
     [Header("Health")] 
     public int health;
     private bool _damageTaken;
+    public AudioClip damage;
+    public AudioClip death;
 
     private void Start()
     {
@@ -31,7 +33,7 @@ public class PlayerHealth : MonoBehaviour
             if (health <= 0)
             {
                 Die();
-                
+                SoundManager._Instance.HealthSounds(death);
                 UIManager.instance.healthUI.RemoveHealth(amount);
             }
             else
@@ -50,6 +52,7 @@ public class PlayerHealth : MonoBehaviour
 
     IEnumerator ResetInvunerablePeriod(float time)
     {
+        SoundManager._Instance.HealthSounds(damage);
         yield return new WaitForSeconds(time);
         _damageTaken = false;
     }
