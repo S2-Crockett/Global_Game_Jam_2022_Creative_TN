@@ -8,12 +8,13 @@ using TMPro;
 
 public class UIManager : Singleton<UIManager>
 {
-    [Header("Game HUD")] 
-    public UITime timeUI;
+    [Header("Game HUD")] public UITime timeUI;
     public UIScore scoreUI;
     public UIHealth healthUI;
     public UITutorial tutorialUI;
     public UIWaypoint waypointUI;
+    public UILose loseUI;
+    public UIWin winUI;
 
     [Header("Menu HUD")] public GameObject Mainmenu;
     public GameObject Options;
@@ -21,23 +22,22 @@ public class UIManager : Singleton<UIManager>
     public GameObject Display;
     public GameObject LevelSelect;
     public Dropdown resolutionDropdown;
-    
+
     private bool _isFullScreen;
     private Resolution[] resolutions;
     private FullScreenMode screenMode;
     private int countRes;
-    
+
     public GameState _state;
 
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     public IEnumerator DelayedStart(GameState state)
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.2f);
         switch (state)
         {
             case GameState.Menu:
@@ -56,6 +56,13 @@ public class UIManager : Singleton<UIManager>
 
     private void HandleMenuUI()
     {
+        Mainmenu = GameObject.Find("Panel-Menu");
+        Options = GameObject.Find("Panel-Option");
+        Audio = GameObject.Find("Panel-SoundOptions");
+        Display = GameObject.Find("Panel-DisplayOptions");
+        LevelSelect = GameObject.Find("Panel-LevelSelect");
+        resolutionDropdown = GameObject.Find("Dropdown-Resolution").GetComponent<Dropdown>();
+
         Mainmenu.SetActive(true);
         Options.SetActive(false);
         Audio.SetActive(false);
@@ -96,6 +103,8 @@ public class UIManager : Singleton<UIManager>
         scoreUI = GameObject.Find("Panel-Score").GetComponent<UIScore>();
         tutorialUI = GameObject.Find("Panel-Tutorial").GetComponent<UITutorial>();
         waypointUI = GameObject.Find("Panel-Checkpoint").GetComponent<UIWaypoint>();
+        loseUI = GameObject.Find("Panel-Lose").GetComponent<UILose>();
+        winUI = GameObject.Find("Panel-Win").GetComponent<UIWin>();
     }
 
     public void DisplayOptions()
@@ -109,6 +118,7 @@ public class UIManager : Singleton<UIManager>
         Mainmenu.SetActive(false);
         LevelSelect.SetActive(true);
     }
+
     public void ReturnToMenu()
     {
         Mainmenu.SetActive(true);

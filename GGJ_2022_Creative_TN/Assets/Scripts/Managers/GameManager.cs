@@ -6,9 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
-    [Header("References")] public GameObject playerController;
-    public GameTimer _timer;
-
+    [Header("References")] 
+    public GameObject playerController;
+    
+    private GameTimer _timer;
     private GameState _state = GameState.Menu;
 
     private int _gameScore = 0;
@@ -29,6 +30,8 @@ public class GameManager : Singleton<GameManager>
             case GameState.Playing:
                 break;
             case GameState.Lose:
+                break;
+            case GameState.Win:
                 break;
         }
     }
@@ -58,6 +61,8 @@ public class GameManager : Singleton<GameManager>
                 break;
             case GameState.Lose:
                 StartCoroutine(HandleLoseState());
+                break;
+            case GameState.Win:
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(newState), newState, null);
@@ -109,6 +114,7 @@ public class GameManager : Singleton<GameManager>
         
         playerController = GameObject.Find("Player");
         PlayerHealth health = playerController.GetComponent<PlayerHealth>();
+        playerController.GetComponent<PlayerMovement>()._gameState = GameState.Playing;
         
         UIManager.instance.healthUI.InitHealth(health.health);
         SoundManager.instance.pMovement = playerController.GetComponent<PlayerMovement>();
@@ -121,14 +127,38 @@ public class GameManager : Singleton<GameManager>
     // Event called once state has changed to this (not updated).
     public IEnumerator HandleLoseState()
     {
+        playerController.GetComponent<PlayerMovement>()._gameState = GameState.Lose;
+        playerController.GetComponent<PlayerMovement>().DisablePlayer();
         StartCoroutine(UIManager.instance.DelayedStart(GameState.Lose));
+        UIManager.instance.loseUI.SetActive();
+        _timer.StopTimer();
         yield return new WaitForSeconds(0.2f);
         // this will automatically be called when you die.
+    }
+    
+    private IEnumerator HandleWinState()
+    {
+        playerController.GetComponent<PlayerMovement>()._gameState = GameState.Win;
+        StartCoroutine(UIManager.instance.DelayedStart(GameState.Win));
+        _timer.StopTimer();
+        yield return new WaitForSeconds(0.2f);
     }
 
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void RespawnPlayer()
+    {
+        playerController.GetComponent<PlayerMovement>().SetSpawn();
+    }
+
+    public void LoadMainMenu()
+    {
+        SceneManager.LoadScene("Menu_Scene");
+        _timer.StopTimer();
+        UpdateGameState(GameState.Menu);
     }
 }
 
@@ -137,5 +167,6 @@ public enum GameState
 {
     Menu,
     Playing,
-    Lose
+    Lose,
+    Win
 }

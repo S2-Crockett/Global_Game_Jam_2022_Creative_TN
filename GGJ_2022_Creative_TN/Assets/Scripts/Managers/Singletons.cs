@@ -18,13 +18,9 @@ public class Singleton<T> : MonoBehaviour where T : Component
             if (_instance == null)
             {
                 _instance = FindObjectOfType<T>();
-                DontDestroyOnLoad(_instance);
-                
+
                 if (_instance == null)
                 {
-                    GameObject newSingleton = new GameObject();
-                    _instance = newSingleton.AddComponent<T>();
-                    DontDestroyOnLoad(_instance);
                 }
             }
             
@@ -34,7 +30,14 @@ public class Singleton<T> : MonoBehaviour where T : Component
 
     protected void Awake()
     {
-        _instance = this as T;
-        DontDestroyOnLoad(_instance);
+        if (!_instance)
+        {
+            _instance = this as T;
+                    DontDestroyOnLoad(_instance);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }
