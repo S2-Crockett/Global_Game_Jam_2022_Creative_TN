@@ -1,60 +1,66 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class WaypointManager : Singleton<WaypointManager>
 {
-    [SerializeField]private WaypointSystem[] _waypointsOne;
-    [SerializeField]private WaypointSystem[] _waypointsTwo;
-    
-    
+    private List<WaypointSystem> _waypointsOne = new List<WaypointSystem>();
+    private List<WaypointSystem> _waypointsTwo = new List<WaypointSystem>();
+
+
     public Vector3 respawnPosOne;
     public Vector3 respawnPosTwo;
     
-    
-    int index = 0;
     public void GetWaypoints()
     {
-        int indexTwo = 0;
-        
-        _waypointsOne = new WaypointSystem[GameObject.FindGameObjectsWithTag("Waypoint One").Length];
-        _waypointsTwo = new WaypointSystem[GameObject.FindGameObjectsWithTag("Waypoint Two").Length];
-
         foreach (GameObject child in GameObject.FindGameObjectsWithTag("Waypoint One"))
         {
-            if (child.CompareTag("Waypoint One"))
-            {
-                _waypointsOne[index] = child.GetComponent<WaypointSystem>();
-                index += 1;
-            }
+            _waypointsOne.Add(child.GetComponent<WaypointSystem>());
         }
+
         foreach (GameObject child in GameObject.FindGameObjectsWithTag("Waypoint Two"))
         {
-            _waypointsTwo[indexTwo] = child.GetComponent<WaypointSystem>();
-            indexTwo += 1;
+            _waypointsTwo.Add(child.GetComponent<WaypointSystem>());
+        }
+    }
+
+    public void ClearWaypoints()
+    {
+        foreach (var wp in _waypointsOne)
+        {
+            Destroy(wp);
+        }
+        
+        foreach (var wp in _waypointsTwo)
+        {
+            Destroy(wp);
         }
     }
 
     private void Update()
     {
-        for(int i = 0; i < index; i++)
+        for (int i = 0; i < _waypointsOne.Count; i++)
         {
-            if (_waypointsOne[i].collided && _waypointsTwo[i].collided && !_waypointsOne[i].set)
+            if (_waypointsOne[i] && _waypointsTwo[i])
             {
-                //When both Have collided Set respawn position for both players 
-                StartCoroutine(_waypointsOne[i].SetCollided());  
-                SetPos(_waypointsOne[i].transform.position, _waypointsTwo[i].transform.position);
-                StartCoroutine(MoveFlag(_waypointsOne[i].transform, i));
-                StartCoroutine(MoveFlagTwo(_waypointsTwo[i].transform));
-                _waypointsOne[i].GetComponent<BoxCollider2D>().enabled = false;
-                _waypointsTwo[i].GetComponent<BoxCollider2D>().enabled = false;
+                if (_waypointsOne[i].collided && _waypointsTwo[i].collided && !_waypointsOne[i].set)
+                {
+                    //When both Have collided Set respawn position for both players 
+                    StartCoroutine(_waypointsOne[i].SetCollided());
+                    SetPos(_waypointsOne[i].transform.position, _waypointsTwo[i].transform.position);
+                    StartCoroutine(MoveFlag(_waypointsOne[i].transform, i));
+                    StartCoroutine(MoveFlagTwo(_waypointsTwo[i].transform));
+                    _waypointsOne[i].GetComponent<BoxCollider2D>().enabled = false;
+                    _waypointsTwo[i].GetComponent<BoxCollider2D>().enabled = false;
+                }
             }
         }
     }
 
     IEnumerator MoveFlag(Transform flag, int index)
-    {        
+    {
         Vector3 offset = new Vector3(0, 0.25f, 0);
         Vector3 newPos = respawnPosOne + offset;
         flag.transform.position = Vector3.MoveTowards(respawnPosOne, newPos, 0.005f);
@@ -74,7 +80,6 @@ public class WaypointManager : Singleton<WaypointManager>
     {
         respawnPosOne = pos;
         respawnPosTwo = posTwo;
-        
     }
 
     public void Respawn(Transform player)

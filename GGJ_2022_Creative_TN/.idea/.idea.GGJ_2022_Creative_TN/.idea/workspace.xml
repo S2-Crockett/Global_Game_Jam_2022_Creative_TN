@@ -21,14 +21,18 @@
   <component name="ChangeListManager">
     <list default="true" id="3d3affff-3625-43b6-a949-53d13a4144d0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GGJ_2022_Creative_TN/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GGJ_2022_Creative_TN/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.GGJ_2022_Creative_TN/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GGJ_2022_Creative_TN/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GGJ_2022_Creative_TN/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GGJ_2022_Creative_TN/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Developers/Lewis/Scripts/ParticleDeath.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Developers/Lewis/Scripts/ParticleDeath.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Developers/Lewis/Scripts/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Developers/Lewis/Scripts/PlayerMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Developers/Sam C/Scenes/LevelCreationScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Developers/Sam C/Scenes/LevelCreationScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Developers/Sam C/Scripts/Waypoint/WaypointManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Developers/Sam C/Scripts/Waypoint/WaypointManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Developers/Sam S/Scripts/GameTimer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Developers/Sam S/Scripts/GameTimer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level_Tutorial.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level_Tutorial.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Menu_Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Menu_Scene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/UIManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/ButtonText.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/ButtonText.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UILose.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UILose.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/UI/UITime.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/UI/UITime.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,6 +45,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Image.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/UIMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Developers/Sam S/Scripts/GameTimer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/UI/ButtonText.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Developers/Lewis/Scripts/PlayMusic.cs" root0="FORCE_HIGHLIGHTING" />
@@ -60,7 +65,6 @@
         <option value="$PROJECT_DIR$/Assets/Developers/Sam S/Scripts/PickupScore.cs" />
         <option value="$PROJECT_DIR$/Assets/Developers/Sam S/Scripts/UI/UIHealth.cs" />
         <option value="$PROJECT_DIR$/Assets/Developers/Sam S/Scripts/SpikeObstacle.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/ButtonText.cs" />
         <option value="$PROJECT_DIR$/Assets/CoinSpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Developers/Sam S/Scripts/Player/PlayerHealth.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Managers/SoundManager.cs" />
@@ -70,14 +74,18 @@
         <option value="$PROJECT_DIR$/Assets/Developers/Sam C/Scripts/Waypoint/WaypointSystem.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/UITutorial.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/UIWaypoint.cs" />
-        <option value="$PROJECT_DIR$/Assets/Developers/Lewis/Scripts/ParticleDeath.cs" />
         <option value="$PROJECT_DIR$/Assets/ManagerLoader.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Managers/Singletons.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/UI/UILose.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/UI/CheckPointNotification.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/UIManager.cs" />
-        <option value="$PROJECT_DIR$/Assets/Developers/Lewis/Scripts/PlayerMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHealth.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Managers/UIManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/UIMenu.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/ButtonText.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/UITime.cs" />
+        <option value="$PROJECT_DIR$/Assets/Developers/Sam C/Scripts/Waypoint/WaypointManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/Developers/Lewis/Scripts/ParticleDeath.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UI/UILose.cs" />
+        <option value="$PROJECT_DIR$/Assets/Developers/Lewis/Scripts/PlayerMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Developers/Sam S/Scripts/GameTimer.cs" />
       </list>

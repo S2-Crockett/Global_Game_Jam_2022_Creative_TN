@@ -423,7 +423,7 @@ MonoBehaviour:
   rotationPerSecond: 120
   amplitude: 0.05
   frequency: 1
-  pickup: {fileID: 0}
+  pickup: {fileID: 8300000, guid: 84ebc7b6fbb26414ca52f4276d19678a, type: 3}
 --- !u!212 &75592661
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -872,7 +872,7 @@ MonoBehaviour:
   rotationPerSecond: 120
   amplitude: 0.05
   frequency: 1
-  pickup: {fileID: 0}
+  pickup: {fileID: 8300000, guid: 84ebc7b6fbb26414ca52f4276d19678a, type: 3}
 --- !u!212 &226733756
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -30731,7 +30731,7 @@ MonoBehaviour:
   rotationPerSecond: 120
   amplitude: 0.05
   frequency: 1
-  pickup: {fileID: 0}
+  pickup: {fileID: 8300000, guid: 84ebc7b6fbb26414ca52f4276d19678a, type: 3}
 --- !u!212 &1032514929
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -59939,7 +59939,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _laserActivateTime: 6
-  _laserCooldownTime: 4
+  _laserCooldownTime: 3
   _detection: {fileID: 0}
   _particleSystem: {fileID: 0}
 --- !u!1 &1219048219 stripped
@@ -59959,8 +59959,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d02125b5655978459c66187fb78b068, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _laserActivateTime: 6
-  _laserCooldownTime: 4
+  _laserActivateTime: 2
+  _laserCooldownTime: 6
   _detection: {fileID: 0}
   _particleSystem: {fileID: 0}
 --- !u!1 &1220906343 stripped
@@ -62580,7 +62580,7 @@ MonoBehaviour:
   rotationPerSecond: 120
   amplitude: 0.05
   frequency: 1
-  pickup: {fileID: 0}
+  pickup: {fileID: 8300000, guid: 84ebc7b6fbb26414ca52f4276d19678a, type: 3}
 --- !u!212 &1838319345
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -62834,6 +62834,7 @@ MonoBehaviour:
   health: 5
   damage: {fileID: 8300000, guid: 4318ddfa7074a294abd16dd77733adc2, type: 3}
   death: {fileID: 8300000, guid: 70fa75d41c15a1349ab666398121ebc1, type: 3}
+  originalHealth: 0
 --- !u!114 &1932446555 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2169531128611839747, guid: 0b8b691327b111045bdf15a836ad1754, type: 3}

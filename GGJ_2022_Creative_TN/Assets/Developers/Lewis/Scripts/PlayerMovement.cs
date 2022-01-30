@@ -69,18 +69,23 @@ public class PlayerMovement : MonoBehaviour
             anim.SetFloat("Speed", Mathf.Abs(_horizontalMove));
         }
 
-        if (_moveInput > 0)
+        if (!_isGrabbing)
         {
-            _spriteRenderer.flipX = false;
-            _spriteShadowRenderer.flipX = false;
-            //true
+            if (_moveInput > 0)
+            {
+                _spriteRenderer.flipX = false;
+                _spriteShadowRenderer.flipX = false;
+                //true
+            }
+            else if (_moveInput < 0)
+            {
+                _spriteRenderer.flipX = true;
+                _spriteShadowRenderer.flipX = true;
+                //false
+            }
         }
-        else if (_moveInput < 0)
-        {
-            _spriteRenderer.flipX = true;
-            _spriteShadowRenderer.flipX = true;
-            //false
-        }
+            
+        
     }
 
     private void UpdateGoal()

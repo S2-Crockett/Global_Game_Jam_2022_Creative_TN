@@ -13,20 +13,22 @@ public class GameTimer : MonoBehaviour
         _timerStart = true;
         StartCoroutine(Timer());
     }
-
-    public void StopTimer()
+    
+    public void ResetTimer(bool oneWay)
     {
-        StopCoroutine(Timer());
-        _timerStart = false;
-    }
-
-    public void ResetTimer()
-    {
-        _minutes = 0;
-        _seconds = 0;
-        _timerStart = false;
-        StopCoroutine(Timer());
-        StartCoroutine(Timer());
+        if (oneWay)
+        {
+            _minutes = 0;
+            _seconds = 0;
+            StopCoroutine(Timer());
+            _timerStart = false; 
+        }
+        else
+        {
+            _minutes = 0;
+            _seconds = 0;
+            StopCoroutine(Timer());
+        }
     }
     
     private IEnumerator Timer()
@@ -35,8 +37,10 @@ public class GameTimer : MonoBehaviour
         {
             yield return new WaitForSeconds(1.0f);
             _seconds++;
-            UIManager.instance.timeUI.UpdateSecond(_seconds);
-
+            if (UIManager.instance.timeUI)
+            {
+                UIManager.instance.timeUI.UpdateSecond(_seconds);
+            }
             if (_seconds >= 60)
             {
                 _seconds = 0;

@@ -15,7 +15,10 @@ public class ButtonText : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     private void OnDisable()
     {
-        myText.color = defaultColour;
+        if (myText)
+        {
+            myText.color = defaultColour;
+        }
     }
 
     void Start (){

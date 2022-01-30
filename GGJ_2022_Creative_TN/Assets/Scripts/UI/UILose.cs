@@ -11,11 +11,6 @@ public class UILose : MonoBehaviour
         _canvasGroup = GetComponent<CanvasGroup>();
         _canvasGroup.alpha = 1;
     }
-  
-    public void ReturnToMainMenu()
-    {
-        GameManager.instance.LoadMainMenu();
-    }
 
     public void ReturnToCheckPoint()
     {

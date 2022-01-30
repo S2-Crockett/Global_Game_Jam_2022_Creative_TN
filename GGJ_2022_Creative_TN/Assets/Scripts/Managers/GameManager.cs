@@ -18,7 +18,9 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
-        UpdateGameState(GameState.Menu); 
+        Debug.Log("Start");
+        UpdateGameState(GameState.Menu);
+        _timer = GetComponent<GameTimer>();
     }
 
     private void Update()
@@ -77,12 +79,7 @@ public class GameManager : Singleton<GameManager>
             health.DecreaseHealth(amount);
         }
     }
-
-    public void SetLevel(string level)
-    {
-        _levelName = level;
-    }
-
+    
     public void IncreaseHealth(int amount)
     {
         if (playerController)
@@ -103,12 +100,12 @@ public class GameManager : Singleton<GameManager>
     {
         StartCoroutine(UIManager.instance.DelayedStart(GameState.Menu));
         yield return new WaitForSeconds(0.2f);
+        WaypointManager.instance.ClearWaypoints();
     }
 
     // Event called once state has changed to this (not updated).
     public IEnumerator HandlePlayingState()
     {
-        SceneManager.LoadScene(_levelName);
         StartCoroutine(UIManager.instance.DelayedStart(GameState.Playing));
         yield return new WaitForSeconds(0.2f);
         
@@ -120,7 +117,6 @@ public class GameManager : Singleton<GameManager>
         SoundManager.instance.pMovement = playerController.GetComponent<PlayerMovement>();
         WaypointManager.instance.GetWaypoints();
         
-        _timer = GetComponent<GameTimer>();
         _timer.StartTimer();
     }
 
@@ -131,7 +127,6 @@ public class GameManager : Singleton<GameManager>
         playerController.GetComponent<PlayerMovement>().DisablePlayer();
         StartCoroutine(UIManager.instance.DelayedStart(GameState.Lose));
         UIManager.instance.loseUI.SetActive();
-        _timer.StopTimer();
         yield return new WaitForSeconds(0.2f);
         // this will automatically be called when you die.
     }
@@ -140,37 +135,25 @@ public class GameManager : Singleton<GameManager>
     {
         playerController.GetComponent<PlayerMovement>()._gameState = GameState.Win;
         StartCoroutine(UIManager.instance.DelayedStart(GameState.Win));
-        _timer.StopTimer();
         yield return new WaitForSeconds(0.2f);
     }
 
     public void LoadMenu()
     {
         SceneManager.LoadScene("Menu_Scene");
-        _timer.StopTimer();
+        _timer.ResetTimer(true);
         UpdateGameState(GameState.Menu);
     }
-
-    public void QuitGame()
-    {
-        Application.Quit();
-    }
-
+    
     public void RespawnPlayer()
     {
         playerController.GetComponent<PlayerMovement>().SetSpawn();
         PlayerHealth health = playerController.GetComponent<PlayerHealth>();
         health.IncreaseHealth(health.originalHealth);
-        _timer.ResetTimer();
+        _timer.ResetTimer(false);
         UIManager.instance.healthUI.InitHealth(health.originalHealth);
     }
-
-    public void LoadMainMenu()
-    {
-        SceneManager.LoadScene("Menu_Scene");
-        _timer.StopTimer();
-        UpdateGameState(GameState.Menu);
-    }
+    
 }
 
 //States that are present throughout gameplay.

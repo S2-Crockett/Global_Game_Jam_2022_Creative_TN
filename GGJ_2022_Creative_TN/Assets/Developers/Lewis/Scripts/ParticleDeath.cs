@@ -71,7 +71,7 @@ public class ParticleDeath : MonoBehaviour
                     }
                 }
 
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(0.2f);
                 GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().enabled = true;
             }
         }

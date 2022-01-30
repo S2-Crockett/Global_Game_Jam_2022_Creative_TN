@@ -89,6 +89,7 @@
             <e p="TutorialNotification.cs" t="Include" />
             <e p="UIHealth.cs" t="Include" />
             <e p="UILose.cs" t="Include" />
+            <e p="UIMenu.cs" t="Include" />
             <e p="UIScore.cs" t="Include" />
             <e p="UITime.cs" t="Include" />
             <e p="UITutorial.cs" t="Include" />
