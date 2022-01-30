@@ -33,6 +33,7 @@
               <e p="ParticleDeath.cs" t="Include" />
               <e p="PlatformEffect.cs" t="Include" />
               <e p="PlayerMovement.cs" t="Include" />
+              <e p="PlayMusic.cs" t="Include" />
             </e>
           </e>
           <e p="Sam C" t="Include">

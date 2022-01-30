@@ -57,6 +57,8 @@ public class PlayerMovement : MonoBehaviour
         {
             anim.SetFloat("Speed", 0);
         }
+        
+        FixedUpdateGoal();
     }
 
     private void FixedUpdateGoal()
@@ -191,6 +193,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void SetSpawn()
     {
+        _rb.velocity = new Vector2(0,0);
         WaypointManager.instance.Respawn(GameObject.FindWithTag("Player").transform);
         WaypointManager.instance.Respawn(GameObject.FindWithTag("Player Two").transform);
     }

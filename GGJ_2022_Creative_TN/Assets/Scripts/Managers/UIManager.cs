@@ -103,8 +103,6 @@ public class UIManager : Singleton<UIManager>
         scoreUI = GameObject.Find("Panel-Score").GetComponent<UIScore>();
         tutorialUI = GameObject.Find("Panel-Tutorial").GetComponent<UITutorial>();
         waypointUI = GameObject.Find("Panel-Checkpoint").GetComponent<UIWaypoint>();
-        loseUI = GameObject.Find("Panel-Lose").GetComponent<UILose>();
-        winUI = GameObject.Find("Panel-Win").GetComponent<UIWin>();
     }
 
     public void DisplayOptions()

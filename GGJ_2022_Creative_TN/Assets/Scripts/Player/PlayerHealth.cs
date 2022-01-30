@@ -5,17 +5,19 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [Header("Health")] 
+    [Header("Health")]
     public int health;
     private bool _damageTaken;
-    
+
     [Header("Audio")]
     public AudioClip damage;
     public AudioClip death;
+    
+    public int originalHealth;
 
     private void Start()
     {
-        //UIManager.instance.healthUI.InitHealth(health);
+        originalHealth = health;
     }
 
     public void IncreaseHealth(int amount)
@@ -47,8 +49,7 @@ public class PlayerHealth : MonoBehaviour
     
     public void Die()
     {
-        WaypointManager.instance.Respawn(GameObject.FindWithTag("Player").transform);
-        WaypointManager.instance.Respawn(GameObject.FindWithTag("Player Two").transform);
+        GameManager.instance.RespawnPlayer();
     }
 
     IEnumerator ResetInvunerablePeriod(float time)

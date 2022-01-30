@@ -19,6 +19,15 @@ public class GameTimer : MonoBehaviour
         StopCoroutine(Timer());
         _timerStart = false;
     }
+
+    public void ResetTimer()
+    {
+        _minutes = 0;
+        _seconds = 0;
+        _timerStart = false;
+        StopCoroutine(Timer());
+        StartCoroutine(Timer());
+    }
     
     private IEnumerator Timer()
     {

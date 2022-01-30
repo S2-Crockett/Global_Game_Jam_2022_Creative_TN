@@ -159,6 +159,10 @@ public class GameManager : Singleton<GameManager>
     public void RespawnPlayer()
     {
         playerController.GetComponent<PlayerMovement>().SetSpawn();
+        PlayerHealth health = playerController.GetComponent<PlayerHealth>();
+        health.IncreaseHealth(health.originalHealth);
+        _timer.ResetTimer();
+        UIManager.instance.healthUI.InitHealth(health.originalHealth);
     }
 
     public void LoadMainMenu()
