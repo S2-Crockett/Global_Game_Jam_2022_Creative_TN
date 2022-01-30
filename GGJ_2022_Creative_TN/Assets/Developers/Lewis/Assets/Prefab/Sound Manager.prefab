@@ -1,5 +1,132 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &854213142846118081
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1078536130904113135}
+  - component: {fileID: 5963636840367395989}
+  m_Layer: 0
+  m_Name: Pickup Source
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1078536130904113135
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 854213142846118081}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3719114966601581199}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &5963636840367395989
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 854213142846118081}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &3719114964568271025
 GameObject:
   m_ObjectHideFlags: 0
@@ -29,7 +156,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3719114966601581199}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &3719114964568271024
 AudioSource:
@@ -43,8 +170,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.1
-  m_Pitch: 0.3
+  m_Volume: 0.21
+  m_Pitch: 0.88
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -156,7 +283,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3719114966601581199}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &3719114965500423410
 AudioSource:
@@ -283,7 +410,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3719114966601581199}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &3719114965833464864
 AudioSource:
@@ -424,9 +551,9 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.25
+  m_Volume: 0.208
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -537,6 +664,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3719114966432660322}
+  - {fileID: 1078536130904113135}
   - {fileID: 3719114965833464871}
   - {fileID: 3719114965500423409}
   - {fileID: 3719114964568271031}
@@ -556,14 +684,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _MusicSource: {fileID: 3719114966432660323}
+  _PickupSource: {fileID: 5963636840367395989}
   _JumpSource: {fileID: 3719114965833464864}
   _HealthSource: {fileID: 3719114965500423410}
   _MovementSource: {fileID: 3719114964568271024}
   _MovementSounds:
-  - {fileID: 8300000, guid: d69328ce5de990f48b2e779bdc8adb8f, type: 3}
-  - {fileID: 8300000, guid: adc94171b1c447e4691633d52120ed87, type: 3}
-  - {fileID: 8300000, guid: bda892656c02f6c468ef08403db05561, type: 3}
-  - {fileID: 8300000, guid: b6325346f3c2c5d45afe38a2e47ac6cd, type: 3}
-  - {fileID: 8300000, guid: 766187951dc2ffc4dbc6567b37bd0a0b, type: 3}
-  - {fileID: 8300000, guid: 829b03e37a10dcb48ae077b35181470a, type: 3}
+  - {fileID: 8300000, guid: aecd89865be52994385a2465ccf2321a, type: 3}
+  - {fileID: 8300000, guid: 54d0cb788faf823499603714269cbbd5, type: 3}
+  - {fileID: 8300000, guid: 999357c0bb7132c4dbdd0d8bd9386307, type: 3}
+  - {fileID: 8300000, guid: 9063d50c9bbcc904aa38e67e2a6eb910, type: 3}
+  - {fileID: 8300000, guid: 0b0c6c14296c56e478ae136af73c1c9b, type: 3}
+  - {fileID: 8300000, guid: 67ee68f1732cacb4db5ebc680cb11d34, type: 3}
+  - {fileID: 8300000, guid: be16579fbe19b584eb57557844598064, type: 3}
+  - {fileID: 8300000, guid: e449c0305007c1740bdca5ab05372557, type: 3}
+  - {fileID: 8300000, guid: fe0d564d64c0e01489f2cbdacb580033, type: 3}
+  - {fileID: 8300000, guid: 218a7c5de5788a8469d4e9a4fd3d65ef, type: 3}
+  - {fileID: 8300000, guid: 384382031b6e77d41b7cb1909470333f, type: 3}
+  - {fileID: 8300000, guid: d444b47bb02b7d7419ed1d3537281fff, type: 3}
   pMovement: {fileID: 0}

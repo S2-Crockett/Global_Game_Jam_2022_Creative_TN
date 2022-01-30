@@ -100,6 +100,7 @@ MonoBehaviour:
   rotationPerSecond: 120
   amplitude: 0.05
   frequency: 1
+  pickup: {fileID: 8300000, guid: 84ebc7b6fbb26414ca52f4276d19678a, type: 3}
 --- !u!61 &2807512236362728472
 BoxCollider2D:
   m_ObjectHideFlags: 0
