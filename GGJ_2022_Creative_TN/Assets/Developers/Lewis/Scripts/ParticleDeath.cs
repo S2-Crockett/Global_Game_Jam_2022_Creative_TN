@@ -45,7 +45,7 @@ public class ParticleDeath : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Spikes"))
         {
-            StartCoroutine(Bounceback(collision.transform.position, 1));
+            StartCoroutine(Bounceback(collision.transform.position, 3));
         }
         
     }
@@ -59,17 +59,17 @@ public class ParticleDeath : MonoBehaviour
                 GameObject.FindWithTag("Player").GetComponent<PlayerMovement>().enabled = false;
                 Vector3 pos = transform.position - laser;
                 _rb.velocity = new Vector2(pos.x * knockback, 7);
-                if (_rb.velocity.x >= 7)
+                if (_rb.velocity.x >= 12)
                 {
                     if (transform.position.x < laser.x)
                     {
                         print("Left");
-                        _rb.velocity = new Vector2(-7, 7);
+                        _rb.velocity = new Vector2(-12, 7);
                     }
                     else
                     {
                         print("Right");
-                        _rb.velocity = new Vector2(7, 7);
+                        _rb.velocity = new Vector2(12, 7);
                     }
                 }
 

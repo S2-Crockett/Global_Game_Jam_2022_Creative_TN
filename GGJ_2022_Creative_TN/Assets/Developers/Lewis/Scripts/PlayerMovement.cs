@@ -17,11 +17,12 @@ public class PlayerMovement : MonoBehaviour
 
     private float _moveInput;
     private SpriteRenderer _spriteRenderer;
+    private SpriteRenderer _spriteShadowRenderer;
     
-    [SerializeField] private bool _isGrabbingLeft, _isGrabbingRight;
+    [SerializeField] private bool _isGrabbingLeft, _isGrabbingRight, _isGrabbing;
     private float _gravityStore, wallJumpTime = 0.4f, _wallJumpCounter;
     [SerializeField]private int _leftGrab, _rightGrab;
-    private Animator _animator;
+    private Animator[] _animator;
     private float _horizontalMove;
 
     private int _layermask;
@@ -33,8 +34,11 @@ public class PlayerMovement : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+        _spriteShadowRenderer = GameObject.FindGameObjectWithTag("Player Two").GetComponent<SpriteRenderer>();
         _gravityStore = _rb.gravityScale;
-        _animator = GetComponent<Animator>();
+        _animator = new Animator[2];
+        _animator[0] = GetComponent<Animator>();
+        _animator[1] = GameObject.FindGameObjectWithTag("Player Two").GetComponent<Animator>();
 
         _layermask = LayerMask.GetMask("Ground");
     }
@@ -42,15 +46,21 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         _horizontalMove = Input.GetAxisRaw("Horizontal") * moveSpeed;
-        _animator.SetFloat("Speed", Mathf.Abs(_horizontalMove));
+        foreach (var anim in _animator)
+        {
+            anim.SetFloat("Speed", Mathf.Abs(_horizontalMove));
+        }
+        
         if (_moveInput > 0)
         {
             _spriteRenderer.flipX = false;
+            _spriteShadowRenderer.flipX = false;
             //true
         }
         else if(_moveInput < 0)
         {
             _spriteRenderer.flipX = true;
+            _spriteShadowRenderer.flipX = true;
             //false
         }
     }
@@ -125,8 +135,21 @@ public class PlayerMovement : MonoBehaviour
             {
                 _rb.gravityScale = _gravityStore;
             }
-            
-            _animator.SetBool("Grounded", isGrounded);
+
+            if (_isGrabbingLeft || _isGrabbingRight)
+            {
+                _isGrabbing = true;
+            }
+            else if (!_isGrabbingLeft && !_isGrabbingRight)
+            {
+                _isGrabbing = false;
+            }
+
+            foreach (var anim in _animator)
+            {
+                anim.SetBool("Grabbing", _isGrabbing);
+                anim.SetBool("Grounded", isGrounded);
+            }
         }
         else
         {
